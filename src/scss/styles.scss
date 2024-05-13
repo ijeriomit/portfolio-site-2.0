@@ -1,0 +1,44 @@
+@import "@/scss/variables.scss";
+
+.center-x-axis {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.center-y-axis {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.lorem-ipsum-1::after {
+  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+}
+.lorem-ipsum-2::after {
+  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ac interdum neque. Aliquam a consectetur tortor. Maecenas imperdiet sed sapien eget pretium. Sed eu nisi tellus. Morbi vehicula, mauris lobortis fermentum fringilla, sem leo sagittis quam, sed sollicitudin ligula odio nec nisi. Sed sed laoreet arcu, a porta tortor. Fusce eu arcu lectus. Quisque nulla velit, sagittis eu volutpat sed, blandit ac risus. Suspendisse congue blandit magna. Aenean sit amet neque non lectus lacinia pretium ut placerat ex. Nunc sit amet gravida nisl, et scelerisque urna. Nullam sed egestas mauris. Curabitur fermentum dolor a blandit elementum. Nulla viverra mi sapien, a consequat nibh semper id. Donec venenatis diam urna, eget convallis lacus tincidunt non. Mauris ut nunc fringilla, ultricies dui et, scelerisque metus. Suspendisse vitae quam sodales lectus ultrices elementum. Nulla eu imperdiet elit. Pellentesque vestibulum dictum tellus id rhoncus. Vestibulum sed purus at mi vulputate imperdiet. Aenean pellentesque in erat in tristique. Vivamus pharetra nisi ut enim pretium euismod. Morbi cursus nunc tortor, et aliquam diam volutpat sit amet. Vivamus blandit, leo at posuere semper, nisi tortor tincidunt arcu, sit amet accumsan risus justo posuere augue. Suspendisse at velit nec leo luctus tincidunt.";
+}
+.lorem-ipsum-3::after {
+  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ac interdum neque. Aliquam a consectetur tortor. Maecenas imperdiet sed sapien eget pretium. Sed eu nisi tellus. Morbi vehicula, mauris lobortis fermentum fringilla, sem leo sagittis quam, sed sollicitudin ligula odio nec nisi. Sed sed laoreet arcu, a porta tortor. Fusce eu arcu lectus. Quisque nulla velit, sagittis eu volutpat sed, blandit ac risus. Suspendisse congue blandit magna. Aenean sit amet neque non lectus lacinia pretium ut placerat ex. Nunc sit amet gravida nisl, et scelerisque urna. Nullam sed egestas mauris. Curabitur fermentum dolor a blandit elementum. Nulla viverra mi sapien, a consequat nibh semper id. Donec venenatis diam urna, eget convallis lacus tincidunt non. Mauris ut nunc fringilla, ultricies dui et, scelerisque metus. Suspendisse vitae quam sodales lectus ultrices elementum. Nulla eu imperdiet elit. Pellentesque vestibulum dictum tellus id rhoncus. Vestibulum sed purus at mi vulputate imperdiet. Aenean pellentesque in erat in tristique. Vivamus pharetra nisi ut enim pretium euismod. Morbi cursus nunc tortor, et aliquam diam volutpat sit amet. Vivamus blandit, leo at posuere semper, nisi tortor tincidunt arcu, sit amet accumsan risus justo posuere augue. Suspendisse at velit nec leo luctus tincidunt. Morbi egestas, risus id varius rutrum, mauris turpis condimentum risus, eu ultrices massa arcu sed massa. Curabitur lacinia gravida lectus, vel condimentum turpis lobortis eget. Maecenas euismod enim eu orci tristique, id elementum risus tempor. Cras tristique maximus est. Maecenas elementum massa sit amet sapien cursus, sed rutrum nisl consectetur. Nam sagittis vulputate risus, vel hendrerit nulla feugiat in. Nullam id tellus sed justo consectetur dictum. Curabitur elit elit, commodo non aliquam eget, sagittis at arcu. Integer quam neque, tempus eu nulla et, consequat eleifend velit. Nulla dictum ut erat et lacinia. Vestibulum pharetra condimentum felis. Nulla luctus turpis vitae lorem auctor, sit amet condimentum odio porttitor.";
+}
+
+// .scrollbar {
+// }
+
+img {
+  max-width: 100%;
+  // max-height: 100%;
+}
+// h1 {
+// }
+// h2 {
+// }
+// h3 {
+// }
+
+// .typewriter-animation {
+// }
+
+// .slide-in-animation {
+// }
+
+// .expand-down-animation {
+// }
