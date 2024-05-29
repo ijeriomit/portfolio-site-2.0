@@ -1,36 +1,25 @@
 $primary-color: #008753;
 // $primary-color: #008753c7;
-$secondary-color: #FFFFFF;
-$tertiary-color: #212926;
-$quaternary-color: #348566;
-$quinary-color: #74817c;
-$senary-color: #00ff9d;
+$secondary-color: #ffffff;
+$tertiary-color: #8f9391;
+$quaternary-color: #000000;
+
+$opaque-primary-color: rgba(0, 135, 83, 0.5);
 
 $possible-grey-color: #9fa0a0;
 
-$title-color: #4F3E3E;
-$light-text-color: #FFFFFF;
+$title-color: #4f3e3e;
+$light-text-color: #ffffff;
 $dark-text-color: #000000;
-$text-font: "Microsoft JhengHei", "MingLiU";
-$vs-code-font: Consolas, monaco, monospace;
+$text-font: Roboto, Roboto Mono, monospace;
+$vs-code-font: Menlo, Consolas, monaco, monospace;
 
 $phone-text-size: 1rem;
 $text-size: 1.25rem;
 $medium-text-size: 1.2rem;
 $large-text-size: 2.5rem;
-// $small-screen-title-text-size: 2.
-
 $title-top-offset: 2rem;
-
-
-$header-height: 100px;
-$section-height: 900px;
-$large-section-height: ($section-height / 3) * 4;
-$small-section-height: ($section-height / 3) * 2 + 50px;
-$footer-height: 100px;
-// $subtitle-text-size: 50px;
 
 $phone-screen-width: 415px;
 $tablet-screen-width: 768px;
-$small-screen-width: 1024px;
-
+$small-screen-width: 1200px;

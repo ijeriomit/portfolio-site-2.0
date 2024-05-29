@@ -53,8 +53,6 @@ $title-text-size: 3rem;
   }
   .section-title-keyword-1 {
     @extend .spacing;
-
-    color: $quinary-color;
   }
   .section-title-keyword-2 {
     @extend .spacing;
@@ -63,8 +61,6 @@ $title-text-size: 3rem;
   }
   .section-title-operator {
     @extend .spacing;
-
-    color: $quinary-color;
   }
   .section-title-title {
     @extend .spacing;
@@ -73,7 +69,6 @@ $title-text-size: 3rem;
   }
   .section-title-keyword-1-alt {
     @extend .section-title-keyword-1;
-    color: $senary-color;
   }
   .section-title-keyword-2-alt {
     @extend .section-title-keyword-2;

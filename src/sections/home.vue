@@ -1,22 +1,30 @@
 <template>
-  <div class="home-wrapper">
-    <span class="line">
-      <div class="intro">
-        <span class="hi">Hi, my name is,</span>
-        <span class="name"> Ijeri Omitogun </span>
-      </div>
-      <img
-        class="avatar"
-        src="@/assets/clip-art-images/avatar-background.svg"
-        alt="cartoon avater"
-      />
-    </span>
-    <span class="description">
-      Software Engineer with Robotics Experience and a Passion For Web
-      Development
-    </span>
-  </div>
+  <section class="home-wrapper">
+    <img
+      class="memoji"
+      src="@/assets/clip-art-images/memoji-wave.svg"
+      alt="cartoon waving"
+    />
+    <h1 class="title">
+      <div class="typewriter">HI, I AM</div>
+      <div class="delay typewriter">IJERI OMITOGUN!</div>
+    </h1>
+    <p class="subtitle">Frontend Developer / Software Engineer / UX Designer</p>
+    <div class="button-row">
+      <button class="resume-button">RESUME</button>
+      <a class="social-link">
+        <img src="@/assets/link-images/linkedin.svg" />
+      </a>
+      <a class="social-link">
+        <img src="@/assets/link-images/linkedin.svg" />
+      </a>
+      <a class="social-link">
+        <img src="@/assets/link-images/linkedin.svg" />
+      </a>
+    </div>
+  </section>
 </template>
+
 <script>
 export default {
   name: "home-section",
@@ -25,97 +33,170 @@ export default {
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 .home-wrapper {
-  width: 90%;
-  height: 75%;
-  align-items: center;
-  padding-top: 5rem;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 175px 200px 75px;
+  width: 70%;
+  height: 90%;
 }
-.avatar {
-  width: 20rem;
+.memoji {
   order: 1;
+  width: 320px;
   position: relative;
+  grid-column: 1/1;
+  grid-row: 1/3;
+  align-self: center;
+  justify-self: end;
+  margin: 0 10px;
 }
-
-.intro {
-  order: 2;
-  font-size: 3rem;
-  word-break: break-word;
-  line-height: 1.2;
-  font-weight: bold;
+.button-row {
   display: flex;
-  flex-flow: column nowrap;
-  text-justify: right;
-  width: 50%;
-}
-
-.hi {
-  padding-bottom: 1.5rem;
-  padding-top: 1.5rem;
-  color: $secondary-color;
-  order: 1;
-  font-family: $vs-code-font;
-}
-.name {
-  padding-bottom: 1.5rem;
-  padding-top: 1.5rem;
-  color: $dark-text-color;
-  order: 2;
-}
-.line {
-  display: flex;
-  flex-flow: row wrap;
-  width: 75%;
-  justify-content: space-between;
+  flex-flow: row nowrap;
   align-items: center;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
+  grid-column: 2/2;
+  grid-row: 2/2;
+  align-self: end;
+  margin: 5px 10px 5px 30px;
 }
-
-.description {
-  @extend .line;
-  color: $dark-text-color;
-  font-size: 2.5rem;
-  word-break: break-word;
+.resume-button {
+  background-color: $primary-color;
+  color: $secondary-color;
+  width: 125px;
+  margin-right: 10px;
+  height: 60px;
+  border-radius: 15%;
+  border: none;
+  cursor: pointer;
+  font-family: $text-font;
+  font-size: 20px;
+}
+.social-link {
+  margin: 10px;
+  cursor: pointer;
+}
+.social-link img {
+  width: 40px;
+}
+.title {
+  color: $quaternary-color;
+  font-family: $vs-code-font;
   font-weight: bold;
+  font-size: 3rem;
+  grid-column: 2/2;
+  grid-row: 1/1;
+  align-self: end;
+  margin: 0 0 0 30px;
+}
+.title div {
+  max-width: fit-content;
+  margin-left: 0;
+  margin-right: 0;
+}
+.subtitle {
+  color: $primary-color;
+  font-family: $vs-code-font;
+  font-weight: bold;
+  font-size: 1.5rem;
+  grid-column: 2/2;
+  grid-row: 2/2;
+  align-self: start;
+  margin-left: 30px;
+  max-width: fit-content;
 }
 
-@media screen and (max-width: $small-screen-width) {
-  .avatar {
-    width: 12.5rem;
+.typewriter {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid transparent; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.15em; /* Adjust as needed */
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end 2;
+}
+
+.delay {
+  // width: 0;
+  animation: hide 1.9s steps(1, end), typing 3.5s steps(40, end) 1.9s,
+    blink-caret 0.75s step-end 1.9s infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
   }
-  .line {
-    // text-align: center;
-    flex-flow: column nowrap;
+  to {
     width: 100%;
-  }
-  .intro {
-    font-size: 2rem;
-    text-align: center;
-    width: 100%;
-  }
-  .description {
-    text-align: center;
-    font-size: 1.75rem;
-    width: 100%;
+    border-color: transparent;
   }
 }
+
+@keyframes hide {
+  from {
+    visibility: hidden;
+  }
+  to {
+    visibility: visible;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: rgb(250, 250, 250);
+  }
+}
+
 @media screen and (max-width: $phone-screen-width) {
-  .line {
-    flex-flow: column nowrap;
-    width: 100%;
+  .button-row {
+    grid-column: 1/3;
+    grid-row: 3/3;
+    margin-left: 0px;
+    align-items: center;
+    justify-content: flex-start;
   }
-  .intro {
-    font-size: 1.75rem;
-    text-align: center;
-    width: 100%;
+  .title {
+    font-size: 1.3rem;
+    margin-left: 10px;
+    margin-bottom: 5px;
   }
-  .description {
-    text-align: center;
-    font-size: 1.5rem;
-    width: 100%;
+  .subtitle {
+    font-size: 1rem;
+    margin-left: 10px;
+    margin-top: 5px;
   }
-  .avatar {
-    width: 10.5rem;
+  .home-wrapper {
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 60px 75px 60px;
+  }
+  .social-link img {
+    width: 25px;
+  }
+  .social-link {
+    grid-column: 2/3;
+    right: 0;
+    cursor: pointer;
+  }
+  .resume-button {
+    width: 80px;
+    height: 40px;
+    font-size: 16px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  .memoji {
+    align-self: baseline;
+    margin: 0;
+    width: 120px;
+    justify-self: start;
+  }
+}
+@media screen and (max-width: $small-screen-width) {
+  .home-wrapper {
+    width: 100%;
   }
 }
 </style>

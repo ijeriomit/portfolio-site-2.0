@@ -58,11 +58,7 @@ export default {
   components: {
     "text-box": textBox,
   },
-  beforeMount: function () {
-    this.selectedSection = this.gridData[0];
-    this.selectedProject = this.selectedSection.projects[0];
-    console.log("here");
-  },
+  beforeMount: function () {},
   data: function () {
     return {
       selectedSection: null,
@@ -70,20 +66,8 @@ export default {
     };
   },
   methods: {
-    selectSection: function (section) {
-      console.log("selected section");
-      this.selectedSection = section;
-      this.selectProject(section.projects[0]);
-    },
     selectProject: function (project) {
       this.selectedProject = project;
-    },
-    fadeSection: function (section) {
-      console.log("section faded");
-      if (this.selectedSection != null) {
-        return section.title != this.selectedSection.title;
-      }
-      return false;
     },
   },
 };

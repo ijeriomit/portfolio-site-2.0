@@ -15,7 +15,7 @@
 <script>
 import mediumIcon from "@/assets/link-images/medium.png";
 import githubIcon from "@/assets/link-images/github.svg";
-import linkedinIcon from "@/assets/link-images/linkedinpng.svg";
+import linkedinIcon from "@/assets/link-images/linkedin.svg";
 export default {
   name: "footer-section",
   data: function () {

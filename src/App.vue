@@ -1,20 +1,18 @@
 <template>
   <div id="app">
-    <floating-header class="header"></floating-header>
     <div class="content-grid">
-      <div class="primary-background-block" style="grid-row: 1/1"></div>
-      <div id="HOME" class="content-block" style="grid-row: 1/1">
-        <home-section
-          class="section-wrapper"
-          style="padding-bottom: 10vh"
-        ></home-section>
+      <floating-header class="header" ref="header"></floating-header>
+      <div class="title-background">
+        <img src="@/assets/matrix-background.svg" />
+      </div>
+      <div id="HOME" class="content-block home-section">
+        <home-section></home-section>
       </div>
       <div
-        style="grid-row: 2/2; justify-content: center"
-        class="secondary-background-block"
-      >
-        <img style="width: 700px; align-self: flex-end" :src="mattFarImg" />
-      </div>
+        style="grid-row: 3/5; justify-content: center"
+        class="gradient-background"
+      ></div>
+      <!--
       <div
         v-show="true"
         id="ABOUT-ME"
@@ -26,17 +24,7 @@
       <div
         class="primary-background-block"
         style="grid-row: 3/3; justify-content: flex-start"
-      >
-        <img class="gear-image" :src="gearsImg" />
-      </div>
-      <div
-        v-show="true"
-        id="WORK-EXPERIENCE"
-        class="content-block"
-        style="grid-row: 3/3"
-      >
-        <workexp-section class="section-wrapper"></workexp-section>
-      </div>
+      ></div>
       <div
         class="secondary-background-block"
         style="grid-row: 4/4; border-bottom-width: 15px"
@@ -76,7 +64,7 @@
           </template>
         </section-title>
         <contact-me class="section-wrapper"></contact-me>
-      </div>
+      </div> -->
       <div class="footer" style="grid-row: 6/6"></div>
       <div class="content-block" style="grid-row: 6/6">
         <footer-section class="section-wrapper"></footer-section>
@@ -88,34 +76,42 @@
 <script>
 import FloatingHeader from "./components/floating-header.vue";
 import HomeSection from "./sections/home.vue";
-import AboutMe from "./sections/about-me.vue";
-import workExperience from "./sections/work-experience.vue";
-import projects from "./sections/projects.vue";
-import contactMe from "./sections/contact-me.vue";
 import Footer from "./components/footer.vue";
-import gears from "@/assets/clip-art-images/single-gear.png";
-import mattFar from "@/assets/clip-art-images/Mattfarley-background.svg";
-import phone from "@/assets/clip-art-images/phone.svg";
-import sectionTitle from "@/components/section-title.vue";
-
+import gradientBackground from "@/assets/background-gradient.svg";
+import whiteMatrixBackground from "@/assets/white-matrix-background.png";
+// import { ref, onMounted } from "vue";
 export default {
   name: "portfolio-app",
   components: {
     "floating-header": FloatingHeader,
     "home-section": HomeSection,
-    "about-section": AboutMe,
-    "workexp-section": workExperience,
-    "projects-section": projects,
-    "contact-me": contactMe,
     "footer-section": Footer,
-    "section-title": sectionTitle,
   },
   data: function () {
     return {
-      gearsImg: gears,
-      mattFarImg: mattFar,
-      phoneImg: phone,
+      whiteMatrixBackground,
+      gradientBackground,
+      headerColorWhite: true,
     };
+  },
+  // setup: function () {
+  //   const header = ref(null);
+  //   const that = this;
+  //   onMounted(() => {
+  //     let observer = new IntersectionObserver(that.changeHeaderColorOnScroll, {
+  //       threshold: [0.9, 0.94, 0.98],
+  //     });
+  //     observer.observe(header);
+  //   });
+  //   return { header };
+  // },
+  changeHeaderColorOnScroll: function (entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log("is intersecting");
+        this.headerColorWhite = !this.headerColorWhite;
+      }
+    });
   },
 };
 </script>
@@ -123,8 +119,15 @@ export default {
 @import "@/scss/variables.scss";
 @import "@/scss/styles.scss";
 
-$page-height: $header-height + $small-section-height + $section-height +
-  $section-height + $large-section-height + $section-height + $footer-height;
+$header-height: 100px;
+$title-height: 550px;
+$aboutMe-height: 1800px;
+$projects-height: 1600px;
+$contactMe-height: 1500px;
+$footer-height: 500px;
+
+$page-height: $header-height + $title-height + $aboutMe-height +
+  $projects-height + $contactMe-height + $footer-height;
 
 #app {
   height: $page-height;
@@ -135,7 +138,7 @@ $page-height: $header-height + $small-section-height + $section-height +
   height: $header-height;
   position: fixed;
   z-index: 1000;
-  background-color: $primary-color;
+  grid-column: 2/3;
 }
 .footer {
   z-index: 1;
@@ -149,13 +152,16 @@ $page-height: $header-height + $small-section-height + $section-height +
   position: relative;
   // top: 60px;
   height: 100%;
-  width: 100%;
+  width: 100vw;
   display: grid;
-  grid-template-columns: 10% 80% 10%;
+  grid-template-columns: 5% 90% 5%;
   grid-template-rows:
-    ($small-section-height + $header-height) $section-height $section-height
-    $large-section-height
-    $section-height $footer-height;
+    $header-height
+    $title-height
+    $aboutMe-height
+    $projects-height
+    $contactMe-height
+    $footer-height;
 }
 html {
   scroll-behavior: smooth;
@@ -170,46 +176,61 @@ body {
   height: 100%;
   position: relative;
   grid-column: 1/4;
-  // border-top: #f1f1f1 solid 8px;
-  // border-bottom: #f1f1f1 solid 4px;
-  box-sizing: border-box;
   display: flex;
   flex-flow: row;
 }
+.home-section {
+  align-items: flex-start;
+  grid-row: 2/2;
+}
 .content-block {
   z-index: 2;
-  position: relative;
   display: flex;
   flex-flow: row nowrap;
-  align-items: center;
   justify-content: center;
   grid-column: 2/2;
   overflow: hidden;
 }
-.primary-background-block {
+
+.title-background {
   @extend .background-block;
-  color: $dark-text-color;
   background-color: $primary-color;
+  grid-row: 1 / 3;
+  width: 100%;
+  opacity: 40%;
+  display: flex;
+  overflow: hidden;
+}
+.title-background img {
+  align-self: center;
+  width: 100%;
+  height: 200%;
+}
+.gradient-background {
+  @extend .background-block;
+  background-image: linear-gradient(
+    rgba(0, 135, 83, 0.63),
+    rgba(0, 135, 83, 0.275),
+    rgba(0, 135, 83, 0.1),
+    rgba(0, 135, 83, 0.1),
+    rgba(0, 135, 83, 0.275),
+    rgba(0, 135, 83, 0.63)
+  );
+}
+.bottom-gradient-background {
+  @extend .background-block;
+  background-image: linear-gradient(
+    rgba(0, 135, 83, 0.1),
+    rgba(0, 135, 83, 0.275),
+    rgba(0, 135, 83, 0.63)
+  );
 }
 .half-background-block {
   @extend .secondary-background-block;
-  height: ($section-height / 2);
+  height: ($aboutMe-height / 2);
   border-top: none;
 }
-.gradient {
-  background-image: linear-gradient(
-    to right,
-    $secondary-color,
-    $primary-color,
-    $primary-color,
-    $primary-color,
-    $primary-color,
-    $primary-color,
-    $primary-color,
-    $primary-color,
-    $secondary-color
-  );
-}
+
 .secondary-background-block {
   @extend .background-block;
   background-color: $secondary-color;
@@ -219,17 +240,22 @@ body {
   border-right: #f1f1f1 solid 15px;
   border-bottom: #f1f1f1 solid 15px;
 }
-.section-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  height: 90%;
-  justify-content: space-around;
-  overflow: hidden;
-}
 
 @media screen and (max-width: $phone-screen-width) {
-  .section-wrapper {
-    justify-content: center;
+  .content-grid {
+    position: relative;
+    // top: 60px;
+    height: 100%;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 5% 90% 5%;
+    grid-template-rows:
+      $header-height
+      $title-height/2
+      $aboutMe-height
+      $projects-height
+      $contactMe-height
+      $footer-height;
   }
 }
 body::-webkit-scrollbar {
