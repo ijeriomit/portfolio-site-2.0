@@ -16,10 +16,10 @@
         <img src="@/assets/link-images/linkedin.svg" />
       </a>
       <a class="social-link">
-        <img src="@/assets/link-images/linkedin.svg" />
+        <img src="@/assets/link-images/github.svg" />
       </a>
       <a class="social-link">
-        <img src="@/assets/link-images/linkedin.svg" />
+        <img src="@/assets/link-images/medium.svg" />
       </a>
     </div>
   </section>
@@ -62,7 +62,7 @@ export default {
   background-color: $primary-color;
   color: $secondary-color;
   width: 125px;
-  margin-right: 10px;
+  margin-right: 20px;
   height: 60px;
   border-radius: 15%;
   border: none;
