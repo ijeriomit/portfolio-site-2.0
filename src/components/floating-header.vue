@@ -41,7 +41,7 @@ export default {
   cursor: pointer;
 }
 .logo-icon {
-  margin: -15px;
+  // margin: -15px;
   align-self: center;
   width: 75px;
   left: 15px;
