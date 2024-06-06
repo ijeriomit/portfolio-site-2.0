@@ -34,8 +34,8 @@
         </section-title> -->
         <!-- <contact-me class="section-wrapper"></contact-me> -->
       </div>
-      <!-- <div class="footer" style="grid-row: 6/6"></div>
-      <div class="content-block" style="grid-row: 6/6">
+      <div class="footer" style="grid-row: 5/5"></div>
+      <!-- <div class="content-block" style="grid-row: 6/6">
         <footer-section class="section-wrapper"></footer-section>
       </div> -->
     </div>
@@ -48,7 +48,6 @@ import HomeSection from "./sections/home.vue";
 // import Footer from "./components/footer.vue";
 import gradientBackground from "@/assets/background-gradient.svg";
 import whiteMatrixBackground from "@/assets/white-matrix-background.png";
-// import { ref, onMounted } from "vue";
 export default {
   name: "portfolio-app",
   components: {
