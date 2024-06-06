@@ -8,10 +8,7 @@
       <div id="HOME" class="content-block home-section">
         <home-section></home-section>
       </div>
-      <div
-        style="grid-row: 2/4; justify-content: center"
-        class="gradient-background"
-      ></div>
+      <div style="grid-row: 2/4" class="gradient-background"></div>
       <div id="ABOUT-ME" class="content-block" style="grid-row: 2/2">
         <!-- <about-section class="section-wrapper"> </about-section> -->
       </div>
