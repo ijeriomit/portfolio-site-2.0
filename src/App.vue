@@ -9,7 +9,7 @@
         <home-section></home-section>
       </div>
       <div
-        style="grid-row: 3/5; justify-content: center"
+        style="grid-row: 2/4; justify-content: center"
         class="gradient-background"
       ></div>
       <!--
@@ -120,14 +120,14 @@ export default {
 @import "@/scss/styles.scss";
 
 $header-height: 100px;
-$title-height: 550px;
+$title-height: 650px;
 $aboutMe-height: 1800px;
 $projects-height: 1600px;
 $contactMe-height: 1500px;
 $footer-height: 500px;
 
-$page-height: $header-height + $title-height + $aboutMe-height +
-  $projects-height + $contactMe-height + $footer-height;
+$page-height: $title-height + $aboutMe-height + $projects-height +
+  $contactMe-height + $footer-height;
 
 #app {
   height: $page-height;
@@ -156,7 +156,6 @@ $page-height: $header-height + $title-height + $aboutMe-height +
   display: grid;
   grid-template-columns: 5% 90% 5%;
   grid-template-rows:
-    $header-height
     $title-height
     $aboutMe-height
     $projects-height
@@ -180,8 +179,7 @@ body {
   flex-flow: row;
 }
 .home-section {
-  align-items: flex-start;
-  grid-row: 2/2;
+  grid-row: 1/2;
 }
 .content-block {
   z-index: 2;
@@ -195,7 +193,7 @@ body {
 .title-background {
   @extend .background-block;
   background-color: $primary-color;
-  grid-row: 1 / 3;
+  grid-row: 1 / 2;
   width: 100%;
   opacity: 40%;
   display: flex;
@@ -250,7 +248,6 @@ body {
     display: grid;
     grid-template-columns: 5% 90% 5%;
     grid-template-rows:
-      $header-height
       $title-height/2
       $aboutMe-height
       $projects-height

@@ -37,7 +37,8 @@ export default {
   grid-template-columns: 30% 70%;
   grid-template-rows: 175px 200px 75px;
   width: 70%;
-  height: 90%;
+  max-height: 90%;
+  align-self: center;
 }
 .memoji {
   order: 1;
