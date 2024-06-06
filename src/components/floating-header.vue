@@ -10,17 +10,36 @@
         src="@/assets/clip-art-images/ijeri-logo-text.png"
       />
     </a>
-    <button class="hamburger-menu" type="button">
-      <menu-svg :color="'#000000'"> </menu-svg>
+    <button @click="toggleMenu()" class="hamburger-menu" type="button">
+      <menu-svg v-if="!menuOpen" :color="'#000000'"> </menu-svg>
+      <img
+        class="close-menu"
+        src="@/assets/clip-art-images/close.svg"
+        v-if="menuOpen"
+      />
     </button>
+    <menu-nav v-if="menuOpen"></menu-nav>
   </header>
 </template>
 <script>
 import MenuSvg from "./menu-svg.vue";
+import MenuNav from "./menu-nav.vue";
+
 export default {
   name: "floating-header",
   components: {
     "menu-svg": MenuSvg,
+    "menu-nav": MenuNav,
+  },
+  data: function () {
+    return {
+      menuOpen: false,
+    };
+  },
+  methods: {
+    toggleMenu: function () {
+      this.menuOpen = !this.menuOpen;
+    },
   },
 };
 </script>
@@ -28,7 +47,7 @@ export default {
 @import "@/scss/variables.scss";
 
 .header-wrapper {
-  width: 90%;
+  width: 95%;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -63,6 +82,9 @@ export default {
 .hamburger-menu > svg {
   width: 50px;
   height: 50px;
+}
+.close-menu {
+  width: 25px;
 }
 .logo-spin {
   animation-name: spin;

@@ -12,49 +12,18 @@
         style="grid-row: 2/4; justify-content: center"
         class="gradient-background"
       ></div>
-      <!--
-      <div
-        v-show="true"
-        id="ABOUT-ME"
-        class="content-block"
-        style="grid-row: 2/2"
-      >
-        <about-section class="section-wrapper"> </about-section>
+      <div id="ABOUT-ME" class="content-block" style="grid-row: 2/2">
+        <!-- <about-section class="section-wrapper"> </about-section> -->
+      </div>
+      <div id="PROJECTS" class="content-block" style="grid-row: 3/3">
+        <!-- <projects-section class="section-wrapper"></projects-section> -->
       </div>
       <div
-        class="primary-background-block"
-        style="grid-row: 3/3; justify-content: flex-start"
-      ></div>
-      <div
-        class="secondary-background-block"
-        style="grid-row: 4/4; border-bottom-width: 15px"
-      ></div>
-      <div
-        v-show="true"
-        id="PROJECTS"
-        class="content-block"
-        style="grid-row: 4/4"
-      >
-        <projects-section class="section-wrapper"></projects-section>
-      </div>
-      <div
-        class="primary-background-block"
-        style="
-          grid-row: 5/5;
-          align-self: flex-start;
-          background-color: #008753;
-          border: none;
-        "
-      >
-        <img :src="phoneImg" />
-      </div>
-      <div
-        v-show="true"
         id="CONTACT-ME"
         class="content-block"
         style="grid-row: 5/5; flex-flow: column nowrap"
       >
-        <section-title>
+        <!-- <section-title>
           <template v-slot:section-title-content>
             <div class="section-title-keyword-1-alt">await</div>
             <div class="section-title-keyword-2-alt">fetch</div>
@@ -62,21 +31,21 @@
             <div class="section-title-title-alt">Contact Me</div>
             <div class="section-title-operator-alt">)</div>
           </template>
-        </section-title>
-        <contact-me class="section-wrapper"></contact-me>
-      </div> -->
-      <div class="footer" style="grid-row: 6/6"></div>
+        </section-title> -->
+        <!-- <contact-me class="section-wrapper"></contact-me> -->
+      </div>
+      <!-- <div class="footer" style="grid-row: 6/6"></div>
       <div class="content-block" style="grid-row: 6/6">
         <footer-section class="section-wrapper"></footer-section>
-      </div>
+      </div> -->
     </div>
-    <div class="social-bar"></div>
+    <!-- <div class="social-bar"></div> -->
   </div>
 </template>
 <script>
 import FloatingHeader from "./components/floating-header.vue";
 import HomeSection from "./sections/home.vue";
-import Footer from "./components/footer.vue";
+// import Footer from "./components/footer.vue";
 import gradientBackground from "@/assets/background-gradient.svg";
 import whiteMatrixBackground from "@/assets/white-matrix-background.png";
 // import { ref, onMounted } from "vue";
@@ -85,7 +54,7 @@ export default {
   components: {
     "floating-header": FloatingHeader,
     "home-section": HomeSection,
-    "footer-section": Footer,
+    // "footer-section": Footer,
   },
   data: function () {
     return {
@@ -154,7 +123,7 @@ $page-height: $title-height + $aboutMe-height + $projects-height +
   height: 100%;
   width: 100vw;
   display: grid;
-  grid-template-columns: 5% 90% 5%;
+  grid-template-columns: 2.5% 95% 2.5%;
   grid-template-rows:
     $title-height
     $aboutMe-height
