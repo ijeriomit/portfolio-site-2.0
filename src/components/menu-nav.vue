@@ -18,7 +18,7 @@ export default {
   background-color: $primary-color;
   flex-flow: column nowrap;
   position: absolute;
-  height: 225px;
+  height: 200px;
   width: 125px;
   right: 0px;
   top: 25px;
@@ -38,5 +38,10 @@ a {
 a:hover {
   color: $secondary-color;
   font-size: larger;
+}
+@media screen and (max-width: $phone-screen-width) {
+  .menu {
+    padding: 20px;
+  }
 }
 </style>

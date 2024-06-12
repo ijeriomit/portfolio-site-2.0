@@ -103,7 +103,7 @@ $page-height: $title-height + $aboutMe-height + $projects-height +
   height: $header-height;
   position: fixed;
   z-index: 1000;
-  grid-column: 2/3;
+  grid-column: 2/2;
 }
 .footer {
   z-index: 1;

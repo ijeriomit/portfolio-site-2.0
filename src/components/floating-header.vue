@@ -63,12 +63,12 @@ export default {
   // margin: -15px;
   align-self: center;
   width: 75px;
-  left: 15px;
-  position: relative;
 }
 .logo-text {
+  position: relative;
   align-self: center;
   width: 75px;
+  right: 15px;
   margin-bottom: -7px;
 }
 .hamburger-menu {
@@ -85,6 +85,7 @@ export default {
 }
 .close-menu {
   width: 25px;
+  padding: 5px;
 }
 .logo-spin {
   animation-name: spin;
@@ -132,26 +133,30 @@ export default {
   100% {
     opacity: 0;
     transform: translateX(-75px);
+    display: none;
   }
 }
 
 @media screen and (max-width: $phone-screen-width) {
   .hamburger-menu {
     padding: 0px;
+    width: 25px;
   }
   .logo-icon {
     width: 50px;
   }
   .logo-text {
+    right: 10px;
     width: 50px;
+  }
+  .header-wrapper {
+    width: 95%;
+    justify-self: center;
   }
 }
 @media screen and (max-width: $small-screen-width) {
   .hamburger-menu {
     display: block;
-  }
-  .header-wrapper {
-    justify-content: space-between;
   }
 }
 </style>

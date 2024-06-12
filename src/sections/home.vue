@@ -11,14 +11,28 @@
     </h1>
     <p class="subtitle">Frontend Developer / Software Engineer / UX Designer</p>
     <div class="button-row">
-      <button class="resume-button">RESUME</button>
-      <a class="social-link">
+      <a href="https://yellow-anabal-39.tiiny.site/" target="_blank">
+        <button class="resume-button">RESUME</button>
+      </a>
+      <a
+        class="social-link"
+        href="https://www.linkedin.com/in/ijeri-omitogun/"
+        target="_blank"
+      >
         <img src="@/assets/link-images/linkedin.svg" />
       </a>
-      <a class="social-link">
+      <a
+        class="social-link"
+        href="https://github.com/ijeriomit"
+        target="_blank"
+      >
         <img src="@/assets/link-images/github.svg" />
       </a>
-      <a class="social-link">
+      <a
+        class="social-link"
+        href="https://medium.com/@jeri-omit"
+        target="_blank"
+      >
         <img src="@/assets/link-images/medium.svg" />
       </a>
     </div>
