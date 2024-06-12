@@ -10,10 +10,15 @@
       <div class="delay typewriter">IJERI OMITOGUN!</div>
     </h1>
     <p class="subtitle">Frontend Developer / Software Engineer / UX Designer</p>
+    <!-- <div class="button-row"> -->
+    <a
+      class="resume-button"
+      href="https://yellow-anabal-39.tiiny.site/"
+      target="_blank"
+    >
+      <button>RESUME</button>
+    </a>
     <div class="button-row">
-      <a href="https://yellow-anabal-39.tiiny.site/" target="_blank">
-        <button class="resume-button">RESUME</button>
-      </a>
       <a
         class="social-link"
         href="https://www.linkedin.com/in/ijeri-omitogun/"
@@ -71,13 +76,20 @@ export default {
   grid-column: 2/2;
   grid-row: 2/2;
   align-self: end;
-  margin: 5px 10px 5px 30px;
+  max-width: fit-content;
+  justify-self: center;
 }
 .resume-button {
+  grid-column: 2 / 2;
+  grid-row: 2 / 2;
+  align-self: end;
+  max-width: fit-content;
+  margin-left: 25px;
+}
+.resume-button > button {
   background-color: $primary-color;
   color: $secondary-color;
   width: 125px;
-  margin-right: 20px;
   height: 60px;
   border-radius: 15%;
   border: none;
@@ -86,11 +98,15 @@ export default {
   font-size: 20px;
 }
 .social-link {
-  margin: 10px;
+  grid-column: 2 / 2;
+  grid-row: 2 / 2;
+  align-self: end;
+  margin: 0 15px;
   cursor: pointer;
+  max-width: fit-content;
 }
 .social-link img {
-  width: 40px;
+  width: 45px;
 }
 .title {
   color: $quaternary-color;
@@ -166,21 +182,23 @@ export default {
 }
 
 @media screen and (max-width: $phone-screen-width) {
+  $left-side-padding: 20px;
   .button-row {
-    grid-column: 1/3;
-    grid-row: 3/3;
-    margin-left: 0px;
+    grid-column: 2 / 3;
+    grid-row: 3 / 3;
+    margin-left: $left-side-padding;
     align-items: center;
     justify-content: flex-start;
+    justify-self: start;
   }
   .title {
     font-size: 1.3rem;
-    margin-left: 10px;
+    margin-left: $left-side-padding;
     margin-bottom: 5px;
   }
   .subtitle {
     font-size: 1rem;
-    margin-left: 10px;
+    margin-left: $left-side-padding;
     margin-top: 5px;
   }
   .home-wrapper {
@@ -188,19 +206,29 @@ export default {
     grid-template-rows: 60px 75px 60px;
   }
   .social-link img {
-    width: 25px;
+    width: 35px;
   }
   .social-link {
     grid-column: 2/3;
-    right: 0;
+    margin: 0 15px;
     cursor: pointer;
   }
-  .resume-button {
+  .social-link:first-child {
+    margin-left: 0px;
+  }
+  .resume-button > button {
     width: 80px;
     height: 40px;
     font-size: 16px;
-    margin-left: 20px;
+    margin: 0 15px 0 15px;
     cursor: pointer;
+  }
+  .resume-button {
+    grid-column: 1 / 2;
+    grid-row: 3 / 3;
+    align-self: end;
+    justify-self: center;
+    margin: 0;
   }
   .memoji {
     align-self: baseline;
