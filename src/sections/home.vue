@@ -10,7 +10,6 @@
       <div class="delay typewriter">IJERI OMITOGUN!</div>
     </h1>
     <p class="subtitle">Frontend Developer / Software Engineer / UX Designer</p>
-    <!-- <div class="button-row"> -->
     <a
       class="resume-button"
       href="https://yellow-anabal-39.tiiny.site/"
@@ -77,7 +76,10 @@ export default {
   grid-row: 2/2;
   align-self: end;
   max-width: fit-content;
-  justify-self: center;
+  justify-self: start;
+  position: relative;
+  left: 175px;
+  gap: 10px;
 }
 .resume-button {
   grid-column: 2 / 2;
@@ -106,7 +108,7 @@ export default {
   max-width: fit-content;
 }
 .social-link img {
-  width: 45px;
+  width: 50px;
 }
 .title {
   color: $quaternary-color;
@@ -127,7 +129,7 @@ export default {
   color: $primary-color;
   font-family: $vs-code-font;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 2rem;
   grid-column: 2/2;
   grid-row: 2/2;
   align-self: start;
@@ -190,6 +192,7 @@ export default {
     align-items: center;
     justify-content: flex-start;
     justify-self: start;
+    left: 0px;
   }
   .title {
     font-size: 1.3rem;
