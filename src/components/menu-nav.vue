@@ -41,7 +41,11 @@ a:hover {
 }
 @media screen and (max-width: $phone-screen-width) {
   .menu {
-    padding: 20px;
+    padding: 20px 20px;
+    width: 20vw;
+  }
+  a {
+    font-size: medium;
   }
 }
 </style>
