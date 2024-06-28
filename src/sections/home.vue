@@ -54,7 +54,7 @@ export default {
   display: grid;
   grid-template-columns: 30% 70%;
   grid-template-rows: 175px 200px 75px;
-  width: 70%;
+  max-width: 70%;
   max-height: 90%;
   align-self: center;
 }
@@ -98,6 +98,13 @@ export default {
   cursor: pointer;
   font-family: $text-font;
   font-size: 20px;
+}
+.resume-button > button:hover {
+  background-color: #025e3b;
+  width: 130px;
+  height: 62.5px;
+  font-weight: 400;
+  transition: all 0.1s ease-in;
 }
 .social-link {
   grid-column: 2 / 2;

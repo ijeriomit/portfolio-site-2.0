@@ -3,13 +3,10 @@
     <slot name="text-slot"></slot>
   </div>
 </template>
-<script>
-export default {
-  name: "text-box",
-  props: {
-    animate: Boolean,
-  },
-};
+<script setup>
+const props = defineProps({
+  animate: Boolean,
+});
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";

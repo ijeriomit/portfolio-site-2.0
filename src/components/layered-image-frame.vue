@@ -18,61 +18,37 @@
     <div class="floating-frame-layer"></div>
   </div>
 </template>
-<script>
-export default {
-  name: "layered-image-frame",
-  props: {
-    borderColor: {
-      type: String,
-      required: false,
-      default: () => {
-        return "red";
-      },
-    },
-    backgroundColor: {
-      type: String,
-      required: false,
-      default: () => {
-        return "red";
-      },
-    },
-    horizontalOffset: {
-      type: Number,
-      required: false,
-      default: () => {
-        return 1;
-      },
-    },
-    verticalOffset: {
-      type: Number,
-      required: false,
-      default: () => {
-        return 1;
-      },
-    },
+<script setup>
+import { onMounted, ref } from "vue";
+const props = defineProps([
+  {
+    borderColor: String,
+    backgroundColor: String,
+    horizontalOffset: Number,
+    verticalOffset: Number,
     animation: String,
     imageSrc: String,
   },
-  methods: {
-    convertUnit: function (value) {
-      return value + "rem";
-    },
-  },
-  mounted: function () {
-    let layers = this.$refs["wrapper"].childNodes;
-    // this.$refs["bg"].style = this.backgroundColor;
-    // this.$refs["frame"].style = this.frameColor;
+]);
+const wrapper = ref(null);
+onMounted(() => {
+  let layers = wrapper.value.childNodes;
+  // this.$refs["bg"].style = this.backgroundColor;
+  // this.$refs["frame"].style = this.frameColor;
 
-    for (let i = 0; i < layers.length; i++) {
-      layers[i].style.marginBottom = this.convertUnit(
-        this.verticalOffset * (i - 1)
-      );
-      layers[i].style.marginRight = this.convertUnit(
-        this.horizontalOffset * (i - 1)
-      );
-    }
-  },
-};
+  for (let i = 0; i < layers.length; i++) {
+    layers[i].style.marginBottom = convertUnit(props.verticalOffset * (i - 1));
+    layers[i].style.marginRight = convertUnit(props.horizontalOffset * (i - 1));
+  }
+});
+function convertUnit(value) {
+  return value + "rem";
+}
+//   methods: {
+//     convertUnit: function (value) {
+//       return value + "rem";
+//     },
+//   },
 </script>
 <style lang="scss" scoped>
 .layer {
