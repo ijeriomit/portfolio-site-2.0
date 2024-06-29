@@ -6,8 +6,8 @@
       alt="cartoon waving"
     />
     <h1 class="title">
-      <div class="typewriter">HI, I AM</div>
-      <div class="delay typewriter">IJERI OMITOGUN!</div>
+      <div class="typewriter-animation">HI, I AM</div>
+      <div class="delay typewriter-animation">IJERI OMITOGUN!</div>
     </h1>
     <p class="subtitle">Frontend Developer / Software Engineer / UX Designer</p>
     <a
@@ -50,6 +50,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
+@import "@/scss/styles.scss";
+
 .home-wrapper {
   display: grid;
   grid-template-columns: 30% 70%;
@@ -144,50 +146,10 @@ export default {
   max-width: fit-content;
 }
 
-.typewriter {
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: 0.15em solid transparent; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: 0.15em; /* Adjust as needed */
-  animation: typing 3s steps(40, end), blink-caret 0.5s step-end 3;
-}
-
 .delay {
   // width: 0;
   animation: hide 1.9s steps(1, end), typing 3s steps(40, end) 1.5s,
     blink-caret 0.5s step-end 1.5s 7;
-}
-
-/* The typing effect */
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-    border-color: transparent;
-  }
-}
-
-@keyframes hide {
-  from {
-    visibility: hidden;
-  }
-  to {
-    visibility: visible;
-  }
-}
-
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from,
-  to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: rgb(250, 250, 250);
-  }
 }
 
 @media screen and (max-width: $phone-screen-width) {

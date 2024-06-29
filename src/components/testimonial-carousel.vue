@@ -33,74 +33,54 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  name: "image-carousel",
-  data: function () {
-    return {
-      currentSlideIndex: 0,
-      slideShow: [],
-    };
-  },
-  props: {
-    slides: {
-      type: Array,
-      required: true,
-    },
-    descriptions: {
-      type: Array,
-      required: true,
-    },
-    photoHeight: {
-      type: Number,
-    },
-    photoWidth: {
-      type: Number,
-    },
-    sizeType: {
-      type: String,
-    },
-  },
-  beforeMount: function () {
-    this.createSlideShowObject();
-  },
-  methods: {
-    slideRight: function () {
-      this.setSlide(this.currentSlideIndex + 1);
-    },
-    slideLeft: function () {
-      this.setSlide(this.currentSlideIndex - 1);
-    },
-    setSlide: function (slideIndex) {
-      if (slideIndex >= this.slideShow.length) {
-        slideIndex = 0;
-      } else if (slideIndex < 0) {
-        slideIndex = this.slideShow.length - 1;
-      }
+<script setup>
+import { onBeforeMount, ref } from "vue";
+const currentSlideIndex = ref(0);
+const slideShow = ref([]);
+const props = defineProps([
+  "slides",
+  "descriptions",
+  "photoHeight",
+  "photoWidth",
+  "sizeType",
+]);
+function slideRight() {
+  setSlide(currentSlideIndex.value++);
+}
+function slideLeft() {
+  setSlide(currentSlideIndex.value--);
+}
+function setSlide(slideIndex) {
+  if (slideIndex >= slideShow.value.length) {
+    slideIndex = 0;
+  } else if (slideIndex < 0) {
+    slideIndex = slideShow.value.length - 1;
+  }
 
-      this.slideShow[this.currentSlideIndex].show = false;
-      this.slideShow[slideIndex].show = true;
-      this.currentSlideIndex = slideIndex;
-    },
-    createSlideShowObject: function () {
-      let defaultDescription = "";
-      let description = defaultDescription;
-      for (let i = 0; i < this.slides.length; i++) {
-        if (this.descriptions.length > i) {
-          description = this.descriptions[i];
-        } else {
-          description = defaultDescription;
-        }
-        this.slideShow.push({
-          image: this.slides[i],
-          text: description,
-          show: false,
-        });
-      }
-      this.slideShow[this.currentSlideIndex].show = true;
-    },
-  },
-};
+  slideShow.value[currentSlideIndex.value].show = false;
+  slideShow.value[slideIndex].show = true;
+  currentSlideIndex.value = slideIndex;
+}
+function createSlideShowObject() {
+  let defaultDescription = "";
+  let description = defaultDescription;
+  for (let i = 0; i < props.slides.length; i++) {
+    if (props.descriptions.length > i) {
+      description = props.descriptions[i];
+    } else {
+      description = defaultDescription;
+    }
+    slideShow.value.push({
+      image: props.slides[i],
+      text: description,
+      show: false,
+    });
+  }
+  this.slideShow[currentSlideIndex.value].show = true;
+}
+onBeforeMount(() => {
+  createSlideShowObject();
+});
 </script>
 <style lang="scss" scoped>
 * {

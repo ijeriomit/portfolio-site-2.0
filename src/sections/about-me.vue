@@ -32,9 +32,15 @@
       <div class="point" :style="{ left: pointPos }"></div>
       <h1 class="heading">
         <span>print(</span>
-        <span v-if="aboutMeSelected">"About Me"</span>
-        <span v-else-if="experienceSelected">"Experience"</span>
-        <span v-else-if="skillsSelected">"Skills"</span>
+        <span v-if="aboutMeSelected" class="typewriter-animation"
+          >"About Me"</span
+        >
+        <span v-else-if="experienceSelected" class="typewriter-animation"
+          >"Experience"</span
+        >
+        <span v-else-if="skillsSelected" class="typewriter-animation"
+          >"Skills"</span
+        >
         <span>);</span>
       </h1>
       <p
@@ -83,11 +89,13 @@
         </div>
       </div>
     </div>
+    <testimonialCarousel></testimonialCarousel>
   </section>
 </template>
 <script setup>
 import { ref } from "vue";
 import { store } from "@/data.js";
+import testimonialCarousel from "@/components/testimonial-carousel.vue";
 const aboutMeSelected = ref(true);
 const experienceSelected = ref(false);
 const skillsSelected = ref(false);
@@ -255,6 +263,12 @@ span:last-child {
   color: $secondary-color;
   width: fit-content;
   padding: 5px;
+}
+.typewriter-animation {
+  width: fit-content;
+  letter-spacing: normal;
+  margin: 0 5px;
+  max-width: fit-content;
 }
 
 @media screen and (max-width: $small-screen-width) {
