@@ -59,17 +59,27 @@ export const store = {
   ],
   testimonials: [
     {
-      name: "Joe Blow",
+      name: "Joe Blow 1",
       imageSrc: "",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur.",
     },
     {
-      name: "Joe Blow",
+      name: "Joe Blow 2",
       imageSrc: "",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur.",
     },
     {
-      name: "Joe Blow",
+      name: "Joe Blow 3",
+      imageSrc: "",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur.",
+    },
+    {
+      name: "Joe Blow 4",
+      imageSrc: "",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur.",
+    },
+    {
+      name: "Joe Blow 5",
       imageSrc: "",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur.",
     },

@@ -119,6 +119,9 @@ export default {
 .social-link img {
   width: 50px;
 }
+.social-link > img:hover {
+  width: 55px;
+}
 .title {
   color: $quaternary-color;
   font-family: $vs-code-font;

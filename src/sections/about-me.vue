@@ -1,101 +1,104 @@
 <template>
   <section class="about-me-wrapper">
-    <img class="headshot" src="@/assets/about-me-images/headshot.jpeg" />
-    <!-- <img
-      class="headshot-2"
-      src="@/assets/about-me-images/headshot-transparent.png"
-    /> -->
-    <div>
-      <div class="button-row">
-        <button
-          @click="buttonSelected($event)"
-          id="about"
-          :class="{ active: aboutMeSelected }"
-        >
-          ABOUT ME
-        </button>
-        <button
-          @click="buttonSelected($event)"
-          id="exp"
-          :class="{ active: experienceSelected }"
-        >
-          EXPERIENCE
-        </button>
-        <button
-          @click="buttonSelected($event)"
-          id="skills"
-          :class="{ active: skillsSelected }"
-        >
-          SKILLS
-        </button>
-      </div>
-      <div class="point" :style="{ left: pointPos }"></div>
-      <h1 class="heading">
-        <span>print(</span>
-        <span v-if="aboutMeSelected" class="typewriter-animation"
-          >"About Me"</span
-        >
-        <span v-else-if="experienceSelected" class="typewriter-animation"
-          >"Experience"</span
-        >
-        <span v-else-if="skillsSelected" class="typewriter-animation"
-          >"Skills"</span
-        >
-        <span>);</span>
-      </h1>
-      <p
-        v-if="aboutMeSelected"
-        class="about-me-content"
-        :style="{
-          position: 'relative',
-          top: '10px',
-        }"
-      >
-        {{ store.personalDesc }}
-      </p>
-      <div v-else-if="experienceSelected" class="about-me-content">
-        <div
-          v-for="experience of store.experiences"
-          :key="experience.companyName"
-        >
-          <span class="company-title">
-            <h2>{{ experience.companyName }}</h2>
-            <p>{{ experience.startDate }} - {{ experience.endDate }}</p>
-          </span>
-          <h3 class="job-title">{{ experience.jobTitle }}</h3>
-          <p>{{ experience.description }}</p>
-        </div>
-      </div>
-      <div v-else-if="skillsSelected" class="about-me-content">
-        <h4>Programming Languages & Frameworks:</h4>
-        <div class="skill-row">
-          <div
-            v-for="(language, index) of store.programmingLanguages"
-            :key="index"
-            class="skill-block"
+    <div class="top-row">
+      <img class="headshot" src="@/assets/about-me-images/headshot.jpeg" />
+      <!-- <img
+        class="headshot-2"
+        src="@/assets/about-me-images/headshot-transparent.png"
+      /> -->
+      <div class="about-me-content">
+        <div class="button-row">
+          <button
+            @click="buttonSelected($event)"
+            id="about"
+            :class="{ active: aboutMeSelected }"
           >
-            {{ language }}
+            ABOUT ME
+          </button>
+          <button
+            @click="buttonSelected($event)"
+            id="exp"
+            :class="{ active: experienceSelected }"
+          >
+            EXPERIENCE
+          </button>
+          <button
+            @click="buttonSelected($event)"
+            id="skills"
+            :class="{ active: skillsSelected }"
+          >
+            SKILLS
+          </button>
+        </div>
+        <div class="point" :style="{ left: pointPos }"></div>
+        <h1 class="heading">
+          <span>print(</span>
+          <span v-if="aboutMeSelected" class="typewriter-animation"
+            >"About Me"</span
+          >
+          <span v-else-if="experienceSelected" class="typewriter-animation"
+            >"Experience"</span
+          >
+          <span v-else-if="skillsSelected" class="typewriter-animation"
+            >"Skills"</span
+          >
+          <span>);</span>
+        </h1>
+        <p
+          v-if="aboutMeSelected"
+          class="tab-content"
+          :style="{
+            position: 'relative',
+            top: '10px',
+          }"
+        >
+          {{ store.personalDesc }}
+        </p>
+        <div v-else-if="experienceSelected" class="tab-content">
+          <div
+            v-for="experience of store.experiences"
+            :key="experience.companyName"
+          >
+            <span class="company-title">
+              <h2>{{ experience.companyName }}</h2>
+              <p>{{ experience.startDate }} - {{ experience.endDate }}</p>
+            </span>
+            <h3 class="job-title">{{ experience.jobTitle }}</h3>
+            <p>{{ experience.description }}</p>
           </div>
         </div>
-        <h4>Dev Tools:</h4>
-        <div class="skill-row">
-          <div
-            v-for="(tool, index) of store.devTools"
-            :key="index"
-            class="skill-block"
-          >
-            {{ tool }}
+        <div v-else-if="skillsSelected" class="tab-content">
+          <h4>Programming Languages & Frameworks:</h4>
+          <div class="skill-row">
+            <div
+              v-for="(language, index) of store.programmingLanguages"
+              :key="index"
+              class="skill-block"
+            >
+              {{ language }}
+            </div>
+          </div>
+          <h4>Dev Tools:</h4>
+          <div class="skill-row">
+            <div
+              v-for="(tool, index) of store.devTools"
+              :key="index"
+              class="skill-block"
+            >
+              {{ tool }}
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <testimonialCarousel></testimonialCarousel>
+    <testimonialCarousel class="bottom-row"></testimonialCarousel>
   </section>
 </template>
 <script setup>
 import { ref } from "vue";
 import { store } from "@/data.js";
 import testimonialCarousel from "@/components/testimonial-carousel.vue";
+
 const aboutMeSelected = ref(true);
 const experienceSelected = ref(false);
 const skillsSelected = ref(false);
@@ -134,19 +137,29 @@ $phone-image-width: 13rem;
 $phone-image-height: 15rem;
 
 .about-me-wrapper {
-  display: flex;
-  flex-flow: row;
+  display: grid;
+  grid-template-columns: 100%;
+  row-gap: 2.5%;
+  grid-template-rows: 900px 500px;
   max-width: 80%;
   max-height: 90%;
   margin-top: 3rem;
-  gap: 5%;
   font-family: $vs-code-font;
   justify-content: center;
 }
-.about-me-wrapper > div {
+.about-me-content {
   width: 800px;
 }
-.about-me-content {
+.top-row {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 5%;
+  grid-row: 1/2;
+}
+.bottom-row {
+  grid-row: 2/2;
+}
+.tab-content {
   font-size: 1.5rem;
   max-width: 700px;
   font-family: Roboto, Roboto Mono, monospace;
@@ -155,29 +168,28 @@ $phone-image-height: 15rem;
   position: relative;
   bottom: 5px;
 }
-.about-me-content::-webkit-scrollbar {
+.tab-content::-webkit-scrollbar {
   width: 8px;
   height: 90%;
 }
 
 /* Track */
-.about-me-content::-webkit-scrollbar-track {
+.tab-content::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   -webkit-border-radius: 8px;
   border-radius: 8px;
 }
 
 /* Handle */
-.about-me-content::-webkit-scrollbar-thumb {
+.tab-content::-webkit-scrollbar-thumb {
   -webkit-border-radius: 5px;
   border-radius: 8px;
   background: #8f9391;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
-.about-me-content::-webkit-scrollbar-thumb:window-inactive {
+.tab-content::-webkit-scrollbar-thumb:window-inactive {
   background: #5a5f5d;
 }
-
 .heading {
   display: flex;
   flex-flow: row nowrap;
@@ -272,30 +284,6 @@ span:last-child {
 }
 
 @media screen and (max-width: $small-screen-width) {
-  .content-section {
-    flex-flow: column nowrap;
-    justify-content: space-evenly;
-  }
-  .text-content {
-    width: 100%;
-    max-height: 45%;
-    overflow: scroll;
-    word-break: break-word;
-    text-align: center;
-    margin-top: 0;
-    font-size: $phone-text-size;
-    order: 1;
-  }
-  .image-frame {
-    align-self: center;
-    width: $phone-image-width + 1rem;
-    order: 0;
-    height: $phone-image-height + 1rem;
-  }
-  .image-box {
-    width: 100%;
-    height: 100%;
-  }
 }
 @media screen and (max-width: $phone-screen-width) {
 }
