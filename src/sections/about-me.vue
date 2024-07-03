@@ -146,6 +146,7 @@ $phone-image-height: 15rem;
   margin-top: 3rem;
   font-family: $vs-code-font;
   justify-content: center;
+  align-self: center;
 }
 .about-me-content {
   width: 800px;
@@ -155,6 +156,7 @@ $phone-image-height: 15rem;
   flex-flow: row nowrap;
   gap: 5%;
   grid-row: 1/2;
+  justify-content: space-between;
 }
 .bottom-row {
   grid-row: 2/2;

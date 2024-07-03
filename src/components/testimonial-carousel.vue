@@ -3,9 +3,9 @@
     <h2>Testimonials</h2>
     <Carousel
       class="testimonials"
-      @mouseenter="autoplay = 0"
-      @mouseleave="autoplay = 5000"
-      :autoplay="autoplay"
+      @mouseenter="autoplaySpeed = 0"
+      @mouseleave="autoplaySpeed = defaultAutoPlaySpeed"
+      :autoplay="autoplaySpeed"
       :items-to-show="3"
       :wrap-around="true"
     >
@@ -15,7 +15,7 @@
             <div class="profile-photo"></div>
             <h3 class="name">{{ slide.name }}</h3>
           </div>
-          <p>
+          <p class="text">
             {{ slide.text }}
           </p>
         </div>
@@ -30,12 +30,13 @@ import { Carousel, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 
 const slides = ref(store.testimonials);
-const autoplay = ref(5000);
+const defaultAutoPlaySpeed = ref(2500);
+const autoplaySpeed = ref(defaultAutoPlaySpeed.value);
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
-$testimonial-width: 425px;
-$testimonial-height: 400px;
+$testimonial-width: 400px;
+$testimonial-height: 375px;
 $testimonials-gap: 50px;
 $testimonial-padding: 50px;
 $testimonials-width: calc(
@@ -81,7 +82,7 @@ $testimonials-width: calc(
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 .profile-photo {
   background-color: gray;
@@ -91,5 +92,10 @@ $testimonials-width: calc(
 }
 .name {
   margin: 0 10px;
+}
+.text {
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
-    <div class="content-grid">
-      <floating-header class="header" ref="header"></floating-header>
+  <div>
+    <floating-header class="header"></floating-header>
+    <main class="content-grid">
       <div class="title-background">
         <img src="@/assets/matrix-background.svg" />
       </div>
@@ -13,17 +13,19 @@
         <about-section></about-section>
       </div>
       <div id="PROJECTS" class="content-block project-section">
+        <div>Projects</div>
         <!-- <projects-section class="section-wrapper"></projects-section> -->
       </div>
       <div class="flag-background"></div>
       <div id="CONTACT-ME" class="content-block contact-section">
+        <div>Contact</div>
         <!-- <contact-me class="section-wrapper"></contact-me> -->
       </div>
-      <div class=""></div>
       <!-- <div class="content-block" style="grid-row: 6/6">
         <footer-section class="section-wrapper"></footer-section>
       </div> -->
-    </div>
+      <div class="footer"></div>
+    </main>
     <!-- <div class="social-bar"></div> -->
   </div>
 </template>
@@ -38,10 +40,10 @@ import AboutSection from "./sections/about-me.vue";
 @import "@/scss/styles.scss";
 
 $header-height: 100px;
-$title-height: 650px;
-$aboutMe-height: 1800px;
+$title-height: 600px;
+$aboutMe-height: 1600px;
 $projects-height: 1600px;
-$contactMe-height: 1500px;
+$contactMe-height: 1000px;
 $footer-height: 500px;
 
 $page-height: $title-height + $aboutMe-height + $projects-height +
@@ -55,7 +57,10 @@ $page-height: $title-height + $aboutMe-height + $projects-height +
 
 .content-grid {
   position: relative;
-  height: 100%;
+  scroll-snap-type: y proximity;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  height: 100vh;
   width: 100vw;
   display: grid;
   grid-template-columns: 2.5% 95% 2.5%;
@@ -67,12 +72,11 @@ $page-height: $title-height + $aboutMe-height + $projects-height +
     $footer-height;
 }
 html {
-  scroll-behavior: smooth;
 }
 body {
   margin: 0;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 .background {
   z-index: 1;
@@ -99,9 +103,16 @@ body {
   position: fixed;
   z-index: 1000;
   grid-column: 2/2;
+  width: 100vw;
 }
 .footer {
   grid-row: 5/5;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  height: $footer-height;
+  background-color: $primary-color;
+  scroll-snap-align: center;
 }
 .content-block {
   z-index: 2;
@@ -110,6 +121,7 @@ body {
   justify-content: center;
   grid-column: 2/2;
   overflow: hidden;
+  scroll-snap-align: center;
 }
 .title-background {
   @extend .background;
@@ -127,14 +139,11 @@ body {
 }
 .gradient-background {
   @extend .background;
-  grid-row: 2/4;
+  grid-row: 2/5;
   background-image: linear-gradient(
-    rgba(0, 135, 83, 0.63),
-    rgba(0, 135, 83, 0.275),
-    rgba(0, 135, 83, 0.1),
-    rgba(0, 135, 83, 0.1),
-    rgba(0, 135, 83, 0.275),
-    rgba(0, 135, 83, 0.63)
+    rgba(0, 135, 83, 0.65),
+    rgba(0, 135, 83, 0.25),
+    rgba(0, 135, 83, 0)
   );
 }
 @media screen and (max-width: $phone-screen-width) {
@@ -153,7 +162,7 @@ body {
       $footer-height;
   }
 }
-body::-webkit-scrollbar {
+.content-grid::-webkit-scrollbar {
   display: none;
 }
 </style>

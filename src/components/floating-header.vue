@@ -47,7 +47,6 @@ export default {
 @import "@/scss/variables.scss";
 
 .header-wrapper {
-  width: 95%;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -58,6 +57,7 @@ export default {
   order: 1;
   align-self: center;
   cursor: pointer;
+  margin-left: 2.5vw;
 }
 .logo-icon {
   // margin: -15px;
@@ -78,6 +78,7 @@ export default {
   border: none;
   padding: 5px;
   cursor: pointer;
+  margin-right: 2.5vw;
 }
 .hamburger-menu > svg {
   width: 50px;
