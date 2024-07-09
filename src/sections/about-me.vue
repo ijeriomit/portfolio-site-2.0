@@ -1,97 +1,88 @@
 <template>
   <section class="about-me-wrapper">
-    <div class="top-row">
-      <img class="headshot" src="@/assets/about-me-images/headshot.jpeg" />
-      <!-- <img
+    <img class="headshot" src="@/assets/about-me-images/headshot.jpeg" />
+    <!-- <img
         class="headshot-2"
         src="@/assets/about-me-images/headshot-transparent.png"
       /> -->
-      <div class="about-me-content">
-        <div class="button-row">
-          <button
-            @click="buttonSelected($event)"
-            id="about"
-            :class="{ active: aboutMeSelected }"
-          >
-            ABOUT ME
-          </button>
-          <button
-            @click="buttonSelected($event)"
-            id="exp"
-            :class="{ active: experienceSelected }"
-          >
-            EXPERIENCE
-          </button>
-          <button
-            @click="buttonSelected($event)"
-            id="skills"
-            :class="{ active: skillsSelected }"
-          >
-            SKILLS
-          </button>
-        </div>
-        <div class="point" :style="{ left: pointPos }"></div>
-        <h1 class="heading">
-          <span>print(</span>
-          <span v-if="aboutMeSelected" class="typewriter-animation"
-            >"About Me"</span
-          >
-          <span v-else-if="experienceSelected" class="typewriter-animation"
-            >"Experience"</span
-          >
-          <span v-else-if="skillsSelected" class="typewriter-animation"
-            >"Skills"</span
-          >
-          <span>);</span>
-        </h1>
-        <p
-          v-if="aboutMeSelected"
-          class="tab-content"
-          :style="{
-            position: 'relative',
-            top: '10px',
-          }"
+    <div class="about-me-content">
+      <div class="button-row">
+        <button
+          @click="buttonSelected($event)"
+          id="about"
+          :class="{ active: aboutMeSelected }"
         >
-          {{ store.personalDesc }}
-        </p>
-        <div v-else-if="experienceSelected" class="tab-content">
+          ABOUT ME
+        </button>
+        <button
+          @click="buttonSelected($event)"
+          id="exp"
+          :class="{ active: experienceSelected }"
+        >
+          EXPERIENCE
+        </button>
+        <button
+          @click="buttonSelected($event)"
+          id="skills"
+          :class="{ active: skillsSelected }"
+        >
+          SKILLS
+        </button>
+      </div>
+      <!-- <div class="point" :style="{ left: pointPos }"></div> -->
+      <h1 class="heading">
+        <span>print(</span>
+        <span v-if="aboutMeSelected" class="typewriter-animation"
+          >"About Me"</span
+        >
+        <span v-else-if="experienceSelected" class="typewriter-animation"
+          >"Experience"</span
+        >
+        <span v-else-if="skillsSelected" class="typewriter-animation"
+          >"Skills"</span
+        >
+        <span>);</span>
+      </h1>
+      <p v-if="aboutMeSelected" class="tab-content">
+        {{ store.personalDesc }}
+      </p>
+      <div v-else-if="experienceSelected" class="tab-content">
+        <div
+          v-for="experience of store.experiences"
+          :key="experience.companyName"
+        >
+          <span class="company-title">
+            <h2>{{ experience.companyName }}</h2>
+            <p>{{ experience.startDate }} - {{ experience.endDate }}</p>
+          </span>
+          <h3 class="job-title">{{ experience.jobTitle }}</h3>
+          <p>{{ experience.description }}</p>
+        </div>
+      </div>
+      <div v-else-if="skillsSelected" class="tab-content">
+        <h3>Programming Languages & Frameworks:</h3>
+        <div class="skill-row">
           <div
-            v-for="experience of store.experiences"
-            :key="experience.companyName"
+            v-for="(language, index) of store.programmingLanguages"
+            :key="index"
+            class="skill-block"
           >
-            <span class="company-title">
-              <h2>{{ experience.companyName }}</h2>
-              <p>{{ experience.startDate }} - {{ experience.endDate }}</p>
-            </span>
-            <h3 class="job-title">{{ experience.jobTitle }}</h3>
-            <p>{{ experience.description }}</p>
+            {{ language }}
           </div>
         </div>
-        <div v-else-if="skillsSelected" class="tab-content">
-          <h4>Programming Languages & Frameworks:</h4>
-          <div class="skill-row">
-            <div
-              v-for="(language, index) of store.programmingLanguages"
-              :key="index"
-              class="skill-block"
-            >
-              {{ language }}
-            </div>
-          </div>
-          <h4>Dev Tools:</h4>
-          <div class="skill-row">
-            <div
-              v-for="(tool, index) of store.devTools"
-              :key="index"
-              class="skill-block"
-            >
-              {{ tool }}
-            </div>
+        <h3>Dev Tools:</h3>
+        <div class="skill-row">
+          <div
+            v-for="(tool, index) of store.devTools"
+            :key="index"
+            class="skill-block"
+          >
+            {{ tool }}
           </div>
         </div>
       </div>
     </div>
-    <testimonialCarousel class="bottom-row"></testimonialCarousel>
+    <testimonialCarousel class="testimonials"></testimonialCarousel>
   </section>
 </template>
 <script setup>
@@ -138,37 +129,36 @@ $phone-image-height: 15rem;
 
 .about-me-wrapper {
   display: grid;
-  grid-template-columns: 100%;
-  row-gap: 2.5%;
+  grid-template-columns: 50% 50%;
+  gap: 2.5%;
   grid-template-rows: 900px 500px;
   max-width: 80%;
   max-height: 90%;
-  margin-top: 3rem;
   font-family: $vs-code-font;
   justify-content: center;
   align-self: center;
 }
 .about-me-content {
-  width: 800px;
-}
-.top-row {
   display: flex;
-  flex-flow: row nowrap;
-  gap: 5%;
-  grid-row: 1/2;
-  justify-content: space-between;
+  flex-flow: column nowrap;
+  width: 800px;
+  grid-column: 2 / 3;
+  grid-row: 1 / 1;
 }
-.bottom-row {
-  grid-row: 2/2;
+.testimonials {
+  grid-row: 2/3;
+  grid-column: 1 / 3;
 }
 .tab-content {
   font-size: 1.5rem;
   max-width: 700px;
   font-family: Roboto, Roboto Mono, monospace;
   max-height: 700px;
+  display: flex;
   overflow-y: auto;
   position: relative;
   bottom: 5px;
+  flex-flow: row wrap;
 }
 .tab-content::-webkit-scrollbar {
   width: 8px;
@@ -235,6 +225,8 @@ span:last-child {
 .headshot {
   width: 700px;
   height: 900px;
+  grid-column: 1 / 2;
+  grid-row: 1 / 1;
 }
 .headshot-2 {
   @extend .headshot;
@@ -248,7 +240,7 @@ span:last-child {
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
   border-top: 15px solid $quaternary-color;
-  align-self: flex-end;
+  align-self: flex-start;
 }
 .company-title h2 {
   font-size: 1.75rem;
@@ -286,7 +278,100 @@ span:last-child {
 }
 
 @media screen and (max-width: $small-screen-width) {
+  .about-me-wrapper {
+    grid-template-rows: 550px 700px;
+    max-width: 95%;
+    max-height: none;
+    margin-top: 0;
+    gap: 0;
+  }
+  .headshot {
+    grid-row: 1 / 2;
+    width: 400px;
+    height: 500px;
+    grid-column: 1 / 3;
+    justify-self: center;
+  }
+  .about-me-content {
+    grid-row: 2/3;
+    width: 80vw;
+    justify-self: center;
+    grid-column: 1 / 3;
+    gap: 20px;
+  }
+  .testimonials {
+    width: 100vw;
+    height: 500px;
+    justify-self: center;
+    grid-column: 1/3;
+    grid-row: 3/4;
+  }
+  .heading {
+    justify-content: center;
+    margin: 0;
+  }
+  .tab-content {
+    align-self: center;
+    text-align: justify;
+    padding-right: 10px;
+    max-height: 800px;
+  }
+  .button-row {
+    justify-content: center;
+  }
 }
 @media screen and (max-width: $phone-screen-width) {
+  .heading {
+    font-size: 1.5rem;
+  }
+  .headshot {
+    width: 225px;
+    height: 300px;
+    margin-top: 50px;
+  }
+  .about-me-wrapper {
+    align-self: flex-start;
+    align-self: flex-start;
+    grid-template-rows: 400px 600px;
+  }
+  .about-me-content {
+    width: 85vw;
+    align-items: center;
+  }
+  .button-row button {
+    width: 110px;
+    height: 50px;
+    font-size: 16px;
+    text-align: center;
+    text-wrap: wrap;
+    overflow: hidden;
+  }
+  .button-row {
+    gap: 10px;
+    width: 90vw;
+    margin-bottom: 20px;
+  }
+  .tab-content {
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+  .tab-content h3 {
+    text-align: left;
+  }
+  .tab-content::-webkit-scrollbar {
+    display: none;
+  }
+  .company-title h2 {
+    font-size: 1.25rem;
+    width: 120px;
+  }
+  .company-title p {
+    font-size: 1rem;
+    margin: 0px;
+    width: 120px;
+  }
+  .job-title {
+    font-size: 1rem;
+  }
 }
 </style>

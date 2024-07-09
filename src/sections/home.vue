@@ -76,12 +76,10 @@ export default {
   align-items: center;
   grid-column: 2/2;
   grid-row: 2/2;
-  align-self: end;
   max-width: fit-content;
-  justify-self: start;
   position: relative;
-  left: 175px;
-  gap: 10px;
+  left: 200px;
+  gap: 30px;
 }
 .resume-button {
   grid-column: 2 / 2;
@@ -112,7 +110,6 @@ export default {
   grid-column: 2 / 2;
   grid-row: 2 / 2;
   align-self: end;
-  margin: 0 15px;
   cursor: pointer;
   max-width: fit-content;
 }
@@ -162,12 +159,11 @@ export default {
     grid-row: 3 / 3;
     margin-left: $left-side-padding;
     align-items: center;
-    justify-content: flex-start;
-    justify-self: start;
     left: 0px;
+    gap: 0px 20px;
   }
   .title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-left: $left-side-padding;
     margin-bottom: 5px;
   }
@@ -175,26 +171,25 @@ export default {
     font-size: 1rem;
     margin-left: $left-side-padding;
     margin-top: 5px;
+    margin-bottom: 0;
+    align-self: end;
   }
   .home-wrapper {
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 35% 65%;
     grid-template-rows: 60px 75px 60px;
   }
   .social-link img {
-    width: 35px;
+    width: 32.5px;
   }
   .social-link {
     grid-column: 2/3;
-    margin: 0 15px;
     cursor: pointer;
   }
-  .social-link:first-child {
-    margin-left: 0px;
-  }
   .resume-button > button {
+    font-size: small;
     width: 80px;
-    height: 40px;
-    font-size: 16px;
+    height: 42.5px;
+    font-size: medium;
     margin: 0 15px 0 15px;
     cursor: pointer;
   }
@@ -206,15 +201,13 @@ export default {
     margin: 0;
   }
   .memoji {
-    align-self: baseline;
     margin: 0;
     width: 120px;
-    justify-self: start;
   }
 }
 @media screen and (max-width: $small-screen-width) {
   .home-wrapper {
-    width: 100%;
+    max-width: 100%;
   }
 }
 </style>

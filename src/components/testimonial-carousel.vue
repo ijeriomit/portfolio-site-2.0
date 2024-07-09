@@ -98,4 +98,33 @@ $testimonials-width: calc(
   height: 200px;
   overflow: hidden;
 }
+@media screen and (max-width: $phone-screen-width) {
+  .carousel__slide--active .testimonial {
+    width: calc($testimonial-width/1.25);
+    text-align: left;
+    height: 325px;
+    padding: calc($testimonial-padding/1.25);
+  }
+  .testimonial {
+    background-color: $primary-color;
+    padding: calc($testimonial-padding/1.25);
+    width: calc($testimonial-width/1.25);
+    height: 325px;
+  }
+  .profile-photo {
+    width: 70px;
+    height: 70px;
+  }
+  .testimonial-section h2 {
+    font-size: 1.5rem;
+  }
+  .name {
+    font-size: 1.25rem;
+  }
+  .text {
+    width: 250px;
+    font-size: 1.1rem;
+    height: 175px;
+  }
+}
 </style>

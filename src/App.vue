@@ -12,21 +12,11 @@
       <div id="ABOUT-ME" class="content-block about-section">
         <about-section></about-section>
       </div>
-      <div id="PROJECTS" class="content-block project-section">
-        <div>Projects</div>
-        <!-- <projects-section class="section-wrapper"></projects-section> -->
-      </div>
+      <div id="PROJECTS" class="content-block project-section"></div>
       <div class="flag-background"></div>
-      <div id="CONTACT-ME" class="content-block contact-section">
-        <div>Contact</div>
-        <!-- <contact-me class="section-wrapper"></contact-me> -->
-      </div>
-      <!-- <div class="content-block" style="grid-row: 6/6">
-        <footer-section class="section-wrapper"></footer-section>
-      </div> -->
+      <div id="CONTACT-ME" class="content-block contact-section"></div>
       <div class="footer"></div>
     </main>
-    <!-- <div class="social-bar"></div> -->
   </div>
 </template>
 <script setup>
@@ -57,9 +47,9 @@ $page-height: $title-height + $aboutMe-height + $projects-height +
 
 .content-grid {
   position: relative;
-  scroll-snap-type: y proximity;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
+  // scroll-snap-type: y proximity;
+  // overflow-y: scroll;
+  // scroll-behavior: smooth;
   height: 100vh;
   width: 100vw;
   display: grid;
@@ -72,11 +62,13 @@ $page-height: $title-height + $aboutMe-height + $projects-height +
     $footer-height;
 }
 html {
+  scroll-behavior: smooth;
 }
 body {
   margin: 0;
   overflow-x: hidden;
-  overflow-y: hidden;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
 }
 .background {
   z-index: 1;
@@ -112,7 +104,7 @@ body {
   bottom: 0;
   height: $footer-height;
   background-color: $primary-color;
-  scroll-snap-align: center;
+  // scroll-snap-align: center;
 }
 .content-block {
   z-index: 2;
@@ -121,7 +113,7 @@ body {
   justify-content: center;
   grid-column: 2/2;
   overflow: hidden;
-  scroll-snap-align: center;
+  // scroll-snap-align: center;
 }
 .title-background {
   @extend .background;
@@ -146,10 +138,21 @@ body {
     rgba(0, 135, 83, 0)
   );
 }
+
+@media screen and (max-width: $small-screen-width) {
+  .content-grid {
+    grid-template-rows:
+      $title-height
+      calc($aboutMe-height + 400px)
+      $projects-height
+      $contactMe-height
+      $footer-height;
+  }
+}
+
 @media screen and (max-width: $phone-screen-width) {
   .content-grid {
     position: relative;
-    // top: 60px;
     height: 100%;
     width: 100vw;
     display: grid;
@@ -162,7 +165,7 @@ body {
       $footer-height;
   }
 }
-.content-grid::-webkit-scrollbar {
+body::-webkit-scrollbar {
   display: none;
 }
 </style>

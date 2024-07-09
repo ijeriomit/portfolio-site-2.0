@@ -60,7 +60,6 @@ export default {
   margin-left: 2.5vw;
 }
 .logo-icon {
-  // margin: -15px;
   align-self: center;
   width: 75px;
 }
@@ -151,7 +150,6 @@ export default {
     width: 50px;
   }
   .header-wrapper {
-    width: 95%;
     justify-self: center;
   }
 }
