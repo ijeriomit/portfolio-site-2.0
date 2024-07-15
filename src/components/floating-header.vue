@@ -10,38 +10,48 @@
         src="@/assets/clip-art-images/ijeri-logo-text.png"
       />
     </a>
-    <button @click="toggleMenu()" class="hamburger-menu" type="button">
-      <menu-svg v-if="!menuOpen" :color="'#000000'"> </menu-svg>
+    <button
+      @click.prevent="toggleMenu"
+      class="hamburger-menu"
+      type="button"
+      ref="toggle"
+    >
+      <menu-svg v-show="!menuOpen" :color="'#000000'"> </menu-svg>
       <img
         class="close-menu"
         src="@/assets/clip-art-images/close.svg"
-        v-if="menuOpen"
+        v-show="menuOpen"
       />
     </button>
-    <menu-nav v-if="menuOpen"></menu-nav>
+    <menu-nav v-show="menuOpen" ref="menu"></menu-nav>
   </header>
 </template>
-<script>
+<script setup>
 import MenuSvg from "./menu-svg.vue";
 import MenuNav from "./menu-nav.vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 
-export default {
-  name: "floating-header",
-  components: {
-    "menu-svg": MenuSvg,
-    "menu-nav": MenuNav,
-  },
-  data: function () {
-    return {
-      menuOpen: false,
-    };
-  },
-  methods: {
-    toggleMenu: function () {
-      this.menuOpen = !this.menuOpen;
-    },
-  },
-};
+const menuOpen = ref(false);
+const menu = ref(null);
+const toggle = ref(null);
+
+onMounted(() => {
+  document.addEventListener("click", close);
+});
+onBeforeUnmount(() => {
+  document.removeEventListener("click", close);
+});
+function toggleMenu() {
+  menuOpen.value = !menuOpen.value;
+}
+function close(event) {
+  if (
+    !menu.value.$el.contains(event.target) &&
+    !toggle.value.contains(event.target)
+  ) {
+    menuOpen.value = false;
+  }
+}
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
@@ -151,6 +161,11 @@ export default {
   }
   .header-wrapper {
     justify-self: center;
+  }
+  .close-menu {
+    transform: none;
+    width: 20px;
+    margin-left: 2.5vw;
   }
 }
 @media screen and (max-width: $small-screen-width) {

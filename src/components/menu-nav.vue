@@ -6,11 +6,7 @@
     <a aria-label="contact-me-tab" role="tab" href="#CONTACT-ME">Contact Me</a>
   </nav>
 </template>
-<script>
-export default {
-  name: "menu-nav",
-};
-</script>
+<script setup></script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 
@@ -22,9 +18,11 @@ export default {
   width: 125px;
   right: 0px;
   top: 25px;
-  padding: 40px;
+  padding: 35px;
+  margin-right: 2.5vw;
   justify-content: center;
   display: flex;
+  cursor: pointer;
 }
 a {
   display: block;
@@ -43,6 +41,7 @@ a:hover {
   .menu {
     padding: 20px 20px;
     width: 20vw;
+    margin-right: 5vw;
   }
   a {
     font-size: medium;
