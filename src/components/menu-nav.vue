@@ -23,6 +23,7 @@
   justify-content: center;
   display: flex;
   cursor: pointer;
+  box-shadow: 5px 10px 10px grey;
 }
 a {
   display: block;

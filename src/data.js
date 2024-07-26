@@ -105,5 +105,20 @@ export const store = {
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       imageSrc: "",
     },
+    {
+      projectName: "Project 5",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      imageSrc: "",
+    },
+    {
+      projectName: "Project 6",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      imageSrc: "",
+    },
+    {
+      projectName: "Project 7",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      imageSrc: "",
+    },
   ],
 };

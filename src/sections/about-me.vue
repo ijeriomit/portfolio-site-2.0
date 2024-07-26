@@ -212,10 +212,12 @@ span:last-child {
   font-size: 30px;
   cursor: pointer;
   background-color: #8f9391;
+  // box-shadow: 5px 10px 10px black;
 }
 .button-row button.active {
   background-color: $quaternary-color;
   color: $secondary-color;
+  // box-shadow: 5px 10px 10px grey;
 }
 .button-row button:hover:not(.active) {
   transition: all 0.1s ease-in;
@@ -294,7 +296,7 @@ span:last-child {
   }
   .about-me-content {
     grid-row: 2/3;
-    width: 80vw;
+    width: 90vw;
     justify-self: center;
     grid-column: 1 / 3;
     gap: 20px;
@@ -318,6 +320,7 @@ span:last-child {
   }
   .button-row {
     justify-content: center;
+    gap: 30px;
   }
 }
 @media screen and (max-width: $phone-screen-width) {

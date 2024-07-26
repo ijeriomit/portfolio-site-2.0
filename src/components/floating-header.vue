@@ -60,6 +60,7 @@ function close(event) {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  height: 60px;
   justify-content: space-between;
 }
 .logo {

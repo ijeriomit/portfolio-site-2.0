@@ -12,7 +12,9 @@
       <div id="ABOUT-ME" class="content-block about-section">
         <about-section></about-section>
       </div>
-      <div id="PROJECTS" class="content-block project-section"></div>
+      <div id="PROJECTS" class="content-block project-section">
+        <projects-section></projects-section>
+      </div>
       <div class="flag-background"></div>
       <div id="CONTACT-ME" class="content-block contact-section"></div>
       <div class="footer"></div>
@@ -23,6 +25,7 @@
 import FloatingHeader from "./components/floating-header.vue";
 import HomeSection from "./sections/home.vue";
 import AboutSection from "./sections/about-me.vue";
+import ProjectsSection from "./sections/projects-section.vue";
 // import Footer from "./components/footer.vue";
 </script>
 <style lang="scss">

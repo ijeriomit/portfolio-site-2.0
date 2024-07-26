@@ -72,6 +72,7 @@ $testimonials-width: calc(
   font-size: 1.5rem;
   cursor: pointer;
   transition: all 1s ease-in-out;
+  box-shadow: 5px 10px 10px grey;
 }
 .carousel__slide--active .testimonial {
   background-color: $primary-color;
