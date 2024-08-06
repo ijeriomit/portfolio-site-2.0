@@ -1,15 +1,15 @@
 <template>
   <header class="header-wrapper">
-    <a class="logo" href="#HOME">
+    <RouterLink class="logo" :to="routes[0]">
       <img
-        class="logo-icon logo-spin"
+        class="logo-icon"
         src="@/assets/clip-art-images/ijeri-logo-icon.png"
       />
       <img
-        class="logo-text logo-text-disappear"
+        class="logo-text"
         src="@/assets/clip-art-images/ijeri-logo-text.png"
       />
-    </a>
+    </RouterLink>
     <button
       @click.prevent="toggleMenu"
       class="hamburger-menu"
@@ -23,13 +23,15 @@
         v-show="menuOpen"
       />
     </button>
-    <menu-nav v-show="menuOpen" ref="menu"></menu-nav>
+    <menu-nav :routes="routes" v-show="menuOpen" ref="menu"></menu-nav>
   </header>
 </template>
 <script setup>
 import MenuSvg from "./menu-svg.vue";
 import MenuNav from "./menu-nav.vue";
+import { routes } from "@/main.js";
 import { ref, onMounted, onBeforeUnmount } from "vue";
+import { RouterLink } from "vue-router";
 
 const menuOpen = ref(false);
 const menu = ref(null);
@@ -60,7 +62,7 @@ function close(event) {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  height: 60px;
+  height: 100px;
   justify-content: space-between;
 }
 .logo {
@@ -91,8 +93,8 @@ function close(event) {
   margin-right: 2.5vw;
 }
 .hamburger-menu > svg {
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
 }
 .close-menu {
   width: 25px;

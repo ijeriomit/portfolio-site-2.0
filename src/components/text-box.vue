@@ -3,11 +3,6 @@
     <slot name="text-slot"></slot>
   </div>
 </template>
-<script setup>
-const props = defineProps({
-  animate: Boolean,
-});
-</script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 

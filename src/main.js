@@ -1,4 +1,19 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 
-createApp(App).mount("#app");
+import { createWebHistory, createRouter } from "vue-router";
+import ContactPage from "./pages/contact-page.vue";
+import ProjectsPage from "./pages/projects-page.vue";
+import AboutPage from "./pages/about-page.vue";
+
+export const routes = [
+  { path: "/", component: AboutPage },
+  { path: "/projects", component: ProjectsPage },
+  { path: "/contact", component: ContactPage },
+];
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});
+createApp(App).use(router).mount("#app");

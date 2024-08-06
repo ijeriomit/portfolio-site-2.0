@@ -1,69 +1,28 @@
 <template>
   <div>
     <floating-header class="header"></floating-header>
-    <main class="content-grid">
-      <div class="title-background">
-        <img src="@/assets/matrix-background.svg" />
-      </div>
-      <div id="HOME" class="content-block home-section">
-        <home-section></home-section>
-      </div>
-      <div class="gradient-background"></div>
-      <div id="ABOUT-ME" class="content-block about-section">
-        <about-section></about-section>
-      </div>
-      <div id="PROJECTS" class="content-block project-section">
-        <projects-section></projects-section>
-      </div>
-      <div class="flag-background"></div>
-      <div id="CONTACT-ME" class="content-block contact-section"></div>
-      <div class="footer"></div>
+    <main>
+      <RouterView />
     </main>
+    <Footer class="footer"></Footer>
   </div>
 </template>
 <script setup>
 import FloatingHeader from "./components/floating-header.vue";
-import HomeSection from "./sections/home.vue";
-import AboutSection from "./sections/about-me.vue";
-import ProjectsSection from "./sections/projects-section.vue";
-// import Footer from "./components/footer.vue";
+import Footer from "./components/footer.vue";
 </script>
 <style lang="scss">
 @import "@/scss/variables.scss";
 @import "@/scss/styles.scss";
 
 $header-height: 100px;
-$title-height: 600px;
-$aboutMe-height: 1600px;
-$projects-height: 1600px;
-$contactMe-height: 1000px;
-$footer-height: 500px;
-
-$page-height: $title-height + $aboutMe-height + $projects-height +
-  $contactMe-height + $footer-height;
+$page-height: 6000px;
 
 #app {
-  height: $page-height;
   width: 100vw;
   position: relative;
 }
 
-.content-grid {
-  position: relative;
-  // scroll-snap-type: y proximity;
-  // overflow-y: scroll;
-  // scroll-behavior: smooth;
-  height: 100vh;
-  width: 100vw;
-  display: grid;
-  grid-template-columns: 2.5% 95% 2.5%;
-  grid-template-rows:
-    $title-height
-    $aboutMe-height
-    $projects-height
-    $contactMe-height
-    $footer-height;
-}
 html {
   scroll-behavior: smooth;
 }
@@ -72,6 +31,11 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
   overflow-y: scroll;
+  background-image: linear-gradient(
+    rgba(0, 135, 83, 0.8),
+    rgba(0, 135, 83, 0.25),
+    rgba(0, 135, 83, 0)
+  );
 }
 .background {
   z-index: 1;
@@ -118,20 +82,6 @@ body {
   overflow: hidden;
   // scroll-snap-align: center;
 }
-.title-background {
-  @extend .background;
-  background-color: $primary-color;
-  grid-row: 1 / 2;
-  width: 100%;
-  opacity: 40%;
-  display: flex;
-  overflow: hidden;
-}
-.title-background img {
-  align-self: center;
-  width: 100%;
-  height: 200%;
-}
 .gradient-background {
   @extend .background;
   grid-row: 2/5;
@@ -143,30 +93,30 @@ body {
 }
 
 @media screen and (max-width: $small-screen-width) {
-  .content-grid {
-    grid-template-rows:
-      $title-height
-      calc($aboutMe-height + 400px)
-      $projects-height
-      $contactMe-height
-      $footer-height;
-  }
+  // .content-grid {
+  //   grid-template-rows:
+  //     $title-height
+  //     calc($aboutMe-height + 400px)
+  //     $projects-height
+  //     $contactMe-height
+  //     $footer-height;
+  // }
 }
 
 @media screen and (max-width: $phone-screen-width) {
-  .content-grid {
-    position: relative;
-    height: 100%;
-    width: 100vw;
-    display: grid;
-    grid-template-columns: 5% 90% 5%;
-    grid-template-rows:
-      calc($title-height/2)
-      $aboutMe-height
-      $projects-height
-      $contactMe-height
-      $footer-height;
-  }
+  // .content-grid {
+  //   position: relative;
+  //   height: 100%;
+  //   width: 100vw;
+  //   display: grid;
+  //   grid-template-columns: 5% 90% 5%;
+  //   grid-template-rows:
+  //     calc($title-height/2)
+  //     $aboutMe-height
+  //     $projects-height
+  //     $contactMe-height
+  //     $footer-height;
+  // }
 }
 body::-webkit-scrollbar {
   display: none;

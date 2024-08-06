@@ -1,12 +1,13 @@
 <template>
   <nav class="menu">
-    <a aria-label="home-tab" role="tab" href="#HOME">Home</a>
-    <a aria-label="about-me-tab" role="tab" href="#ABOUT-ME">About Me</a>
-    <a aria-label="projects-tab" role="tab" href="#PROJECTS">Projects</a>
-    <a aria-label="contact-me-tab" role="tab" href="#CONTACT-ME">Contact Me</a>
+    <RouterLink class="menu-link" :to="props.routes[0]">About Me</RouterLink>
+    <RouterLink class="menu-link" :to="props.routes[1]">Projects</RouterLink>
+    <RouterLink class="menu-link" :to="props.routes[2]">Contact</RouterLink>
   </nav>
 </template>
-<script setup></script>
+<script setup>
+const props = defineProps(["routes"]);
+</script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 
@@ -25,7 +26,7 @@
   cursor: pointer;
   box-shadow: 5px 10px 10px grey;
 }
-a {
+.menu-link {
   display: block;
   margin: 10px 0;
   color: $quaternary-color;
@@ -34,7 +35,7 @@ a {
   font-weight: bold;
   text-decoration: none;
 }
-a:hover {
+.menu-link:hover {
   color: $secondary-color;
   font-size: larger;
 }

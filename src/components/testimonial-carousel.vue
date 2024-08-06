@@ -1,5 +1,5 @@
 <template>
-  <div class="testimonial-section">
+  <div class="testimonial-wrapper">
     <h2>Testimonials</h2>
     <Carousel
       class="testimonials"
@@ -47,11 +47,11 @@ $testimonials-width: calc(
   padding: 10px;
 }
 
-.testimonial-section {
+.testimonial-wrapper {
   display: flex;
   flex-flow: column nowrap;
 }
-.testimonial-section h2 {
+.testimonial-wrapper h2 {
   align-self: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -116,7 +116,7 @@ $testimonials-width: calc(
     width: 70px;
     height: 70px;
   }
-  .testimonial-section h2 {
+  .testimonial-wrapper h2 {
     font-size: 1.5rem;
   }
   .name {
