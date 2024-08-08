@@ -3,7 +3,7 @@
     <section class="title-section">
       <div class="title-section-background"></div>
       <img src="@/assets/white-matrix-background.png" />
-      <pageGreeting></pageGreeting>
+      <PageGreeting></PageGreeting>
     </section>
     <section class="about-me-section">
       <img class="headshot" src="@/assets/about-me-images/headshot.jpeg" />
@@ -15,7 +15,7 @@
       <p class="personal-desc">
         {{ store.personalDesc }}
       </p>
-      <testimonialCarousel class="testimonial-section"></testimonialCarousel>
+      <TestimonialCarousel class="testimonial-section"></TestimonialCarousel>
     </section>
     <section class="exp-section">
       <h1 class="heading">
@@ -40,62 +40,137 @@
       </div>
     </section>
     <section class="skills-section">
-      <div class="tab-content">
-        <h3>Programming Languages & Frameworks:</h3>
-        <div class="skill-row">
-          <div
-            v-for="(language, index) of store.programmingLanguages"
-            :key="index"
-            class="skill-block"
-          >
-            {{ language }}
+      <h1 class="heading">
+        <span>console.log( </span>
+        <span class="typewriter-animation">"Skills"</span>
+        <span>);</span>
+      </h1>
+      <img class="clip-art" src="@/assets/clip-art-images/wires.png" />
+      <div class="dev-tools">
+        <h3>Dev Tools & Technology:</h3>
+        <div class="skills">
+          <div class="skill-row top">
+            <div
+              v-for="(tool, index) of store.devTools.slice(0, 3)"
+              :key="index"
+              class="skill-block"
+            >
+              <p>{{ tool }}</p>
+            </div>
           </div>
-        </div>
-        <h3>Dev Tools:</h3>
-        <div class="skill-row">
-          <div
-            v-for="(tool, index) of store.devTools"
-            :key="index"
-            class="skill-block"
-          >
-            {{ tool }}
+          <div class="skill-row middle">
+            <div
+              v-for="(tool, index) of store.devTools.slice(3, 7)"
+              :key="index"
+              class="skill-block"
+            >
+              <p>{{ tool }}</p>
+            </div>
+          </div>
+          <div class="skill-row bottom">
+            <div
+              v-for="(tool, index) of store.devTools.slice(7, 11)"
+              :key="index"
+              class="skill-block"
+            >
+              <p>{{ tool }}</p>
+            </div>
+          </div>
+          <div class="skill-row bottom">
+            <div
+              v-for="(tool, index) of store.devTools.slice(
+                11,
+                store.devTools.length
+              )"
+              :key="index"
+              class="skill-block"
+            >
+              <p>{{ tool }}</p>
+            </div>
           </div>
         </div>
       </div>
+      <div class="programming-languages">
+        <h3>Programming Languages & Frameworks:</h3>
+        <div class="skills">
+          <div class="skill-row top">
+            <div
+              v-for="(language, index) of store.programmingLanguages.slice(
+                0,
+                3
+              )"
+              :key="index"
+              class="skill-block"
+            >
+              <p>{{ language }}</p>
+            </div>
+          </div>
+          <div class="skill-row middle">
+            <div
+              v-for="(language, index) of store.programmingLanguages.slice(
+                3,
+                7
+              )"
+              :key="index"
+              class="skill-block"
+            >
+              <p>{{ language }}</p>
+            </div>
+          </div>
+          <div class="skill-row bottom">
+            <div
+              v-for="(language, index) of store.programmingLanguages.slice(
+                7,
+                store.programmingLanguages.length
+              )"
+              :key="index"
+              class="skill-block"
+            >
+              <p>{{ language }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <NextPage class="next" message="See My Work!"></NextPage>
     </section>
   </div>
 </template>
 <script setup>
 import { store } from "@/data.js";
-import testimonialCarousel from "@/components/testimonial-carousel.vue";
-import pageGreeting from "@/components/page-greeting.vue";
+import TestimonialCarousel from "@/components/testimonial-carousel.vue";
+import PageGreeting from "@/components/page-greeting.vue";
+import NextPage from "@/components/next-page.vue";
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 @import "@/scss/styles.scss";
 
-$title-height: 700px;
+$title-height: 600px;
 $aboutMe-height: 1500px;
-$experience-height: 1000px;
-$skills-height: 1600px;
+$experience-height: 900px;
+$skills-height: 1300px;
 $about-me-page-height: $title-height + $aboutMe-height + $experience-height +
-  $skills-height + $footer-height;
+  $skills-height;
 :global(#app) {
-  height: $about-me-page-height;
+  height: $about-me-page-height + $footer-height;
 }
 .page {
   grid-template-rows: $title-height $aboutMe-height $experience-height $skills-height;
+  height: $about-me-page-height;
 }
-
+.title-section {
+  overflow: hidden;
+  grid-row: 1/2;
+  max-height: $title-height;
+  display: grid;
+}
 .about-me-section {
   grid-row: 2/3;
-  grid-column: 1/3;
   justify-content: center;
   align-self: center;
   display: grid;
   grid-template-columns: 50% 50%;
-  gap: 2.5% 5%;
-  grid-template-rows: 850px 700px;
+  grid-template-rows: 800px 600px;
   font-family: $vs-code-font;
 
   .heading {
@@ -103,6 +178,7 @@ $about-me-page-height: $title-height + $aboutMe-height + $experience-height +
     grid-row: 1 / 1;
     background-color: $primary-color;
     color: $secondary-color;
+    justify-self: start;
   }
   .heading span:first-child,
   span:last-child {
@@ -110,19 +186,21 @@ $about-me-page-height: $title-height + $aboutMe-height + $experience-height +
   }
 }
 .exp-section {
+  max-height: $experience-height;
   grid-row: 3/4;
-  grid-column: 1/3;
   // justify-content: center;
   align-self: center;
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 200px 700px;
+  grid-template-rows: 200px 600px;
 
   .heading {
     grid-column: 1 / 1;
     grid-row: 1 / 1;
     background-color: $quaternary-color;
     color: $secondary-color;
+    justify-self: end;
+    box-shadow: -5px 5px 5px black;
   }
   .heading span:first-child,
   span:last-child {
@@ -131,7 +209,32 @@ $about-me-page-height: $title-height + $aboutMe-height + $experience-height +
 }
 .skills-section {
   grid-row: 4/5;
-  grid-column: 1/3;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 200px 600px 400px;
+  max-height: $skills-height;
+  overflow: hidden;
+  .heading {
+    justify-self: start;
+    grid-column: 2 / 2;
+    grid-row: 1 / 1;
+    background-color: $secondary-color;
+    color: $highlight-color;
+  }
+  .heading span:first-child,
+  span:last-child {
+    color: $quaternary-color;
+  }
+}
+.skills {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.clip-art {
+  width: 1500px;
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
 }
 .experiences {
   grid-row: 2/3;
@@ -162,7 +265,7 @@ h3 {
   height: 700px;
   grid-column: 1 / 2;
   grid-row: 1 / 1;
-  justify-self: end;
+  justify-self: center;
 }
 .headshot-2 {
   @extend .headshot;
@@ -185,7 +288,7 @@ h3 {
 
 .heading {
   box-shadow: 5px 5px 5px black;
-  width: 900px;
+  width: 95%;
   height: 100px;
   border-radius: 25px;
   border: none;
@@ -211,13 +314,7 @@ h3 {
   grid-column: 1;
   grid-row: 1;
 }
-.title-section {
-  overflow: hidden;
-  grid-row: 1/2;
-  grid-column: 1/4;
-  height: 600px;
-  display: grid;
-}
+
 .title-section img {
   grid-column: 1;
   grid-row: 1;
@@ -233,15 +330,78 @@ h3 {
 
 .skill-row {
   display: flex;
-  flex-flow: row wrap;
-  width: inherit;
-  gap: 5px;
+  flex-flow: row nowrap;
+  max-width: 900px;
+  gap: 1.5%;
+  margin: 1rem 0;
+}
+.skill-row.top .skill-block {
+  width: 200px;
+}
+.skill-row.middle .skill-block {
+  width: 175px;
+}
+.skill-row.bottom .skill-block {
+  width: 175px;
 }
 .skill-block {
-  background-color: $quaternary-color;
+  display: flex;
+  justify-content: center;
   color: $secondary-color;
-  width: fit-content;
   padding: 5px;
+  font-size: 1.5rem;
+  font-family: $text-font;
+  text-align: center;
+  align-items: center;
+  height: 4rem;
+  p {
+    height: fit-content;
+    margin: 0;
+  }
+}
+.dev-tools {
+  grid-row: 2/2;
+  grid-column: 1/2;
+  align-self: start;
+  justify-self: center;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  h3 {
+    font-size: 1.75rem;
+    font-family: $text-font;
+    font-weight: bold;
+  }
+  .skill-block {
+    background-color: $quaternary-color;
+  }
+}
+.programming-languages {
+  grid-row: 2/2;
+  grid-column: 2/2;
+  align-self: start;
+  justify-self: center;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+  height: 450px;
+  h3 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    font-family: $text-font;
+  }
+  .skill-block {
+    background-color: $light-primary-color;
+  }
+}
+.next {
+  grid-row: 3/3;
+  grid-column: 2/2;
+  width: 600px;
+  height: 300px;
+  justify-self: center;
+  align-self: center;
 }
 .typewriter-animation {
   width: fit-content;

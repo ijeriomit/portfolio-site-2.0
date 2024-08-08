@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <floating-header class="header"></floating-header>
-    <main>
-      <RouterView />
-    </main>
-    <Footer class="footer"></Footer>
-  </div>
+  <floating-header class="header"></floating-header>
+  <main>
+    <RouterView />
+  </main>
+  <Footer class="footer"></Footer>
 </template>
 <script setup>
 import FloatingHeader from "./components/floating-header.vue";
@@ -26,6 +24,7 @@ $page-height: 6000px;
 html {
   scroll-behavior: smooth;
 }
+
 body {
   margin: 0;
   overflow-x: hidden;

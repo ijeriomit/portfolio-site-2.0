@@ -66,22 +66,13 @@ function close(event) {
   justify-content: space-between;
 }
 .logo {
-  display: inline-flex;
   order: 1;
   align-self: center;
   cursor: pointer;
   margin-left: 2.5vw;
-}
-.logo-icon {
-  align-self: center;
-  width: 75px;
-}
-.logo-text {
-  position: relative;
-  align-self: center;
-  width: 75px;
-  right: 15px;
-  margin-bottom: -7px;
+  img:first-child {
+    margin: -15px;
+  }
 }
 .hamburger-menu {
   order: 2;

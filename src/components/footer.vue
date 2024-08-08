@@ -1,51 +1,62 @@
 <template>
-  <div class="footer-wrapper">
+  <div class="wrapper">
+    <div class="logo">
+      <img src="@/assets/clip-art-images/ijeri-logo-icon-mono.svg" />
+      <img src="@/assets/clip-art-images/ijeri-logo-text.png" />
+    </div>
+    <p class="tag">Living, learning, and leveling up<br />one day at a time.</p>
     <div class="socials">
       <a style="margin-left: 0px" class="social-icon"
-        ><img :src="linkedin"
-      /></a>
-      <a class="social-icon"><img :src="github" /></a>
-      <a class="social-icon"><img :src="medium" /></a>
+        ><img src="@/assets/link-images/linkedin.svg" />
+      </a>
+      <a class="social-icon"><img src="@/assets/link-images/github.svg" /></a>
+      <a class="social-icon"><img src="@/assets/link-images/medium.png" /></a>
     </div>
     <div class="credit">
-      <p>Developed and Designed <b /> by <b /> Ijeri Omitogun</p>
+      <p>@ Ijeri Omitogun 2024</p>
     </div>
   </div>
 </template>
 <script>
-import mediumIcon from "@/assets/link-images/medium.png";
-import githubIcon from "@/assets/link-images/github.svg";
-import linkedinIcon from "@/assets/link-images/linkedin.svg";
 export default {
   name: "footer-section",
-  data: function () {
-    return {
-      github: githubIcon,
-      medium: mediumIcon,
-      linkedin: linkedinIcon,
-    };
-  },
 };
 </script>
 <style lang="scss" scoped>
-.footer-wrapper {
-  background-color: #008753;
-  opacity: 63%;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
+@import "@/scss/variables.scss";
+
+.wrapper {
+  background-color: $light-primary-color;
+  // background-color: $primary-color;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 150px 150px 100px;
+  display: grid;
 }
 .socials {
   display: flex;
-  margin-right: 2rem;
+  grid-row: 3;
+  grid-column: 1;
+  justify-self: center;
+  align-self: start;
+}
+.social-icon {
+  width: 3.5rem;
 }
 .credit {
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  position: absolute;
-  width: fit-content;
+  grid-row: 3;
+  grid-column: 3;
+  align-self: start;
+  justify-self: center;
+  font-size: 2rem;
+  font-family: Roboto Slab Roboto Mono monospace;
+}
+.tag {
+  grid-row: 2;
+  grid-column: 2;
+  text-align: center;
+  align-self: center;
+  justify-self: center;
+  font-size: 2rem;
 }
 a {
   width: 2.75rem;
@@ -57,5 +68,19 @@ a {
 .footer-wrapper > div {
   text-align: center;
   align-self: center;
+}
+.logo {
+  align-self: end;
+  justify-self: center;
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  img:first-child {
+    width: 15rem;
+    margin: -50px;
+  }
+  img:last-child {
+    width: 7.5rem;
+    right: 10%;
+  }
 }
 </style>
