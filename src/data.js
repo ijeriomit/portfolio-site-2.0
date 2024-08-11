@@ -4,25 +4,31 @@ export const store = {
   experiences: [
     {
       companyName: "Data Annotation",
-      startDate: "mm-dd-yyyy",
-      endDate: "mm-dd-yyyy",
+      startDate: "April 2024",
+      endDate: "Present",
       jobTitle: "AI Trainer (Contract)",
+      logoPath: "data-annotations-logo.jpg",
+      companyUrl: "https://www.dataannotation.tech/",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur. Nam maximus consequat metus eu malesuada.Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur. Nam maximus consequat metus eu malesuada.",
     },
     {
       companyName: "Google LLC",
-      startDate: "mm-dd-yyyy",
-      endDate: "mm-dd-yyyy",
+      startDate: "November 2021",
+      endDate: "March 2024",
       jobTitle: "Software Engineer",
+      logoPath: "google-logo.png",
+      companyUrl: "https://about.google/",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur. Nam maximus consequat metus eu malesuada.Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur. Nam maximus consequat metus eu malesuada.",
     },
     {
       companyName: "Nauticus Robotics",
-      startDate: "mm-dd-yyyy",
-      endDate: "mm-dd-yyyy",
+      startDate: "May 2019",
+      endDate: "June 2021",
       jobTitle: "Software Engineer",
+      logoPath: "nauticus-robotics-logo.jpeg",
+      companyUrl: "https://nauticusrobotics.com/",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur. Nam maximus consequat metus eu malesuada.Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur. Nam maximus consequat metus eu malesuada.",
     },
@@ -55,7 +61,7 @@ export const store = {
     "MacOS",
     "Windows",
   ],
-  testimonials: [
+  endorsements: [
     {
       name: "Joe Blow 1",
       imageSrc: "",

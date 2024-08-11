@@ -9,7 +9,9 @@
       <div class="typewriter-animation">HI, I AM</div>
       <div class="delay typewriter-animation">IJERI OMITOGUN!</div>
     </h1>
-    <p class="subtitle">Frontend Developer / Software Engineer / UX Designer</p>
+    <h2 class="subtitle">
+      Frontend Developer / Software Engineer / UX Designer
+    </h2>
     <a
       class="resume-button"
       href="https://yellow-anabal-39.tiiny.site/"
@@ -58,7 +60,6 @@
   grid-column: 1;
   grid-row: 1;
   z-index: 2;
-  align-self: center;
   justify-self: center;
 }
 .memoji {
@@ -98,12 +99,11 @@
   border: none;
   cursor: pointer;
   font-weight: bold;
-  font-family: $text-font;
+  font-family: $heading-font;
   font-size: 20px;
   letter-spacing: 0.3;
 }
 .resume-button > button:hover {
-  background-color: #025e3b;
   width: 130px;
   height: 62.5px;
   font-weight: 400;
@@ -124,7 +124,7 @@
 }
 .title {
   color: $quaternary-color;
-  font-family: $vs-code-font;
+  font-family: $heading-font;
   font-weight: bold;
   font-size: 3rem;
   grid-column: 2/2;

@@ -9,18 +9,18 @@
       <img class="headshot" src="@/assets/about-me-images/headshot.jpeg" />
       <h1 class="heading">
         <span>print(</span>
-        <span class="typewriter-animation">"About Me"</span>
+        <span>"About Me"</span>
         <span>);</span>
       </h1>
       <p class="personal-desc">
         {{ store.personalDesc }}
       </p>
-      <TestimonialCarousel class="testimonial-section"></TestimonialCarousel>
+      <EndorsementCarousel class="endorsement-section"></EndorsementCarousel>
     </section>
     <section class="exp-section">
       <h1 class="heading">
         <span>cout &lt;&lt; </span>
-        <span class="typewriter-animation">"Experience"</span>
+        <span>"Experience"</span>
         <span>;</span>
       </h1>
       <div class="experiences">
@@ -28,12 +28,24 @@
           v-for="experience of store.experiences"
           :key="experience.companyName"
         >
-          <!-- <span class="company-title"> -->
-          <h2>{{ experience.companyName }}</h2>
+          <a
+            :href="experience.companyUrl"
+            target="_blank"
+            class="experience-heading"
+          >
+            <h2>
+              {{ experience.companyName }}
+            </h2>
+            <img
+              class="company-logo"
+              :src="
+                require(`@/assets/work-experience-images/${experience.logoPath}`)
+              "
+            />
+          </a>
           <p class="dates">
             {{ experience.startDate }} - {{ experience.endDate }}
           </p>
-          <!-- </span> -->
           <h3>{{ experience.jobTitle }}</h3>
           <p>{{ experience.description }}</p>
         </div>
@@ -42,7 +54,7 @@
     <section class="skills-section">
       <h1 class="heading">
         <span>console.log( </span>
-        <span class="typewriter-animation">"Skills"</span>
+        <span>"Skills"</span>
         <span>);</span>
       </h1>
       <img class="clip-art" src="@/assets/clip-art-images/wires.png" />
@@ -137,7 +149,7 @@
 </template>
 <script setup>
 import { store } from "@/data.js";
-import TestimonialCarousel from "@/components/testimonial-carousel.vue";
+import EndorsementCarousel from "@/components/endorsement-carousel.vue";
 import PageGreeting from "@/components/page-greeting.vue";
 import NextPage from "@/components/next-page.vue";
 </script>
@@ -145,15 +157,12 @@ import NextPage from "@/components/next-page.vue";
 @import "@/scss/variables.scss";
 @import "@/scss/styles.scss";
 
-$title-height: 600px;
 $aboutMe-height: 1500px;
 $experience-height: 900px;
 $skills-height: 1300px;
+$title-height: 600px;
 $about-me-page-height: $title-height + $aboutMe-height + $experience-height +
   $skills-height;
-:global(#app) {
-  height: $about-me-page-height + $footer-height;
-}
 .page {
   grid-template-rows: $title-height $aboutMe-height $experience-height $skills-height;
   height: $about-me-page-height;
@@ -171,7 +180,6 @@ $about-me-page-height: $title-height + $aboutMe-height + $experience-height +
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 800px 600px;
-  font-family: $vs-code-font;
 
   .heading {
     grid-column: 2 / 2;
@@ -188,7 +196,6 @@ $about-me-page-height: $title-height + $aboutMe-height + $experience-height +
 .exp-section {
   max-height: $experience-height;
   grid-row: 3/4;
-  // justify-content: center;
   align-self: center;
   display: grid;
   grid-template-columns: 50% 50%;
@@ -219,7 +226,7 @@ $about-me-page-height: $title-height + $aboutMe-height + $experience-height +
     grid-column: 2 / 2;
     grid-row: 1 / 1;
     background-color: $secondary-color;
-    color: $highlight-color;
+    color: $primary-color;
   }
   .heading span:first-child,
   span:last-child {
@@ -244,7 +251,7 @@ $about-me-page-height: $title-height + $aboutMe-height + $experience-height +
   flex-flow: row wrap;
   justify-content: center;
   gap: 5%;
-  font-family: $text-font;
+  font-family: $heading-font;
 }
 .experiences > div {
   width: 25%;
@@ -256,9 +263,11 @@ $about-me-page-height: $title-height + $aboutMe-height + $experience-height +
 .experiences .dates,
 h3 {
   font-size: 1.75rem;
+  font-family: $heading-font;
 }
 .experiences p {
-  font-size: 1.5rem;
+  font-family: $text-font;
+  font-size: 1.75rem;
 }
 .headshot {
   width: 700px;
@@ -270,14 +279,14 @@ h3 {
 .headshot-2 {
   @extend .headshot;
 }
-.testimonial-section {
+.endorsement-section {
   grid-row: 2/3;
   grid-column: 1 / 3;
 }
 .personal-desc {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   max-width: 700px;
-  font-family: Roboto, Roboto Mono, monospace;
+  font-family: $text-font;
   max-height: 700px;
   overflow-y: auto;
   grid-column: 2 / 2;
@@ -288,7 +297,7 @@ h3 {
 
 .heading {
   box-shadow: 5px 5px 5px black;
-  width: 95%;
+  width: 90%;
   height: 100px;
   border-radius: 25px;
   border: none;
@@ -297,7 +306,7 @@ h3 {
   gap: 10px;
   font-size: 3rem;
   margin: 20px 0 30px 0;
-  font-family: $text-font;
+  font-family: $heading-font;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -307,7 +316,7 @@ h3 {
 
 .title-section-background {
   z-index: 1;
-  height: 700px;
+  height: $title-height;
   background-color: $primary-color;
   width: 100%;
   opacity: 40%;
@@ -320,8 +329,9 @@ h3 {
   grid-row: 1;
   align-self: center;
   width: 100%;
-  height: 700px;
-  opacity: 60%;
+  height: $title-height;
+  opacity: 45%;
+  position: relative;
 }
 
 .job-title {
@@ -350,7 +360,7 @@ h3 {
   color: $secondary-color;
   padding: 5px;
   font-size: 1.5rem;
-  font-family: $text-font;
+  font-family: $heading-font;
   text-align: center;
   align-items: center;
   height: 4rem;
@@ -369,7 +379,7 @@ h3 {
   align-items: center;
   h3 {
     font-size: 1.75rem;
-    font-family: $text-font;
+    font-family: $heading-font;
     font-weight: bold;
   }
   .skill-block {
@@ -389,7 +399,7 @@ h3 {
   h3 {
     font-size: 1.75rem;
     font-weight: bold;
-    font-family: $text-font;
+    font-family: $heading-font;
   }
   .skill-block {
     background-color: $light-primary-color;
@@ -409,7 +419,17 @@ h3 {
   margin: 0 5px;
   max-width: fit-content;
 }
-
+.company-logo {
+  width: 75px;
+}
+.experience-heading {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 5%;
+  cursor: pointer;
+  color: black;
+}
 @media screen and (max-width: $small-screen-width) {
   .about-me-wrapper {
     grid-template-rows: 550px 700px;
@@ -425,7 +445,7 @@ h3 {
     grid-column: 1 / 3;
     justify-self: center;
   }
-  .testimonials {
+  .endorsements {
     width: 100vw;
     height: 500px;
     justify-self: center;

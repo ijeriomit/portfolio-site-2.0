@@ -1,26 +1,35 @@
 <template>
   <div class="wrapper">
-    <div class="logo">
+    <RouterLink class="logo" :to="routes[0]">
       <img src="@/assets/clip-art-images/ijeri-logo-icon-mono.svg" />
       <img src="@/assets/clip-art-images/ijeri-logo-text.png" />
-    </div>
+    </RouterLink>
     <p class="tag">Living, learning, and leveling up<br />one day at a time.</p>
     <div class="socials">
-      <a style="margin-left: 0px" class="social-icon"
-        ><img src="@/assets/link-images/linkedin.svg" />
-      </a>
-      <a class="social-icon"><img src="@/assets/link-images/github.svg" /></a>
-      <a class="social-icon"><img src="@/assets/link-images/medium.png" /></a>
+      <a
+        href="https://www.linkedin.com/in/ijeri-omitogun/"
+        target="_blank"
+        class="social-icon"
+        ><img src="@/assets/link-images/linkedin.svg"
+      /></a>
+      <a href="https://github.com/ijeriomit" target="_blank" class="social-icon"
+        ><img src="@/assets/link-images/github.svg"
+      /></a>
+      <a
+        href="https://medium.com/@jeri-omit"
+        target="_blank"
+        class="social-icon"
+        ><img src="@/assets/link-images/medium.svg"
+      /></a>
     </div>
     <div class="credit">
       <p>@ Ijeri Omitogun 2024</p>
     </div>
   </div>
 </template>
-<script>
-export default {
-  name: "footer-section",
-};
+<script setup>
+import { RouterLink } from "vue-router";
+import { routes } from "@/main.js";
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
@@ -38,9 +47,15 @@ export default {
   grid-column: 1;
   justify-self: center;
   align-self: start;
+  width: 45%;
+  justify-content: space-between;
 }
 .social-icon {
   width: 3.5rem;
+  cursor: pointer;
+}
+.social-icon:hover {
+  width: 3.75rem;
 }
 .credit {
   grid-row: 3;
@@ -57,13 +72,6 @@ export default {
   align-self: center;
   justify-self: center;
   font-size: 2rem;
-}
-a {
-  width: 2.75rem;
-  height: 2.75rem;
-  // background-color: white;
-  display: block;
-  margin-left: 60px;
 }
 .footer-wrapper > div {
   text-align: center;

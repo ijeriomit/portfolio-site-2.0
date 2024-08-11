@@ -1,8 +1,8 @@
 <template>
-  <div class="testimonial-wrapper">
-    <h2>Testimonials</h2>
+  <div class="endorsement-wrapper">
+    <h2>Endorsements</h2>
     <Carousel
-      class="testimonials"
+      class="endorsements"
       @mouseenter="autoplaySpeed = 0"
       @mouseleave="autoplaySpeed = defaultAutoPlaySpeed"
       :autoplay="autoplaySpeed"
@@ -10,9 +10,13 @@
       :wrap-around="true"
     >
       <Slide v-for="(slide, index) of slides" :key="index">
-        <div class="carousel__item testimonial">
-          <div class="testimonial-heading">
-            <div class="profile-photo"></div>
+        <div class="carousel__item endorsement">
+          <div class="endorsement-heading">
+            <img
+              class="profile-photo"
+              color="white"
+              src="@/assets/about-me-images/profile-icon.png"
+            />
             <h3 class="name">{{ slide.name }}</h3>
           </div>
           <p class="text">
@@ -29,64 +33,72 @@ import { store } from "@/data.js";
 import { Carousel, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 
-const slides = ref(store.testimonials);
+const slides = ref(store.endorsements);
 const defaultAutoPlaySpeed = ref(2500);
 const autoplaySpeed = ref(defaultAutoPlaySpeed.value);
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
-$testimonial-width: 400px;
-$testimonial-height: 375px;
-$testimonials-gap: 50px;
-$testimonial-padding: 50px;
-$testimonials-width: calc(
-  $testimonial-width * 3 + ($testimonials-gap * 2) + ($testimonial-padding * 6)
+$endorsement-width: 400px;
+$endorsement-height: 375px;
+$endorsements-gap: 50px;
+$endorsement-padding: 50px;
+$endorsements-width: calc(
+  $endorsement-width * 3 + ($endorsements-gap * 2) + ($endorsement-padding * 6)
 );
-
+h2 {
+  font-family: $heading-font;
+}
 .carousel__slide {
   padding: 10px;
 }
 
-.testimonial-wrapper {
+.endorsement-wrapper {
   display: flex;
   flex-flow: column nowrap;
 }
-.testimonial-wrapper h2 {
+.endorsement-wrapper h2 {
   align-self: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
   font-size: 2rem;
 }
-.testimonials {
-  width: $testimonials-width;
+.endorsements {
+  width: $endorsements-width;
   align-self: center;
 }
-.testimonial {
+.endorsement {
   border-radius: 15%;
-  padding: $testimonial-padding;
-  padding-top: calc($testimonial-padding - 20px);
+  padding: $endorsement-padding;
+  padding-top: calc($endorsement-padding - 20px);
   color: $quaternary-color;
   background-color: $secondary-color;
-  width: $testimonial-width;
-  height: $testimonial-height;
+  width: $endorsement-width;
+  height: $endorsement-height;
   font-size: 1.5rem;
   cursor: pointer;
   transition: all 1s ease-in-out;
   box-shadow: 5px 10px 10px grey;
 }
-.carousel__slide--active .testimonial {
+.carousel__slide--active .endorsement {
   background-color: $primary-color;
-  height: calc($testimonial-height + 25px);
-  font-weight: bold;
+  height: calc($endorsement-height + 25px);
+  .endorsement-heading {
+    font-weight: bold;
+  }
+  .text {
+    font-weight: 400;
+  }
 }
-.testimonial-heading {
+.endorsement-heading {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   gap: 10px;
+  font-family: $heading-font;
 }
 .profile-photo {
-  background-color: gray;
+  background-color: white;
   border-radius: 50%;
   width: 100px;
   height: 100px;
@@ -98,25 +110,29 @@ $testimonials-width: calc(
   width: 300px;
   height: 200px;
   overflow: hidden;
+  font-family: $text-font;
+  text-align: left;
+  font-size: 1.5rem;
+  // font-weight: bold;
 }
 @media screen and (max-width: $phone-screen-width) {
-  .carousel__slide--active .testimonial {
-    width: calc($testimonial-width/1.25);
+  .carousel__slide--active .endorsement {
+    width: calc($endorsement-width/1.25);
     text-align: left;
     height: 325px;
-    padding: calc($testimonial-padding/1.25);
+    padding: calc($endorsement-padding/1.25);
   }
-  .testimonial {
+  .endorsement {
     background-color: $primary-color;
-    padding: calc($testimonial-padding/1.25);
-    width: calc($testimonial-width/1.25);
+    padding: calc($endorsement-padding/1.25);
+    width: calc($endorsement-width/1.25);
     height: 325px;
   }
   .profile-photo {
     width: 70px;
     height: 70px;
   }
-  .testimonial-wrapper h2 {
+  .endorsement-wrapper h2 {
     font-size: 1.5rem;
   }
   .name {

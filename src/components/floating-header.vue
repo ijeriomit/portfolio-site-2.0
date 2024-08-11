@@ -23,12 +23,18 @@
         v-show="menuOpen"
       />
     </button>
-    <menu-nav :routes="routes" v-show="menuOpen" ref="menu"></menu-nav>
+    <menu-nav
+      @routeClicked="menuOpen = false"
+      :routes="routes"
+      v-show="menuOpen"
+      ref="menu"
+    ></menu-nav>
   </header>
 </template>
 <script setup>
 import MenuSvg from "./menu-svg.vue";
 import MenuNav from "./menu-nav.vue";
+
 import { routes } from "@/main.js";
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import { RouterLink } from "vue-router";
@@ -62,14 +68,14 @@ function close(event) {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  height: 100px;
+  height: 150px;
   justify-content: space-between;
 }
 .logo {
   order: 1;
   align-self: center;
   cursor: pointer;
-  margin-left: 2.5vw;
+  margin-left: 5vw;
   img:first-child {
     margin: -15px;
   }
@@ -81,7 +87,7 @@ function close(event) {
   border: none;
   padding: 5px;
   cursor: pointer;
-  margin-right: 2.5vw;
+  margin-right: 5vw;
 }
 .hamburger-menu > svg {
   width: 75px;

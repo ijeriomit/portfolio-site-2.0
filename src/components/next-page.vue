@@ -57,7 +57,7 @@ p {
   margin: 1.5rem 1rem 0;
   height: 3rem;
   font-size: 2rem;
-  font-family: $text-font;
+  font-family: $heading-font;
   font-weight: bold;
   position: relative;
   right: 5%;

@@ -1,8 +1,23 @@
 <template>
   <nav class="menu">
-    <RouterLink class="menu-link" :to="props.routes[0]">About Me</RouterLink>
-    <RouterLink class="menu-link" :to="props.routes[1]">Projects</RouterLink>
-    <RouterLink class="menu-link" :to="props.routes[2]">Contact</RouterLink>
+    <RouterLink
+      @click="$emit('routeClicked')"
+      class="menu-link"
+      :to="props.routes[0]"
+      >About Me</RouterLink
+    >
+    <RouterLink
+      @click="$emit('routeClicked')"
+      class="menu-link"
+      :to="props.routes[1]"
+      >Projects</RouterLink
+    >
+    <RouterLink
+      @click="$emit('routeClicked')"
+      class="menu-link"
+      :to="props.routes[2]"
+      >Contact</RouterLink
+    >
   </nav>
 </template>
 <script setup>
@@ -15,8 +30,8 @@ const props = defineProps(["routes"]);
   background-color: $primary-color;
   flex-flow: column nowrap;
   position: absolute;
-  height: 200px;
-  width: 125px;
+  height: 500px;
+  width: 400px;
   right: 0px;
   top: 25px;
   padding: 35px;

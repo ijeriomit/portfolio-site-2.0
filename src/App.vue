@@ -3,11 +3,11 @@
   <main>
     <RouterView />
   </main>
-  <Footer class="footer"></Footer>
+  <FooterSection class="footer"></FooterSection>
 </template>
 <script setup>
 import FloatingHeader from "./components/floating-header.vue";
-import Footer from "./components/footer.vue";
+import FooterSection from "./components/footer-section.vue";
 </script>
 <style lang="scss">
 @import "@/scss/variables.scss";
@@ -31,9 +31,9 @@ body {
   scroll-behavior: smooth;
   overflow-y: scroll;
   background-image: linear-gradient(
-    rgba(0, 135, 83, 0.8),
-    rgba(0, 135, 83, 0.25),
-    rgba(0, 135, 83, 0)
+    rgba(29, 173, 118, 0.8),
+    rgba(29, 173, 118, 0.25),
+    rgba(29, 173, 118, 0)
   );
 }
 .background {
@@ -66,8 +66,7 @@ body {
 .footer {
   grid-row: 5/5;
   width: 100vw;
-  position: absolute;
-  bottom: 0;
+
   height: $footer-height;
   background-color: $primary-color;
   // scroll-snap-align: center;
@@ -80,44 +79,5 @@ body {
   grid-column: 2/2;
   overflow: hidden;
   // scroll-snap-align: center;
-}
-.gradient-background {
-  @extend .background;
-  grid-row: 2/5;
-  background-image: linear-gradient(
-    rgba(0, 135, 83, 0.65),
-    rgba(0, 135, 83, 0.25),
-    rgba(0, 135, 83, 0)
-  );
-}
-
-@media screen and (max-width: $small-screen-width) {
-  // .content-grid {
-  //   grid-template-rows:
-  //     $title-height
-  //     calc($aboutMe-height + 400px)
-  //     $projects-height
-  //     $contactMe-height
-  //     $footer-height;
-  // }
-}
-
-@media screen and (max-width: $phone-screen-width) {
-  // .content-grid {
-  //   position: relative;
-  //   height: 100%;
-  //   width: 100vw;
-  //   display: grid;
-  //   grid-template-columns: 5% 90% 5%;
-  //   grid-template-rows:
-  //     calc($title-height/2)
-  //     $aboutMe-height
-  //     $projects-height
-  //     $contactMe-height
-  //     $footer-height;
-  // }
-}
-body::-webkit-scrollbar {
-  display: none;
 }
 </style>
