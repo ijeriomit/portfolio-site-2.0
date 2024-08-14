@@ -17,7 +17,10 @@
               color="white"
               src="@/assets/about-me-images/profile-icon.png"
             />
-            <h3 class="name">{{ slide.name }}</h3>
+            <div class="person">
+              <h3 class="name">{{ slide.name }}</h3>
+              <h4 class="title">{{ slide.title }}</h4>
+            </div>
           </div>
           <p class="text">
             {{ slide.text }}
@@ -114,6 +117,19 @@ h2 {
   text-align: left;
   font-size: 1.5rem;
   // font-weight: bold;
+}
+.person {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  h3 {
+    margin-top: 1.5rem;
+  }
+  h4 {
+    font-size: 1.25rem;
+    margin: 0.75rem 0;
+  }
 }
 @media screen and (max-width: $phone-screen-width) {
   .carousel__slide--active .endorsement {

@@ -63,66 +63,137 @@ export const store = {
   ],
   endorsements: [
     {
-      name: "Joe Blow 1",
+      name: "Person 1",
+      title: "Engineer at Company",
       imageSrc: "",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur.",
     },
     {
-      name: "Joe Blow 2",
+      name: "Person 2",
+      title: "Manager at Company",
       imageSrc: "",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur.",
     },
     {
-      name: "Joe Blow 3",
+      name: "Person 3",
+      title: "VP of Engineer at Company",
       imageSrc: "",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur.",
     },
     {
-      name: "Joe Blow 4",
+      name: "Person 4",
+      title: "VP of Engineer at Company",
       imageSrc: "",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur.",
     },
     {
-      name: "Joe Blow 5",
+      name: "Person 5",
+      title: "Engineer at Company",
       imageSrc: "",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur.",
     },
   ],
+  productTeams: [
+    {
+      title: "Buying Hub by Google",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur. Nam maximus consequat metus eu malesuada. Pellentesque aliquet, lectus id maximus laoreet, nulla libero fermentum risus, varius iaculis arcu turpis in nisl. Curabitur accumsan a ligula vitae ullamcorper. Nulla eget ultrices sapien, at auctor dui. Aenean sollicitudin, metus sed.",
+      media: [require("@/assets/project-images/purchase_buying_hub.png")],
+      techStack: ["Angular", "Typescript", "Mocha/Chai"],
+    },
+    {
+      title: "Olympic Arm by Nauticus Robotics",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur. Nam maximus consequat metus eu malesuada. Pellentesque aliquet, lectus id maximus laoreet, nulla libero fermentum risus, varius iaculis arcu turpis in nisl. Curabitur accumsan a ligula vitae ullamcorper. Nulla eget ultrices sapien, at auctor dui. Aenean sollicitudin, metus sed.",
+      media: [
+        require("@/assets/project-images/olympic-arm.jpg"),
+        require("@/assets/project-images/olympic-arm.mp4"),
+        require("@/assets/project-images/mock-oly-arm.mp4"),
+        require("@/assets/project-images/oly-arm-tool.mp4"),
+      ],
+      productUrl: "https://nauticusrobotics.com/olympic-arm/",
+      techStack: ["Vue.js", "ROS", "Python", "Docker"],
+    },
+    {
+      title: "Supplier Nexus by Google",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur. Nam maximus consequat metus eu malesuada. Pellentesque aliquet, lectus id maximus laoreet, nulla libero fermentum risus, varius iaculis arcu turpis in nisl. Curabitur accumsan a ligula vitae ullamcorper. Nulla eget ultrices sapien, at auctor dui. Aenean sollicitudin, metus sed.",
+      media: [require("@/assets/project-images/supplier_buying_hub.png")],
+      techStack: ["Angular", "Typescript", "Mocha/Chai"],
+    },
+    {
+      title: "Haloguard by Nauticus Robotics",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur. Nam maximus consequat metus eu malesuada. Pellentesque aliquet, lectus id maximus laoreet, nulla libero fermentum risus, varius iaculis arcu turpis in nisl. Curabitur accumsan a ligula vitae ullamcorper. Nulla eget ultrices sapien, at auctor dui. Aenean sollicitudin, metus sed.",
+      media: [require("@/assets/project-images/haloguard.png")],
+      productUrl:
+        "https://www.rigzone.com/news/wire/transocean_deploys_drill_floor_safety_tech-12-feb-2021-164599-article/",
+      techStack: ["Vue", "Javascript", "ROS", "Python"],
+    },
+    {
+      title: "toolKITT by TransOcean & Nauticus Robotics",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur. Nam maximus consequat metus eu malesuada. Pellentesque aliquet, lectus id maximus laoreet, nulla libero fermentum risus, varius iaculis arcu turpis in nisl. Curabitur accumsan a ligula vitae ullamcorper. Nulla eget ultrices sapien, at auctor dui. Aenean sollicitudin, metus sed.",
+      media: [require("@/assets/project-images/aquanaut-commander.webp")],
+      productUrl: "https://nauticusrobotics.com/toolkitt/",
+      techStack: ["ROS", "Python"],
+    },
+  ],
   projects: [
     {
-      projectName: "Project 1",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      imageSrc: "",
+      projectName: "LeetCode Practice",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      media: [require("@/assets/project-images/leetcode.png")],
+      githubUrl: "https://github.com/ijeriomit/leetcode-practice",
+      skills: ["Javascript"],
     },
     {
-      projectName: "Project 2",
+      projectName: "ROS Video Recorder",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      imageSrc: "",
+      media: [require("@/assets/project-images/ROS.png")],
+      githubUrl: "https://github.com/ijeriomit/ROS-Video-Recorder",
+      skills: ["ROS", "Python", "OpenCV"],
     },
     {
-      projectName: "Project 3",
+      projectName: "Python Experiments",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      imageSrc: "",
+      media: [require("@/assets/project-images/python.jpeg")],
+      githubUrl: "https://github.com/ijeriomit/Python",
+      skills: ["Python"],
     },
     {
-      projectName: "Project 4",
+      projectName: "SEP-Agent Creation",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      imageSrc: "",
+      media: [require("@/assets/project-images/leetcode.png")],
+      githubUrl: "https://github.com/ijeriomit/SEP-Agent-Creation",
+      skills: ["React", "Sindarin", "LLM"],
     },
     {
-      projectName: "Project 5",
+      projectName: "LAB",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      imageSrc: "",
+      media: [require("@/assets/project-images/LAB.png")],
+      githubUrl: "https://github.com/ijeriomit/LAB",
+      skills: ["C#", "Unity 3D"],
     },
     {
-      projectName: "Project 6",
+      projectName: "Epoch",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      imageSrc: "",
+      media: [
+        require("@/assets/project-images/player-jumping.png"),
+        require("@/assets/project-images/epoch-short.mp4"),
+      ],
+      githubUrl: "https://github.com/ijeriomit/Epoch",
+      skills: ["C#", "Unity 3D"],
     },
     {
-      projectName: "Project 7",
+      projectName: "Personal Portfolio",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      imageSrc: "",
+      media: [
+        require("@/assets/project-images/portfolio.png"),
+        require("@/assets/project-images/portfolio-2.png"),
+      ],
+      githubUrl: "https://github.com/ijeriomit/portfolio-site-2.0",
+      skills: ["Vue.js", "SCSS"],
     },
   ],
 };

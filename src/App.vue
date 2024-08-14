@@ -36,6 +36,10 @@ body {
     rgba(29, 173, 118, 0)
   );
 }
+body::-webkit-scrollbar {
+  width: 0;
+}
+
 .background {
   z-index: 1;
   height: 100%;

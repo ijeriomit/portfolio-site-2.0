@@ -30,8 +30,8 @@ const props = defineProps(["routes"]);
   background-color: $primary-color;
   flex-flow: column nowrap;
   position: absolute;
-  height: 500px;
-  width: 400px;
+  height: 300px;
+  width: 250px;
   right: 0px;
   top: 25px;
   padding: 35px;
@@ -43,16 +43,16 @@ const props = defineProps(["routes"]);
 }
 .menu-link {
   display: block;
-  margin: 10px 0;
+  margin: 20px 0;
   color: $quaternary-color;
   font-family: $vs-code-font;
-  font-size: large;
+  font-size: 1.75rem;
   font-weight: bold;
   text-decoration: none;
 }
 .menu-link:hover {
   color: $secondary-color;
-  font-size: larger;
+  font-size: 1.85rem;
 }
 @media screen and (max-width: $phone-screen-width) {
   .menu {

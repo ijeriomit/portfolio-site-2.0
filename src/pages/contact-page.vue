@@ -91,8 +91,6 @@ $contact-page-height: $title-height + $hiring-height + $form-height;
   max-height: $title-height;
   display: grid;
   overflow: hidden;
-  grid-template-columns: 100%;
-  grid-template-rows: $title-height;
 }
 .title-section-background {
   z-index: 1;
@@ -115,7 +113,7 @@ $contact-page-height: $title-height + $hiring-height + $form-height;
   grid-column: 1;
   grid-row: 1;
   width: 100%;
-  height: 700px;
+  height: $title-height;
   position: relative;
   opacity: 40%;
 }
@@ -130,6 +128,10 @@ $contact-page-height: $title-height + $hiring-height + $form-height;
   font-family: $heading-font;
   font-size: 3rem;
   font-weight: bold;
+  span:first-child,
+  span:last-child {
+    color: $secondary-color;
+  }
 }
 .sub-heading {
   font-family: $heading-font;

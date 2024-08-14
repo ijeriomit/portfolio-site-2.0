@@ -1,5 +1,5 @@
 <template>
-  <header class="header-wrapper">
+  <header>
     <RouterLink class="logo" :to="routes[0]">
       <img
         class="logo-icon"
@@ -64,11 +64,11 @@ function close(event) {
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 
-.header-wrapper {
+header {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  height: 150px;
+  height: 125px;
   justify-content: space-between;
 }
 .logo {
@@ -87,14 +87,16 @@ function close(event) {
   border: none;
   padding: 5px;
   cursor: pointer;
-  margin-right: 5vw;
+  z-index: 2000;
+  position: fixed;
+  right: 2.5vw;
 }
 .hamburger-menu > svg {
   width: 75px;
   height: 75px;
 }
 .close-menu {
-  width: 25px;
+  width: 35px;
   padding: 5px;
 }
 .logo-spin {
@@ -159,7 +161,7 @@ function close(event) {
     right: 10px;
     width: 50px;
   }
-  .header-wrapper {
+  header {
     justify-self: center;
   }
   .close-menu {
