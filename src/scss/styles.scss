@@ -4,7 +4,6 @@
   position: relative;
   width: 100vw;
   display: grid;
-  grid-template-columns: 100%;
 }
 .logo {
   display: inline-flex;
@@ -13,11 +12,9 @@
   cursor: pointer;
   img:first-child {
     align-self: center;
-    width: 90px;
   }
   img:last-child {
     align-self: center;
-    width: 90px;
     margin-bottom: -10px;
     position: relative;
   }

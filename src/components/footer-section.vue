@@ -36,9 +36,8 @@ import { routes } from "@/main.js";
 
 .wrapper {
   background-color: $light-primary-color;
-  // background-color: $primary-color;
   grid-template-columns: 33% 33% 33%;
-  grid-template-rows: 150px 150px 100px;
+  grid-template-rows: 37.5% 37.5% 25%;
   display: grid;
 }
 .socials {
@@ -46,7 +45,7 @@ import { routes } from "@/main.js";
   grid-row: 3;
   grid-column: 1;
   justify-self: center;
-  align-self: start;
+  align-self: center;
   width: 45%;
   justify-content: space-between;
 }
@@ -60,10 +59,13 @@ import { routes } from "@/main.js";
 .credit {
   grid-row: 3;
   grid-column: 3;
-  align-self: start;
+  align-self: center;
   justify-self: center;
   font-size: 2rem;
   font-family: Roboto Slab Roboto Mono monospace;
+  p {
+    margin: 0;
+  }
 }
 .tag {
   grid-row: 2;
@@ -89,6 +91,63 @@ import { routes } from "@/main.js";
   img:last-child {
     width: 7.5rem;
     right: 10%;
+  }
+}
+@media screen and (max-width: $small-screen-width) {
+  .social-icon {
+    width: 3rem;
+  }
+  .socials {
+    width: 50%;
+  }
+  .logo {
+    img:first-child {
+      width: 12.5rem;
+      margin: -42.5px;
+    }
+    img:last-child {
+      width: 6.25rem;
+      right: 10%;
+    }
+  }
+  .tag {
+    font-size: 1.75rem;
+  }
+}
+@media screen and (max-width: $phone-screen-width) {
+  .tag {
+    // display: none;
+    font-size: 1.25rem;
+    grid-column: 1/4;
+  }
+  .logo {
+    img:first-child {
+      width: 10rem;
+      margin: -30px;
+    }
+    img:last-child {
+      width: 4rem;
+      right: 10%;
+    }
+  }
+  .socials {
+    grid-column: 1/4;
+    width: 50%;
+    justify-self: start;
+    width: 60%;
+    align-self: start;
+    justify-content: space-around;
+    grid-column: 1 / 4;
+    justify-self: center;
+  }
+  .social-icon {
+    width: 2rem;
+  }
+  .credit {
+    grid-column: 1/4;
+    font-size: 1.25rem;
+    align-self: end;
+    margin: 5px;
   }
 }
 </style>

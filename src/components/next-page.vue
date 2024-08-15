@@ -97,4 +97,18 @@ p {
     transform: translateY(0%);
   }
 }
+@media screen and (max-width: $phone-screen-width) {
+  .memoji {
+    right: 0;
+    width: 150px;
+  }
+  p {
+    right: 0;
+  }
+  .arrow {
+    bottom: 0;
+    right: 0;
+    width: 150px;
+  }
+}
 </style>

@@ -84,7 +84,6 @@ $contact-page-height: $title-height + $hiring-height + $form-height;
 .page {
   grid-template-rows: $title-height $hiring-height $form-height;
   height: $contact-page-height;
-  // row-gap: 7.5%;
 }
 .title-section {
   grid-row: 1/2;
@@ -108,6 +107,7 @@ $contact-page-height: $title-height + $hiring-height + $form-height;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  z-index: 2;
 }
 .matrix-background {
   grid-column: 1;
@@ -160,7 +160,7 @@ $contact-page-height: $title-height + $hiring-height + $form-height;
   justify-content: center;
   column-gap: 5%;
   row-gap: 5%;
-  z-index: 1;
+  z-index: 2;
 }
 .field {
   display: flex;
@@ -231,13 +231,14 @@ $contact-page-height: $title-height + $hiring-height + $form-height;
   grid-template-columns: 7.5% 85% 7.5%;
   grid-template-rows: 320px 700px;
   position: relative;
-  bottom: 250px;
+  bottom: 15%;
 }
 .memoji {
   grid-row: 1;
   grid-column: 2;
   justify-self: end;
   padding: 0 10%;
+  z-index: 2;
 }
 
 .job-type {
@@ -253,9 +254,142 @@ $contact-page-height: $title-height + $hiring-height + $form-height;
 }
 .clip-art {
   width: 1000px;
-  // grid-column: 1 / 3;
   grid-row: 1/2;
   position: absolute;
   z-index: 1;
+}
+@media screen and (max-width: $small-screen-width) {
+  $small-title-height: 300px;
+  $small-page-height: $small-title-height + $hiring-height + $form-height;
+  .page {
+    grid-template-rows: $small-title-height $hiring-height $form-height;
+    height: $small-page-height;
+  }
+  .clip-art {
+    width: 800px;
+  }
+  .title-section {
+    max-height: $small-title-height;
+  }
+  .title-section-background {
+    height: $small-title-height;
+  }
+  .matrix-background {
+    height: $small-title-height;
+  }
+  .sub-heading {
+    font-size: 1.25rem;
+    width: 90%;
+    justify-self: start;
+  }
+  .roles {
+    justify-self: start;
+  }
+  .job-type {
+    font-size: 1.25rem;
+    img {
+      width: 50px;
+    }
+  }
+  // .contact-section {
+  //   bottom: 0px;
+  // }
+}
+@media screen and (max-width: $phone-screen-width) {
+  $phone-title-height: 150px;
+  $phone-form-height: 750px;
+  $phone-page-height: $phone-title-height + $hiring-height + $phone-form-height +
+    125px;
+  .page {
+    grid-template-rows: $phone-title-height $hiring-height $phone-form-height;
+    height: $phone-page-height;
+  }
+  .title-section {
+    max-height: $phone-title-height;
+  }
+  .title-section-background {
+    height: $phone-title-height;
+  }
+  .matrix-background {
+    height: $phone-title-height;
+  }
+  .heading {
+    font-size: 1.5rem;
+    align-self: end;
+    margin-bottom: 10%;
+    span:first-child,
+    span:last-child {
+      font-size: 1.25rem;
+      // display: none;
+      // color: $secondary-color;
+    }
+  }
+  .hire-section {
+    justify-content: flex-start;
+    height: 90%;
+  }
+  .contact-section {
+    height: 100%;
+    bottom: 10%;
+    grid-template-rows: 160px $phone-form-height;
+  }
+  .contact-form {
+    width: 100%;
+    height: $phone-form-height;
+    grid-template-columns: 90%;
+    grid-template-rows: 100px 100px 100px 275px 75px;
+    padding: 0px;
+    column-gap: 0;
+    row-gap: 2.5%;
+  }
+  .field {
+    height: 25px;
+    width: 90%;
+    align-self: center;
+    justify-self: center;
+    font-size: 1.25rem;
+
+    input,
+    textarea {
+      font-size: 1rem;
+    }
+  }
+  .name-field {
+    @extend .field;
+    grid-column: 1;
+    grid-row: 1;
+    // font-size: 1.5rem;
+    // height: 50%;
+  }
+  .email-field {
+    @extend .field;
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .subject-field {
+    @extend .field;
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .message-field {
+    @extend .field;
+    grid-column: 1;
+    grid-row: 4;
+    height: 80%;
+    // align-self: cent;
+  }
+  .memoji {
+    width: 175px;
+  }
+  .submit-button {
+    grid-row: 5;
+    width: 125px;
+    height: 50px;
+    font-size: 1.25rem;
+    justify-self: center;
+  }
+  .memoji {
+    justify-self: center;
+  }
 }
 </style>

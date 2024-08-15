@@ -6,7 +6,7 @@
       @mouseenter="autoplaySpeed = 0"
       @mouseleave="autoplaySpeed = defaultAutoPlaySpeed"
       :autoplay="autoplaySpeed"
-      :items-to-show="3"
+      :items-to-show="slidesToShow"
       :wrap-around="true"
     >
       <Slide v-for="(slide, index) of slides" :key="index">
@@ -35,10 +35,31 @@ import { ref } from "vue";
 import { store } from "@/data.js";
 import { Carousel, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
+// import { useWindowSize } from "@vueuse/core";
 
+// const width = ref(0);
+const slidesToShow = ref(3);
 const slides = ref(store.endorsements);
-const defaultAutoPlaySpeed = ref(2500);
+const defaultAutoPlaySpeed = ref(0);
 const autoplaySpeed = ref(defaultAutoPlaySpeed.value);
+
+// onMounted(() => {
+//   width.value = useWindowSize().width.value;
+//   if (width.value < 600) {
+//     slidesToShow.value = 1;
+//   } else {
+//     slidesToShow.value = 3;
+//   }
+//   console.log("init: ", slidesToShow.value, width.value.value);
+// });
+// watch(width, async (newWidth) => {
+//   if (newWidth.value < 600) {
+//     slidesToShow.value = 1;
+//   } else {
+//     slidesToShow.value = 3;
+//   }
+//   console.log("Screen changed: ", slidesToShow.value, newWidth.value);
+// });
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
@@ -131,6 +152,24 @@ h2 {
     margin: 0.75rem 0;
   }
 }
+@media screen and (max-width: $small-screen-width) {
+  .endorsement {
+    width: calc($endorsement-width - 25px);
+  }
+  .endorsements {
+    $endorsements-width: calc(
+      ($endorsement-width - 25px) * 3 + ($endorsements-gap * 2) +
+        ($endorsement-padding * 6)
+    );
+  }
+  .endorsements {
+    width: 100vw;
+    height: 500px;
+    justify-self: center;
+    grid-column: 1/3;
+    grid-row: 3/4;
+  }
+}
 @media screen and (max-width: $phone-screen-width) {
   .carousel__slide--active .endorsement {
     width: calc($endorsement-width/1.25);
@@ -158,6 +197,12 @@ h2 {
     width: 250px;
     font-size: 1.1rem;
     height: 175px;
+  }
+  .person {
+    align-items: baseline;
+  }
+  .endorsements {
+    height: 350px;
   }
 }
 </style>

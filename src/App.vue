@@ -84,4 +84,9 @@ body::-webkit-scrollbar {
   overflow: hidden;
   // scroll-snap-align: center;
 }
+@media screen and (max-width: $small-screen-width) {
+  .footer {
+    height: $footer-height - 100px;
+  }
+}
 </style>

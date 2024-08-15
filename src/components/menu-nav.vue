@@ -54,11 +54,22 @@ const props = defineProps(["routes"]);
   color: $secondary-color;
   font-size: 1.85rem;
 }
+@media screen and (max-width: $small-screen-width) {
+  .menu {
+    width: 200px;
+  }
+  .menu-link {
+    font-size: 1.5rem;
+  }
+}
 @media screen and (max-width: $phone-screen-width) {
   .menu {
     padding: 20px 20px;
-    width: 20vw;
+    width: 150px;
     margin-right: 5vw;
+  }
+  .menu-link {
+    font-size: 1.25rem;
   }
   a {
     font-size: medium;

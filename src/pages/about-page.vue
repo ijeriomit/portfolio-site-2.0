@@ -25,6 +25,7 @@
       </h1>
       <div class="experiences">
         <div
+          class="experience"
           v-for="experience of store.experiences"
           :key="experience.companyName"
         >
@@ -242,6 +243,7 @@ $about-me-page-height: $title-height + $aboutMe-height + $experience-height +
   width: 1500px;
   grid-column: 1 / 3;
   grid-row: 1 / 3;
+  z-index: 1;
 }
 .experiences {
   grid-row: 2/3;
@@ -253,19 +255,19 @@ $about-me-page-height: $title-height + $aboutMe-height + $experience-height +
   gap: 5%;
   font-family: $heading-font;
 }
-.experiences > div {
+.experience {
   width: 25%;
   height: 600px;
 }
-.experiences h2 {
+.experience h2 {
   font-size: 2rem;
 }
-.experiences .dates,
+.experience .dates,
 h3 {
   font-size: 1.75rem;
   font-family: $heading-font;
 }
-.experiences p {
+.experience p {
   font-family: $text-font;
   font-size: 1.75rem;
 }
@@ -279,6 +281,7 @@ h3 {
 .headshot-2 {
   @extend .headshot;
 }
+
 .endorsement-section {
   grid-row: 2/3;
   grid-column: 1 / 3;
@@ -312,6 +315,7 @@ h3 {
   justify-content: center;
   align-self: start;
   justify-self: center;
+  z-index: 2;
 }
 
 .title-section-background {
@@ -377,6 +381,7 @@ h3 {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  z-index: 2;
   h3 {
     font-size: 1.75rem;
     font-family: $heading-font;
@@ -396,6 +401,7 @@ h3 {
   align-items: center;
   justify-content: space-between;
   height: 450px;
+  z-index: 2;
   h3 {
     font-size: 1.75rem;
     font-weight: bold;
@@ -412,6 +418,7 @@ h3 {
   height: 300px;
   justify-self: center;
   align-self: center;
+  z-index: 2;
 }
 .typewriter-animation {
   width: fit-content;
@@ -431,38 +438,271 @@ h3 {
   color: black;
 }
 @media screen and (max-width: $small-screen-width) {
-  .about-me-wrapper {
-    grid-template-rows: 550px 700px;
-    max-width: 95%;
-    max-height: none;
-    margin-top: 0;
-    gap: 0;
-  }
   .headshot {
     grid-row: 1 / 2;
     width: 400px;
     height: 500px;
-    grid-column: 1 / 3;
+    grid-column: 1 / 2;
+    justify-self: end;
+    align-self: center;
+  }
+
+  .about-me-section {
+    max-width: 100%;
+    align-self: center;
+    justify-self: center;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 600px 500px;
+    .heading {
+      width: 50vw;
+      justify-self: center;
+    }
+    .personal-desc {
+    }
+    // padding-top: 20px;
+  }
+  .personal-desc {
+    font-size: 1.5rem;
+    justify-self: center;
+    margin: 2.5%;
+    width: 60%;
+    align-self: end;
+  }
+  .heading {
+    width: 50vw;
+  }
+
+  .endorsement-section {
+    width: 90%;
     justify-self: center;
   }
-  .endorsements {
-    width: 100vw;
-    height: 500px;
-    justify-self: center;
-    grid-column: 1/3;
-    grid-row: 3/4;
+  .page {
+    grid-template-rows: 500px 1200px 1000px 1200px;
+    row-gap: 1%;
+    height: 4050px;
+  }
+  .exp-section {
+    grid-template-rows: 200px 800px;
+    max-height: 1000px;
+    align-self: start;
+    .heading {
+      width: 50vw;
+      grid-column: 1 / 3;
+      justify-self: start;
+      margin-left: 2.5vw;
+    }
+    h3 {
+      height: 65px;
+    }
+  }
+  .experience-heading {
+    height: 125px;
+  }
+  .dates {
+    height: 65px;
+  }
+  .skill-row.middle .skill-block,
+  .skill-row.bottom .skill-block,
+  .skill-row.top .skill-block {
+    flex-basis: 150px;
+    height: 3.5rem;
+    font-size: 1.5rem;
+  }
+  .skills-section {
+    grid-template-rows: 175px 500px 500px;
+    .heading {
+      justify-self: center;
+      margin-right: 12.5vw;
+      width: 55vw;
+    }
   }
 }
 @media screen and (max-width: $phone-screen-width) {
+  $phone-title-height: 325px;
   .headshot {
     width: 225px;
     height: 300px;
     margin-top: 50px;
   }
-  .about-me-wrapper {
+  .about-me-section {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 1350px;
     align-self: flex-start;
-    align-self: flex-start;
-    grid-template-rows: 400px 600px;
+    justify-content: flex-start;
+    .heading {
+      width: 90%;
+    }
+  }
+  .title-section {
+    max-height: $phone-title-height;
+  }
+  .title-section-background {
+    height: $phone-title-height;
+  }
+  .title-section img {
+    height: $phone-title-height;
+  }
+  .matrix-background {
+    height: $phone-title-height;
+  }
+  .page {
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 1%;
+  }
+  .personal-desc {
+    order: 3;
+    font-size: 1.25rem;
+    align-self: center;
+    text-align: center;
+    width: 80%;
+    margin: 5%;
+  }
+  .heading {
+    order: 1;
+    height: 60px;
+    align-self: center;
+    font-size: 1.5rem;
+  }
+  .headshot {
+    order: 2;
+    margin-top: 0;
+  }
+  .endorsement-section {
+    order: 4;
+    align-self: center;
+  }
+  .exp-section {
+    flex-flow: column nowrap;
+    display: flex;
+    .heading {
+      width: 90%;
+      align-self: center;
+      order: 1;
+      flex-shrink: 0;
+    }
+    .experiences {
+      order: 2;
+      display: flex;
+      overflow-y: auto;
+
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+  .experience-heading {
+    flex-flow: column nowrap;
+    width: 90%;
+    margin: 10px 0;
+    align-items: center;
+    .company-logo {
+      order: 1;
+      text-align: center;
+    }
+    h2 {
+      order: 2;
+      font-size: 1.5rem;
+      // margin: 0;
+    }
+  }
+  .experience {
+    width: 90%;
+    height: 500px;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    margin: 10px 0;
+    h3 {
+      text-align: center;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      font-size: 1.25rem;
+      height: 50px;
+    }
+    p {
+      text-align: center;
+      margin: 0;
+      font-size: 1.25rem;
+    }
+    .dates {
+      font-size: 1.25rem;
+      margin: 0;
+      display: flex;
+      max-height: 60px;
+      align-items: center;
+    }
+  }
+  .next {
+    order: 4;
+    right: 0;
+    height: fit-content;
+    p {
+      right: unset;
+    }
+    .arrow {
+      width: 50px;
+      transform: none;
+    }
+  }
+  .skill-row.middle .skill-block,
+  .skill-row.bottom .skill-block,
+  .skill-row.top .skill-block {
+    flex-basis: 75px;
+    height: 2.5rem;
+    font-size: 1rem;
+  }
+
+  .skills-section {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 100vw;
+    row-gap: 20px;
+    // justify-content: center;
+    .heading {
+      order: 1;
+      align-self: center;
+      width: 90vw;
+      margin: 0;
+    }
+    .clip-art {
+      position: absolute;
+    }
+    .dev-tools {
+      align-items: center;
+      width: 100vw;
+    }
+    .programming-languages {
+      text-align: center;
+      order: 3;
+      width: 100vw;
+      justify-content: flex-start;
+    }
+
+    .skill-row {
+      justify-content: center;
+    }
+    .arrow {
+      widows: 150px;
+    }
+  }
+  .dev-tools {
+    font-size: 1.25rem;
+    order: 2;
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+  .programming-languages {
+    font-size: 1.25rem;
+    order: 2;
+    h3 {
+      font-size: 1.5rem;
+    }
   }
 }
 </style>

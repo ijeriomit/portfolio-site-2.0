@@ -155,6 +155,14 @@
     blink-caret 0.5s step-end 1.5s 7;
 }
 
+@media screen and (max-width: $small-screen-width) {
+  .home-wrapper {
+    max-width: 100%;
+    align-self: center;
+    justify-self: center;
+    grid-template-columns: 40% 50%;
+  }
+}
 @media screen and (max-width: $phone-screen-width) {
   $left-side-padding: 20px;
   .button-row {
@@ -178,8 +186,9 @@
     align-self: end;
   }
   .home-wrapper {
-    grid-template-columns: 35% 65%;
+    grid-template-columns: 35% 60%;
     grid-template-rows: 60px 75px 60px;
+    align-self: center;
   }
   .social-link img {
     width: 32.5px;
@@ -206,11 +215,6 @@
   .memoji {
     margin: 0;
     width: 120px;
-  }
-}
-@media screen and (max-width: $small-screen-width) {
-  .home-wrapper {
-    max-width: 100%;
   }
 }
 </style>

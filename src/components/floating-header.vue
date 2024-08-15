@@ -78,6 +78,10 @@ header {
   margin-left: 5vw;
   img:first-child {
     margin: -15px;
+    width: 90px;
+  }
+  img:last-child {
+    width: 90px;
   }
 }
 .hamburger-menu {
@@ -88,7 +92,7 @@ header {
   padding: 5px;
   cursor: pointer;
   z-index: 2000;
-  position: fixed;
+  position: relative;
   right: 2.5vw;
 }
 .hamburger-menu > svg {
@@ -150,24 +154,41 @@ header {
 }
 
 @media screen and (max-width: $phone-screen-width) {
-  .hamburger-menu {
+  .hamburger-menu > svg {
     padding: 0px;
-    width: 25px;
+    width: 60px;
   }
-  .logo-icon {
-    width: 50px;
+  .logo {
+    margin-left: 7.5vw;
+    width: 100px;
   }
-  .logo-text {
-    right: 10px;
-    width: 50px;
+  .logo img:first-child {
+    width: 75px;
+  }
+  .logo img:last-child {
+    right: 0px;
+    display: none;
   }
   header {
     justify-self: center;
+    height: 100px;
   }
   .close-menu {
     transform: none;
     width: 20px;
     margin-left: 2.5vw;
+  }
+  .page {
+    grid-template-rows: 350px 1200px 1000px 1200px;
+  }
+  .title-section {
+    height: 100%;
+    img {
+      max-height: 350px;
+    }
+  }
+  .title-section-background {
+    max-height: 350px;
   }
 }
 @media screen and (max-width: $small-screen-width) {
