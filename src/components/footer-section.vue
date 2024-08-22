@@ -116,8 +116,8 @@ import { routes } from "@/main.js";
 }
 @media screen and (max-width: $phone-screen-width) {
   .tag {
-    // display: none;
     font-size: 1.25rem;
+    align-self: start;
     grid-column: 1/4;
   }
   .logo {
@@ -148,6 +148,9 @@ import { routes } from "@/main.js";
     font-size: 1.25rem;
     align-self: end;
     margin: 5px;
+  }
+  .wrapper {
+    grid-template-rows: 35% 30% 30%;
   }
 }
 </style>

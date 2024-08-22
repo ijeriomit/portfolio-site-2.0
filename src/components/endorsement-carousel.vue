@@ -35,31 +35,11 @@ import { ref } from "vue";
 import { store } from "@/data.js";
 import { Carousel, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
-// import { useWindowSize } from "@vueuse/core";
 
-// const width = ref(0);
 const slidesToShow = ref(3);
 const slides = ref(store.endorsements);
 const defaultAutoPlaySpeed = ref(0);
 const autoplaySpeed = ref(defaultAutoPlaySpeed.value);
-
-// onMounted(() => {
-//   width.value = useWindowSize().width.value;
-//   if (width.value < 600) {
-//     slidesToShow.value = 1;
-//   } else {
-//     slidesToShow.value = 3;
-//   }
-//   console.log("init: ", slidesToShow.value, width.value.value);
-// });
-// watch(width, async (newWidth) => {
-//   if (newWidth.value < 600) {
-//     slidesToShow.value = 1;
-//   } else {
-//     slidesToShow.value = 3;
-//   }
-//   console.log("Screen changed: ", slidesToShow.value, newWidth.value);
-// });
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
@@ -137,7 +117,6 @@ h2 {
   font-family: $text-font;
   text-align: left;
   font-size: 1.5rem;
-  // font-weight: bold;
 }
 .person {
   display: flex;
@@ -163,7 +142,6 @@ h2 {
     );
   }
   .endorsements {
-    width: 100vw;
     height: 500px;
     justify-self: center;
     grid-column: 1/3;
@@ -172,34 +150,38 @@ h2 {
 }
 @media screen and (max-width: $phone-screen-width) {
   .carousel__slide--active .endorsement {
-    width: calc($endorsement-width/1.25);
+    width: 85vw;
     text-align: left;
-    height: 325px;
+    height: 350px;
     padding: calc($endorsement-padding/1.25);
   }
   .endorsement {
     background-color: $primary-color;
     padding: calc($endorsement-padding/1.25);
-    width: calc($endorsement-width/1.25);
-    height: 325px;
+    width: 85vw;
+    height: 350px;
   }
+
   .profile-photo {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
   }
   .endorsement-wrapper h2 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
   .name {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+  }
+  .title {
+    text-align: center;
   }
   .text {
-    width: 250px;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
+    text-align: center;
     height: 175px;
   }
   .person {
-    align-items: baseline;
+    align-items: center;
   }
   .endorsements {
     height: 350px;

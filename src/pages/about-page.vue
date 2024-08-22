@@ -167,14 +167,17 @@ $about-me-page-height: $title-height + $aboutMe-height + $experience-height +
 .page {
   grid-template-rows: $title-height $aboutMe-height $experience-height $skills-height;
   height: $about-me-page-height;
+  overflow-y: hidden;
 }
 .title-section {
+  @extend .page-section;
   overflow: hidden;
   grid-row: 1/2;
   max-height: $title-height;
   display: grid;
 }
 .about-me-section {
+  @extend .page-section;
   grid-row: 2/3;
   justify-content: center;
   align-self: center;
@@ -185,16 +188,17 @@ $about-me-page-height: $title-height + $aboutMe-height + $experience-height +
   .heading {
     grid-column: 2 / 2;
     grid-row: 1 / 1;
-    background-color: $primary-color;
+    background-color: $quaternary-color;
     color: $secondary-color;
     justify-self: start;
   }
   .heading span:first-child,
   span:last-child {
-    color: $quaternary-color;
+    color: $highlight-color;
   }
 }
 .exp-section {
+  @extend .page-section;
   max-height: $experience-height;
   grid-row: 3/4;
   align-self: center;
@@ -216,6 +220,7 @@ $about-me-page-height: $title-height + $aboutMe-height + $experience-height +
   }
 }
 .skills-section {
+  @extend .page-section;
   grid-row: 4/5;
   display: grid;
   grid-template-columns: 50% 50%;
@@ -226,12 +231,12 @@ $about-me-page-height: $title-height + $aboutMe-height + $experience-height +
     justify-self: start;
     grid-column: 2 / 2;
     grid-row: 1 / 1;
-    background-color: $secondary-color;
-    color: $primary-color;
+    background-color: $quaternary-color;
+    color: $secondary-color;
   }
   .heading span:first-child,
   span:last-child {
-    color: $quaternary-color;
+    color: $highlight-color;
   }
 }
 .skills {
@@ -414,8 +419,6 @@ h3 {
 .next {
   grid-row: 3/3;
   grid-column: 2/2;
-  width: 600px;
-  height: 300px;
   justify-self: center;
   align-self: center;
   z-index: 2;
@@ -448,7 +451,6 @@ h3 {
   }
 
   .about-me-section {
-    max-width: 100%;
     align-self: center;
     justify-self: center;
     grid-template-columns: 40% 60%;
@@ -459,7 +461,6 @@ h3 {
     }
     .personal-desc {
     }
-    // padding-top: 20px;
   }
   .personal-desc {
     font-size: 1.5rem;
@@ -501,20 +502,38 @@ h3 {
   .dates {
     height: 65px;
   }
-  .skill-row.middle .skill-block,
-  .skill-row.bottom .skill-block,
-  .skill-row.top .skill-block {
-    flex-basis: 150px;
-    height: 3.5rem;
-    font-size: 1.5rem;
-  }
+
   .skills-section {
-    grid-template-rows: 175px 500px 500px;
+    grid-template-rows: 175px 450px 475px;
+    height: 1100px;
     .heading {
       justify-self: center;
       margin-right: 12.5vw;
       width: 55vw;
     }
+    .programming-languages {
+      row-gap: 10%;
+      justify-content: flex-start;
+    }
+    .skill-row {
+      justify-content: center;
+    }
+    .skill-row.middle .skill-block,
+    .skill-row.bottom .skill-block,
+    .skill-row.top .skill-block {
+      flex-basis: 140px;
+      height: 3.5rem;
+      font-size: 1.5rem;
+    }
+    .clip-art {
+      width: 1000px;
+      grid-row: 3 / 3;
+      transform: translateY(-100px);
+    }
+  }
+  .next {
+    align-self: start;
+    grid-row: 3 / 3;
   }
 }
 @media screen and (max-width: $phone-screen-width) {
@@ -527,7 +546,8 @@ h3 {
   .about-me-section {
     display: flex;
     flex-flow: column nowrap;
-    height: 1350px;
+    max-height: 1325px;
+    max-height: none;
     align-self: flex-start;
     justify-content: flex-start;
     .heading {
@@ -535,21 +555,20 @@ h3 {
     }
   }
   .title-section {
-    max-height: $phone-title-height;
+    max-height: 500px;
+    height: 100%;
   }
   .title-section-background {
-    height: $phone-title-height;
-  }
-  .title-section img {
-    height: $phone-title-height;
+    height: 100%;
   }
   .matrix-background {
-    height: $phone-title-height;
+    height: 100%;
   }
   .page {
     display: flex;
     flex-flow: column nowrap;
     row-gap: 1%;
+    height: 5000px;
   }
   .personal-desc {
     order: 3;
@@ -564,6 +583,10 @@ h3 {
     height: 60px;
     align-self: center;
     font-size: 1.5rem;
+
+    span:nth-child(2) {
+      font-size: 1.85rem;
+    }
   }
   .headshot {
     order: 2;
@@ -576,6 +599,7 @@ h3 {
   .exp-section {
     flex-flow: column nowrap;
     display: flex;
+    max-height: 1650px;
     .heading {
       width: 90%;
       align-self: center;
@@ -585,7 +609,6 @@ h3 {
     .experiences {
       order: 2;
       display: flex;
-      overflow-y: auto;
 
       flex-flow: column nowrap;
       align-items: center;
@@ -640,6 +663,7 @@ h3 {
     order: 4;
     right: 0;
     height: fit-content;
+    align-self: center;
     p {
       right: unset;
     }
@@ -648,13 +672,6 @@ h3 {
       transform: none;
     }
   }
-  .skill-row.middle .skill-block,
-  .skill-row.bottom .skill-block,
-  .skill-row.top .skill-block {
-    flex-basis: 75px;
-    height: 2.5rem;
-    font-size: 1rem;
-  }
 
   .skills-section {
     display: flex;
@@ -662,15 +679,19 @@ h3 {
     align-items: center;
     width: 100vw;
     row-gap: 20px;
-    // justify-content: center;
+    max-height: 1450px;
+    height: unset;
     .heading {
       order: 1;
       align-self: center;
       width: 90vw;
       margin: 0;
+      flex-shrink: 0;
     }
     .clip-art {
       position: absolute;
+      order: 5;
+      bottom: 0;
     }
     .dev-tools {
       align-items: center;
@@ -689,19 +710,26 @@ h3 {
     .arrow {
       widows: 150px;
     }
-  }
-  .dev-tools {
-    font-size: 1.25rem;
-    order: 2;
-    h3 {
-      font-size: 1.5rem;
+    .skill-row.middle .skill-block,
+    .skill-row.bottom .skill-block,
+    .skill-row.top .skill-block {
+      flex-basis: 75px;
+      height: 2.5rem;
+      font-size: 1rem;
     }
-  }
-  .programming-languages {
-    font-size: 1.25rem;
-    order: 2;
-    h3 {
-      font-size: 1.5rem;
+    .dev-tools {
+      font-size: 1.25rem;
+      order: 2;
+      h3 {
+        font-size: 1.5rem;
+      }
+    }
+    .programming-languages {
+      font-size: 1.25rem;
+      order: 2;
+      h3 {
+        font-size: 1.5rem;
+      }
     }
   }
 }

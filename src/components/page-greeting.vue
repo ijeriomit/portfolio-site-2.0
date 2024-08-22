@@ -166,29 +166,45 @@
 @media screen and (max-width: $phone-screen-width) {
   $left-side-padding: 20px;
   .button-row {
-    grid-column: 2 / 3;
-    grid-row: 3 / 3;
+    grid-row: 3;
+    grid-column: 1;
+    align-self: center;
+    justify-self: end;
     margin-left: $left-side-padding;
     align-items: center;
     left: 0px;
     gap: 0px 20px;
   }
   .title {
-    font-size: 1.2rem;
-    margin-left: $left-side-padding;
-    margin-bottom: 5px;
+    grid-row: 2;
+    grid-column: 1;
+    font-size: 1.75rem;
+    align-self: baseline;
+    justify-self: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 0;
   }
   .subtitle {
-    font-size: 1rem;
     margin-left: $left-side-padding;
     margin-top: 5px;
     margin-bottom: 0;
     align-self: end;
+    grid-row: 2;
+    grid-column: 1;
+    font-size: 1.25rem;
+    justify-self: center;
+    text-align: center;
+    margin: 0;
+    max-width: 250px;
   }
   .home-wrapper {
-    grid-template-columns: 35% 60%;
-    grid-template-rows: 60px 75px 60px;
+    justify-self: center;
     align-self: center;
+    grid-template-columns: unset;
+    width: 85%;
+    grid-template-rows: 150px 150px 100px;
   }
   .social-link img {
     width: 32.5px;
@@ -208,13 +224,15 @@
   .resume-button {
     grid-column: 1 / 2;
     grid-row: 3 / 3;
-    align-self: end;
-    justify-self: center;
+    align-self: center;
+    justify-self: start;
     margin: 0;
   }
   .memoji {
     margin: 0;
     width: 120px;
+    align-self: start;
+    justify-self: center;
   }
 }
 </style>

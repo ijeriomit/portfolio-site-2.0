@@ -21,10 +21,11 @@ const props = defineProps(["message"]);
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-  width: 400px;
   text-decoration: none;
   color: $quaternary-color;
   transition: all 0.1s;
+  width: fit-content;
+  height: fit-content;
 }
 .wrapper:hover {
   color: $light-primary-color;
@@ -45,10 +46,8 @@ const props = defineProps(["message"]);
 .arrow {
   width: 30%;
   position: relative;
-  //   left: 10%;
   align-self: center;
   transform: scaleX(125%);
-  //   height: 60%;
   bottom: 15%;
   color: green;
   right: 5%;
@@ -97,10 +96,18 @@ p {
     transform: translateY(0%);
   }
 }
+@media screen and (max-width: $small-screen-width) {
+  .memoji {
+    width: 200px;
+  }
+  .arrow {
+    width: 150px;
+  }
+}
 @media screen and (max-width: $phone-screen-width) {
   .memoji {
     right: 0;
-    width: 150px;
+    width: 125px;
   }
   p {
     right: 0;
@@ -108,7 +115,7 @@ p {
   .arrow {
     bottom: 0;
     right: 0;
-    width: 150px;
+    width: 100px;
   }
 }
 </style>
