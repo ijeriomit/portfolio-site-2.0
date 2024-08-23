@@ -1,14 +1,12 @@
 <template>
   <div class="page">
-    <section class="title-section">
-      <div class="title-section-background"></div>
-      <img src="@/assets/white-matrix-background.png" />
+    <TitleSection class="title-section">
       <h1 class="heading">
         <span>return { </span>
         <span>"Products I've Worked On"</span>
         <span> };</span>
       </h1>
-    </section>
+    </TitleSection>
     <section class="product-team-section">
       <img class="clip-art" src="@/assets/clip-art-images/wires.png" />
       <div class="cards">
@@ -42,6 +40,7 @@ import { store } from "@/data.js";
 import { ref } from "vue";
 import ProductCard from "@/components/product-card.vue";
 import ProjectCard from "@/components/project-card.vue";
+import TitleSection from "@/components/title-section";
 
 const projects = ref(store.projects);
 const products = ref(store.productTeams);
@@ -57,11 +56,13 @@ $projects-page-height: $title-height + $products-height + $projects-height;
   grid-template-rows: $title-height $products-height $projects-height;
   grid-template-columns: 100vw;
   height: $projects-page-height;
+  row-gap: 100px;
 }
 .title-section {
+  @extend .page-section;
   overflow: hidden;
   grid-row: 1/2;
-  max-height: $title-height;
+  height: $title-height;
   display: grid;
 }
 .heading {
@@ -86,24 +87,7 @@ span:last-child {
   align-self: center;
   opacity: 50%;
 }
-.title-section-background {
-  z-index: 1;
-  height: $title-height;
-  background-color: $primary-color;
-  width: 100%;
-  opacity: 40%;
-  grid-column: 1;
-  grid-row: 1;
-}
-.title-section img {
-  grid-column: 1;
-  grid-row: 1;
-  align-self: center;
-  width: 100%;
-  height: $title-height;
-  opacity: 45%;
-  position: relative;
-}
+
 .product-team-section {
   grid-row: 2;
   display: grid;
@@ -163,6 +147,18 @@ section::-webkit-scrollbar-thumb:hover {
     width: 65vw;
     // padding: 0 50px;
     row-gap: 2.5%;
+  }
+}
+@media screen and (max-width: $small-screen-width) {
+  .heading {
+    font-size: 2.75rem;
+    span:first-child,
+    span:last-child {
+      color: $secondary-color;
+    }
+  }
+  .title-section {
+    height: 350px;
   }
 }
 </style>

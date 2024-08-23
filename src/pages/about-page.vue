@@ -1,10 +1,8 @@
 <template>
   <div class="page">
-    <section class="title-section">
-      <div class="title-section-background"></div>
-      <img src="@/assets/white-matrix-background.png" />
+    <TitleSection class="title-section">
       <PageGreeting></PageGreeting>
-    </section>
+    </TitleSection>
     <section class="about-me-section">
       <img class="headshot" src="@/assets/about-me-images/headshot.jpeg" />
       <h1 class="heading">
@@ -153,6 +151,7 @@ import { store } from "@/data.js";
 import EndorsementCarousel from "@/components/endorsement-carousel.vue";
 import PageGreeting from "@/components/page-greeting.vue";
 import NextPage from "@/components/next-page.vue";
+import TitleSection from "@/components/title-section";
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
@@ -173,7 +172,7 @@ $about-me-page-height: $title-height + $aboutMe-height + $experience-height +
   @extend .page-section;
   overflow: hidden;
   grid-row: 1/2;
-  max-height: $title-height;
+  height: $title-height;
   display: grid;
 }
 .about-me-section {
@@ -627,7 +626,6 @@ h3 {
     h2 {
       order: 2;
       font-size: 1.5rem;
-      // margin: 0;
     }
   }
   .experience {

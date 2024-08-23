@@ -19,15 +19,37 @@
       </video>
       <div class="gallery-buttons">
         <button
+          v-show="props.mediaArray.length != 1"
+          @click="prevMedia()"
+          class="prev"
+        >
+          <img src="@/assets/clip-art-images/chevron_black.svg" />
+        </button>
+        <button
+          class="media-slide"
           v-for="(media, index) in props.mediaArray"
           :key="index"
           :class="{ active: media == previewMedia }"
           @click="setPreview(media)"
         ></button>
+        <button
+          v-show="props.mediaArray.length != 1"
+          @click="nextMedia()"
+          class="next"
+        >
+          <img src="@/assets/clip-art-images/chevron_black.svg" />
+        </button>
       </div>
     </div>
     <div class="modal" v-if="showPreview">
       <span class="close" @click="showPreview = false"> &times; </span>
+      <button
+        v-show="props.mediaArray.length != 1"
+        @click="prevMedia()"
+        class="prev"
+      >
+        <img src="@/assets/clip-art-images/chevron_white.svg" />
+      </button>
       <img
         v-if="!isVideo(previewMedia)"
         class="media"
@@ -37,6 +59,13 @@
       <video v-else :key="previewMedia" class="media" controls>
         <source :src="previewMedia" type="video/mp4" />
       </video>
+      <button
+        v-show="props.mediaArray.length != 1"
+        @click="nextMedia()"
+        class="next"
+      >
+        <img src="@/assets/clip-art-images/chevron_white.svg" />
+      </button>
     </div>
   </div>
 </template>
@@ -49,11 +78,25 @@ const showPreview = ref(false);
 function isVideo(media) {
   return media.endsWith(".mp4") || media.endsWith(".mov");
 }
+function prevMedia() {
+  const prevMediaIndex =
+    props.mediaArray.indexOf(previewMedia.value) == 0
+      ? props.mediaArray.indexOf(previewMedia.value)
+      : props.mediaArray.indexOf(previewMedia.value) - 1;
+  setPreview(props.mediaArray[prevMediaIndex]);
+}
+function nextMedia() {
+  const newMediaIndex =
+    props.mediaArray.indexOf(previewMedia.value) == props.mediaArray.length - 1
+      ? props.mediaArray.indexOf(previewMedia.value)
+      : props.mediaArray.indexOf(previewMedia.value) + 1;
+  setPreview(props.mediaArray[newMediaIndex]);
+}
 function setPreview(media) {
   previewMedia.value = media;
 }
 </script>
-<style>
+<style lang="scss">
 .image-container {
   display: flex;
   flex-flow: column nowrap;
@@ -76,10 +119,27 @@ function setPreview(media) {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  .prev {
+    background-color: transparent;
+    border-radius: 0;
+    width: 125px;
+    border: none;
+    cursor: pointer;
+    align-self: center;
+  }
+  .prev:hover {
+    width: 130px;
+  }
+  .next {
+    @extend .prev;
+    transform: rotate(180deg);
+  }
 }
 
 .modal .media {
-  margin: auto;
+  margin: 50px;
   display: block;
   max-width: 80%;
   max-height: 80%;
@@ -90,8 +150,23 @@ function setPreview(media) {
   max-width: 100%;
   justify-content: center;
   gap: 2.5%;
+  align-items: center;
+  .prev {
+    background-color: transparent;
+    border-radius: 0;
+    width: 50px;
+    border: none;
+    cursor: pointer;
+  }
+  .prev:hover {
+    width: 55px;
+  }
+  .next {
+    @extend .prev;
+    transform: rotate(180deg);
+  }
 }
-.gallery-buttons button {
+.media-slide {
   border-radius: 100%;
   border: none;
   height: 20px;
