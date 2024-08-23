@@ -38,7 +38,7 @@ import "vue3-carousel/dist/carousel.css";
 
 const slidesToShow = ref(3);
 const slides = ref(store.endorsements);
-const defaultAutoPlaySpeed = ref(0);
+const defaultAutoPlaySpeed = ref(2500);
 const autoplaySpeed = ref(defaultAutoPlaySpeed.value);
 </script>
 <style lang="scss" scoped>
