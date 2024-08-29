@@ -2,6 +2,12 @@
   <header>
     <RouterLink class="logo" :to="routes[0]">
       <img
+        v-if="useDarkLogo"
+        class="logo-icon-dark"
+        src="@/assets/clip-art-images/ijeri-logo-icon-dark.png"
+      />
+      <img
+        v-else
         class="logo-icon"
         src="@/assets/clip-art-images/ijeri-logo-icon.png"
       />
@@ -36,19 +42,29 @@ import MenuSvg from "./menu-svg.vue";
 import MenuNav from "./menu-nav.vue";
 
 import { routes } from "@/main.js";
-import { ref, onMounted, onBeforeUnmount } from "vue";
-import { RouterLink } from "vue-router";
+import { ref, onMounted, onBeforeUnmount, watch } from "vue";
+import { RouterLink, useRoute } from "vue-router";
 
 const menuOpen = ref(false);
 const menu = ref(null);
 const toggle = ref(null);
+const route = useRoute();
+const useDarkLogo = ref(true);
 
+watch(route, (newVal) => {
+  if (newVal.path == routes[0].path) {
+    useDarkLogo.value = true;
+  } else {
+    useDarkLogo.value = false;
+  }
+});
 onMounted(() => {
   document.addEventListener("click", close);
 });
 onBeforeUnmount(() => {
   document.removeEventListener("click", close);
 });
+
 function toggleMenu() {
   menuOpen.value = !menuOpen.value;
 }
@@ -68,7 +84,7 @@ header {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  height: 125px;
+  height: $header-height;
   justify-content: space-between;
 }
 .logo {
@@ -76,14 +92,19 @@ header {
   align-self: center;
   cursor: pointer;
   margin-left: 5vw;
-  img:first-child {
+  .logo-icon {
     margin: -15px;
     width: 90px;
   }
   img:last-child {
     width: 90px;
   }
+  .logo-icon-dark {
+    margin: -2px;
+    width: 62.5px;
+  }
 }
+
 .hamburger-menu {
   order: 2;
   transform: scaleX(-1);
@@ -162,7 +183,7 @@ header {
     margin-left: 7.5vw;
     width: 100px;
   }
-  .logo img:first-child {
+  .logo .logo-icon {
     width: 75px;
   }
   .logo img:last-child {

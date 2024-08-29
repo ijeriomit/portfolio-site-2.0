@@ -1,17 +1,10 @@
 <template>
-  <div id="contact" class="page">
-    <section class="title-section">
-      <div class="title-section-background"></div>
-      <img
-        class="matrix-background"
-        src="@/assets/white-matrix-background.png"
-      />
-      <h1 class="heading">
-        <span>&lt;div&gt;</span>
-        <span> Contact Me </span>
-        <span>&lt;/div&gt;</span>
-      </h1>
-    </section>
+  <div class="page">
+    <h1 class="heading">
+      <span>&lt;div&gt;</span>
+      <span> Contact Me </span>
+      <span>&lt;/div&gt;</span>
+    </h1>
     <section class="hire-section">
       <h2 class="sub-heading">
         <div>Work With Me!</div>
@@ -67,41 +60,33 @@
         <input type="submit" class="submit-button" value="Submit" />
       </form>
     </section>
+    <FooterSection class="footer"></FooterSection>
   </div>
 </template>
-<script>
-export default {
-  name: "contact-me",
-};
+<script setup>
+import FooterSection from "@/components/footer-section.vue";
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 
-$hiring-height: 450px;
-$title-height: 400px;
+$hiring-height: 350px;
+$title-height: 150px;
 $form-height: 1100px;
-$contact-page-height: $title-height + $hiring-height + $form-height;
+$contact-page-height: $header-height + $title-height + $hiring-height +
+  $form-height + $footer-height;
 .page {
-  grid-template-rows: $title-height $hiring-height $form-height;
-  height: $contact-page-height;
-}
-.title-section {
-  grid-row: 1/2;
-  max-height: $title-height;
-  display: grid;
-  overflow: hidden;
-}
-.title-section-background {
-  z-index: 1;
-  height: $title-height;
-  background-color: $primary-color;
-  width: 100%;
-  opacity: 45%;
-  grid-column: 1;
-  grid-row: 1;
+  grid-template-rows: $header-height $title-height $hiring-height $form-height $footer-height;
+  grid-template-columns: 100vw;
+  // height: $contact-page-height;
+  background-image: linear-gradient(
+    rgba(29, 173, 118, 0.5),
+    rgba(29, 173, 118, 0.25),
+    rgba(29, 173, 118, 0)
+  );
 }
 .hire-section {
-  grid-row: 2;
+  grid-row: 3;
+  grid-column: 1 / 3;
   align-self: end;
   justify-self: center;
   display: flex;
@@ -109,21 +94,13 @@ $contact-page-height: $title-height + $hiring-height + $form-height;
   align-items: center;
   z-index: 2;
 }
-.matrix-background {
-  grid-column: 1;
-  grid-row: 1;
-  width: 100%;
-  height: $title-height;
-  position: relative;
-  opacity: 40%;
-}
 
 .heading {
   color: $quaternary-color;
   justify-self: center;
   align-self: center;
-  grid-column: 1;
-  grid-row: 1;
+  grid-column: 1 / 3;
+  grid-row: 2;
   z-index: 2;
   font-family: $heading-font;
   font-size: 3rem;
@@ -132,6 +109,10 @@ $contact-page-height: $title-height + $hiring-height + $form-height;
   span:last-child {
     color: $secondary-color;
   }
+}
+.footer {
+  grid-row: 5;
+  justify-self: center;
 }
 .sub-heading {
   font-family: $heading-font;
@@ -145,9 +126,9 @@ $contact-page-height: $title-height + $hiring-height + $form-height;
 }
 .contact-form {
   width: 70%;
-  height: 100%;
-  padding: 75px;
   grid-row: 2;
+  height: 700px;
+  padding: 50px;
   grid-column: 2;
   background-color: $quaternary-color;
   color: $secondary-color;
@@ -226,10 +207,11 @@ $contact-page-height: $title-height + $hiring-height + $form-height;
   }
 }
 .contact-section {
-  grid-row: 3;
+  grid-column: 1 / 3;
+  grid-row: 4;
+  grid-template-rows: 320px 800px;
   display: grid;
   grid-template-columns: 7.5% 85% 7.5%;
-  grid-template-rows: 320px 700px;
   position: relative;
   bottom: 15%;
 }

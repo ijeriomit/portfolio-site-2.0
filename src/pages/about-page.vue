@@ -1,25 +1,22 @@
 <template>
+  <img class="top-clip-art" src="@/assets/clip-art-images/wires.png" />
   <div class="page">
-    <TitleSection class="title-section">
-      <PageGreeting></PageGreeting>
-    </TitleSection>
     <section class="about-me-section">
-      <img class="headshot" src="@/assets/about-me-images/headshot.jpeg" />
       <h1 class="heading">
-        <span>print(</span>
+        <span>cout &lt;&lt; </span>
         <span>"About Me"</span>
-        <span>);</span>
+        <span>;</span>
       </h1>
-      <p class="personal-desc">
-        {{ store.personalDesc }}
-      </p>
+      <img class="headshot" src="@/assets/about-me-images/headshot.jpeg" />
+
+      <p class="personal-desc" v-html="store.personalDesc"></p>
       <EndorsementCarousel class="endorsement-section"></EndorsementCarousel>
     </section>
     <section class="exp-section">
       <h1 class="heading">
-        <span>cout &lt;&lt; </span>
+        <span>print(</span>
         <span>"Experience"</span>
-        <span>;</span>
+        <span>);</span>
       </h1>
       <div class="experiences">
         <div
@@ -56,7 +53,6 @@
         <span>"Skills"</span>
         <span>);</span>
       </h1>
-      <img class="clip-art" src="@/assets/clip-art-images/wires.png" />
       <div class="dev-tools">
         <h3>Dev Tools & Technology:</h3>
         <div class="skills">
@@ -142,303 +138,269 @@
           </div>
         </div>
       </div>
-      <NextPage class="next" message="See My Work!"></NextPage>
+      <NextPage
+        class="next"
+        message="See My Work!"
+        :next-route="routes[2]"
+      ></NextPage>
     </section>
+    <FooterSection class="footer"></FooterSection>
   </div>
+  <img class="bottom-clip-art" src="@/assets/clip-art-images/wires.png" />
 </template>
 <script setup>
 import { store } from "@/data.js";
+import { routes } from "@/main.js";
+
 import EndorsementCarousel from "@/components/endorsement-carousel.vue";
-import PageGreeting from "@/components/page-greeting.vue";
 import NextPage from "@/components/next-page.vue";
-import TitleSection from "@/components/title-section";
+import FooterSection from "@/components/footer-section.vue";
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 @import "@/scss/styles.scss";
 
-$aboutMe-height: 1500px;
-$experience-height: 900px;
-$skills-height: 1300px;
-$title-height: 600px;
-$about-me-page-height: $title-height + $aboutMe-height + $experience-height +
-  $skills-height;
+$aboutMe-height: 1400px;
+$experience-height: 950px;
+$skills-height: 1200px;
+$footer-height: 100px;
+$about-me-page-height: $header-height + $aboutMe-height + $experience-height +
+  $skills-height + $footer-height;
 .page {
-  grid-template-rows: $title-height $aboutMe-height $experience-height $skills-height;
+  grid-template-rows: $header-height $aboutMe-height $experience-height $skills-height $footer-height;
   height: $about-me-page-height;
   overflow-y: hidden;
+  background-image: linear-gradient(
+    rgba(29, 173, 118, 0.5),
+    rgba(29, 173, 118, 0.25),
+    rgba(29, 173, 118, 0)
+  );
 }
-.title-section {
-  @extend .page-section;
-  overflow: hidden;
-  grid-row: 1/2;
-  height: $title-height;
-  display: grid;
+.top-clip-art {
+  position: absolute;
+  width: 60vw;
+  grid-row: 3 / 3;
+  right: 0;
+  top: 15vh;
+  transform: rotate(180deg);
+}
+.bottom-clip-art {
+  position: absolute;
+  // order: 5;
+  bottom: 0;
+}
+.heading {
+  height: 100px;
+  font-weight: bold;
+  gap: 10px;
+  font-size: 3rem;
+  padding: 0 10vw;
+  margin: 0px;
+  letter-spacing: normal;
+  font-family: $heading-font;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  align-items: center;
+  z-index: 2;
+  background-color: $quaternary-color;
+  color: $secondary-color;
+  grid-column: 1 / 3;
+  grid-row: 1;
+  width: fit-content;
+  // max-width: 60%;
+  span:first-child {
+    color: $highlight-color;
+  }
+  span:last-child {
+    color: $highlight-color;
+  }
 }
 .about-me-section {
   @extend .page-section;
-  grid-row: 2/3;
+  grid-row: 2;
   justify-content: center;
   align-self: center;
   display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 800px 600px;
-
-  .heading {
-    grid-column: 2 / 2;
-    grid-row: 1 / 1;
-    background-color: $quaternary-color;
-    color: $secondary-color;
-    justify-self: start;
+  z-index: 2;
+  grid-template-columns: 45% 50%;
+  grid-template-rows: 150px 600px 600px;
+  .endorsement-section {
+    grid-row: 3;
+    grid-column: 1 / 3;
   }
-  .heading span:first-child,
-  span:last-child {
-    color: $highlight-color;
+  .personal-desc {
+    font-size: 1.75rem;
+    max-width: 700px;
+    font-family: $text-font;
+    max-height: 700px;
+    overflow-y: auto;
+    grid-column: 1;
+    grid-row: 2;
+    align-self: center;
+    justify-self: center;
+  }
+  .headshot {
+    width: 500px;
+    height: 500px;
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: center;
+    align-self: center;
   }
 }
 .exp-section {
   @extend .page-section;
   max-height: $experience-height;
-  grid-row: 3/4;
+  grid-row: 3;
   align-self: center;
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 200px 600px;
-
   .heading {
-    grid-column: 1 / 1;
-    grid-row: 1 / 1;
-    background-color: $quaternary-color;
-    color: $secondary-color;
-    justify-self: end;
-    box-shadow: -5px 5px 5px black;
+    align-self: start;
   }
-  .heading span:first-child,
-  span:last-child {
-    color: $highlight-color;
+  .experiences {
+    grid-row: 2/3;
+    grid-column: 1/3;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 2.5%;
+  }
+  .experience {
+    width: 25%;
+    height: 600px;
+    padding: 10px 50px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  .experience:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  .experience h2 {
+    font-size: 2rem;
+    font-family: $text-font;
+  }
+  .experience .dates,
+  h3 {
+    font-size: $text-size;
+    font-family: $text-font;
+  }
+  .experience p {
+    font-family: $text-font;
+    font-size: $small-text-size;
+  }
+  .company-logo {
+    width: 75px;
+  }
+  .experience-heading {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 5%;
+    cursor: pointer;
+    color: black;
   }
 }
 .skills-section {
   @extend .page-section;
-  grid-row: 4/5;
+  grid-row: 4;
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 200px 600px 400px;
+  grid-template-rows: 200px 600px 300px;
   max-height: $skills-height;
-  overflow: hidden;
-  .heading {
-    justify-self: start;
-    grid-column: 2 / 2;
-    grid-row: 1 / 1;
-    background-color: $quaternary-color;
+  column-gap: 2.5%;
+  .skills {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  .skill-row {
+    display: flex;
+    flex-flow: row nowrap;
+    max-width: 900px;
+    gap: 1.5%;
+    margin: 1rem 0;
+  }
+  .skill-row.top .skill-block {
+    width: 200px;
+  }
+  .skill-row.middle .skill-block {
+    width: 175px;
+  }
+  .skill-row.bottom .skill-block {
+    width: 175px;
+  }
+  .skill-block {
+    display: flex;
+    justify-content: center;
     color: $secondary-color;
-  }
-  .heading span:first-child,
-  span:last-child {
-    color: $highlight-color;
-  }
-}
-.skills {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-}
-.clip-art {
-  width: 1500px;
-  grid-column: 1 / 3;
-  grid-row: 1 / 3;
-  z-index: 1;
-}
-.experiences {
-  grid-row: 2/3;
-  grid-column: 1/3;
-  width: 100vw;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  gap: 5%;
-  font-family: $heading-font;
-}
-.experience {
-  width: 25%;
-  height: 600px;
-}
-.experience h2 {
-  font-size: 2rem;
-}
-.experience .dates,
-h3 {
-  font-size: 1.75rem;
-  font-family: $heading-font;
-}
-.experience p {
-  font-family: $text-font;
-  font-size: 1.75rem;
-}
-.headshot {
-  width: 700px;
-  height: 700px;
-  grid-column: 1 / 2;
-  grid-row: 1 / 1;
-  justify-self: center;
-}
-.headshot-2 {
-  @extend .headshot;
-}
-
-.endorsement-section {
-  grid-row: 2/3;
-  grid-column: 1 / 3;
-}
-.personal-desc {
-  font-size: 1.75rem;
-  max-width: 700px;
-  font-family: $text-font;
-  max-height: 700px;
-  overflow-y: auto;
-  grid-column: 2 / 2;
-  grid-row: 1 / 1;
-  align-self: center;
-  justify-self: center;
-}
-
-.heading {
-  box-shadow: 5px 5px 5px black;
-  width: 90%;
-  height: 100px;
-  border-radius: 25px;
-  border: none;
-  text-align: center;
-  font-weight: bold;
-  gap: 10px;
-  font-size: 3rem;
-  margin: 20px 0 30px 0;
-  font-family: $heading-font;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-self: start;
-  justify-self: center;
-  z-index: 2;
-}
-
-.title-section-background {
-  z-index: 1;
-  height: $title-height;
-  background-color: $primary-color;
-  width: 100%;
-  opacity: 40%;
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.title-section img {
-  grid-column: 1;
-  grid-row: 1;
-  align-self: center;
-  width: 100%;
-  height: $title-height;
-  opacity: 45%;
-  position: relative;
-}
-
-.job-title {
-  font-size: 1.5rem;
-}
-
-.skill-row {
-  display: flex;
-  flex-flow: row nowrap;
-  max-width: 900px;
-  gap: 1.5%;
-  margin: 1rem 0;
-}
-.skill-row.top .skill-block {
-  width: 200px;
-}
-.skill-row.middle .skill-block {
-  width: 175px;
-}
-.skill-row.bottom .skill-block {
-  width: 175px;
-}
-.skill-block {
-  display: flex;
-  justify-content: center;
-  color: $secondary-color;
-  padding: 5px;
-  font-size: 1.5rem;
-  font-family: $heading-font;
-  text-align: center;
-  align-items: center;
-  height: 4rem;
-  p {
-    height: fit-content;
-    margin: 0;
-  }
-}
-.dev-tools {
-  grid-row: 2/2;
-  grid-column: 1/2;
-  align-self: start;
-  justify-self: center;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  z-index: 2;
-  h3 {
-    font-size: 1.75rem;
+    padding: 5px;
+    font-size: 1.5rem;
     font-family: $heading-font;
-    font-weight: bold;
+    text-align: center;
+    align-items: center;
+    height: 4rem;
+    p {
+      height: fit-content;
+      margin: 0;
+    }
   }
-  .skill-block {
-    background-color: $quaternary-color;
+  .dev-tools {
+    grid-row: 2/2;
+    grid-column: 1/2;
+    align-self: start;
+    justify-self: center;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    z-index: 2;
+    margin-top: 5%;
+    h3 {
+      font-size: $text-size;
+      font-family: $heading-font;
+      font-weight: bold;
+    }
+    .skill-block {
+      background-color: $quaternary-color;
+    }
+  }
+  .programming-languages {
+    grid-row: 2/2;
+    grid-column: 2/2;
+    align-self: start;
+    justify-self: center;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+    height: 450px;
+    z-index: 2;
+    margin-top: 5%;
+    h3 {
+      font-size: $text-size;
+      font-weight: bold;
+      font-family: $heading-font;
+    }
+    .skill-block {
+      background-color: $light-primary-color;
+    }
+  }
+  .next {
+    grid-row: 3/3;
+    grid-column: 2/2;
+    justify-self: center;
+    align-self: start;
+    z-index: 2;
   }
 }
-.programming-languages {
-  grid-row: 2/2;
-  grid-column: 2/2;
+.footer {
+  grid-row: 5;
+  grid-column: 1 / 3;
   align-self: start;
-  justify-self: center;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: space-between;
-  height: 450px;
-  z-index: 2;
-  h3 {
-    font-size: 1.75rem;
-    font-weight: bold;
-    font-family: $heading-font;
-  }
-  .skill-block {
-    background-color: $light-primary-color;
-  }
 }
-.next {
-  grid-row: 3/3;
-  grid-column: 2/2;
-  justify-self: center;
-  align-self: center;
-  z-index: 2;
-}
-.typewriter-animation {
-  width: fit-content;
-  letter-spacing: normal;
-  margin: 0 5px;
-  max-width: fit-content;
-}
-.company-logo {
-  width: 75px;
-}
-.experience-heading {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  gap: 5%;
-  cursor: pointer;
-  color: black;
-}
+
 @media screen and (max-width: $small-screen-width) {
   .headshot {
     grid-row: 1 / 2;
@@ -455,21 +417,30 @@ h3 {
     grid-template-columns: 40% 60%;
     grid-template-rows: 600px 500px;
     .heading {
-      width: 50vw;
       justify-self: center;
-    }
-    .personal-desc {
     }
   }
   .personal-desc {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     justify-self: center;
-    margin: 2.5%;
+    margin: 5%;
+    padding-top: 5%;
     width: 60%;
-    align-self: end;
+    align-self: center;
+    // line-height
+    // text-align: center;
   }
   .heading {
-    width: 50vw;
+    font-size: 2.5rem;
+    height: 75px;
+    margin-top: 5%;
+    // background-color: transparent;
+    span:first-child {
+      margin-left: 50px;
+    }
+    span:last-child {
+      margin-right: 50px;
+    }
   }
 
   .endorsement-section {
@@ -523,11 +494,6 @@ h3 {
       flex-basis: 140px;
       height: 3.5rem;
       font-size: 1.5rem;
-    }
-    .clip-art {
-      width: 1000px;
-      grid-row: 3 / 3;
-      transform: translateY(-100px);
     }
   }
   .next {
@@ -686,11 +652,7 @@ h3 {
       margin: 0;
       flex-shrink: 0;
     }
-    .clip-art {
-      position: absolute;
-      order: 5;
-      bottom: 0;
-    }
+
     .dev-tools {
       align-items: center;
       width: 100vw;

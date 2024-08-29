@@ -1,6 +1,6 @@
 export const store = {
-  personalDesc:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  Pellentesque aliquet, lectus id maximus laoreet, nulla libero fermentum risus, varius iaculis arcu turpis in nisl. Curabitur accumsan a ligula vitae ullamcorper. Nulla eget ultrices sapien, at auctor dui. Aenean sollicitudin, metus sed.",
+  personalDesc: `Hello! I'm Ijeri Omitogun, a Software Engineer with a strong focus on creating user-friendly and visually engaging web applications. My journey started with a love for video games, which led me to discover my passion for web development. <br/> Over the years, I've worked on innovative projects at Nauticus Robotics and Google, honing my skills in designing intuitive user experiences and ensuring application performance and accessibility. <br/>
+  While I specialize in frontend development, I'm always eager to explore new challenges in software engineering. If you're looking for someone to bring your vision to life, let's connect and create something extraordinary together.`,
   experiences: [
     {
       companyName: "Data Annotation",
@@ -10,7 +10,7 @@ export const store = {
       logoPath: "data-annotations-logo.jpg",
       companyUrl: "https://www.dataannotation.tech/",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur. Nam maximus consequat metus eu malesuada.Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur. Nam maximus consequat metus eu malesuada.",
+        "I trained AI chatbots to enhance their coding capabilities and ensure high-quality code generation. I evaluated various coding problems to measure the AI’s progress and performance. I authored clear code snippets and explanations, and validated AI-generated code and images to meet project standards. My work involved ensuring correctness, performance, and alignment with project requirements.",
     },
     {
       companyName: "Google LLC",
@@ -20,7 +20,7 @@ export const store = {
       logoPath: "google-logo.png",
       companyUrl: "https://about.google/",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur. Nam maximus consequat metus eu malesuada.Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur. Nam maximus consequat metus eu malesuada.",
+        "I developed front-end components with Angular, TypeScript, and Java, ensuring web accessibility compliance, and played a key role in designing and implementing Google's $5 billion Buying Hub. I led product epics, collaborated with cross-functional teams, and contributed to sub-projects like Supplier Nexus and Contracting Hub. I also trained contractors, mentored colleagues, and earned certifications in TypeScript, Angular, and Web Accessibility.",
     },
     {
       companyName: "Nauticus Robotics",
@@ -30,7 +30,7 @@ export const store = {
       logoPath: "nauticus-robotics-logo.jpeg",
       companyUrl: "https://nauticusrobotics.com/",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur. Nam maximus consequat metus eu malesuada.Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur. Nam maximus consequat metus eu malesuada.",
+        "I developed front-end components with JavaScript and Vue.js for robotic control interfaces and contributed to UX design and automation for products like the Olympic Arm and Aquanaut. I assisted in offshore software deployments, conducted customer demos, and worked on the HaloGuard safety system to improve safety. I implemented an Automated User Testing Suite with Selenium in Git CI pipelines and maintained Python and Vue code repositories.",
     },
   ],
   programmingLanguages: [
@@ -122,7 +122,7 @@ export const store = {
       techStack: ["Angular", "Typescript", "Mocha/Chai"],
     },
     {
-      title: "Haloguard by Nauticus Robotics",
+      title: "Haloguard by Nauticus Robotics & TransOcean ",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur. Nam maximus consequat metus eu malesuada. Pellentesque aliquet, lectus id maximus laoreet, nulla libero fermentum risus, varius iaculis arcu turpis in nisl. Curabitur accumsan a ligula vitae ullamcorper. Nulla eget ultrices sapien, at auctor dui. Aenean sollicitudin, metus sed.",
       media: [require("@/assets/project-images/haloguard.png")],
@@ -131,7 +131,7 @@ export const store = {
       techStack: ["Vue", "Javascript", "ROS", "Python"],
     },
     {
-      title: "toolKITT by TransOcean & Nauticus Robotics",
+      title: "toolKITT by Nauticus Robotics",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur. Nam maximus consequat metus eu malesuada. Pellentesque aliquet, lectus id maximus laoreet, nulla libero fermentum risus, varius iaculis arcu turpis in nisl. Curabitur accumsan a ligula vitae ullamcorper. Nulla eget ultrices sapien, at auctor dui. Aenean sollicitudin, metus sed.",
       media: [require("@/assets/project-images/aquanaut-commander.webp")],

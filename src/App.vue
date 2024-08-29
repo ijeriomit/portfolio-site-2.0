@@ -3,11 +3,9 @@
   <main>
     <RouterView />
   </main>
-  <FooterSection class="footer"></FooterSection>
 </template>
 <script setup>
 import FloatingHeader from "./components/floating-header.vue";
-import FooterSection from "./components/footer-section.vue";
 </script>
 <style lang="scss">
 @import "@/scss/variables.scss";
@@ -30,11 +28,6 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
   overflow-y: scroll;
-  background-image: linear-gradient(
-    rgba(29, 173, 118, 0.8),
-    rgba(29, 173, 118, 0.25),
-    rgba(29, 173, 118, 0)
-  );
 }
 body::-webkit-scrollbar {
   width: 0;
@@ -64,16 +57,7 @@ body::-webkit-scrollbar {
   height: $header-height;
   position: fixed;
   z-index: 1000;
-  grid-column: 2/2;
   width: 100vw;
-}
-.footer {
-  grid-row: 5/5;
-  width: 100vw;
-
-  height: $footer-height;
-  background-color: $primary-color;
-  // scroll-snap-align: center;
 }
 .content-block {
   z-index: 2;

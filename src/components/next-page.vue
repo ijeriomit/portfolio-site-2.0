@@ -1,5 +1,5 @@
 <template>
-  <RouterLink class="wrapper" :to="routes[1]">
+  <RouterLink class="wrapper" :to="props.nextRoute">
     <img class="memoji" src="../assets/clip-art-images/memoji-laptop.svg" />
     <p>{{ props.message }}</p>
 
@@ -9,9 +9,8 @@
 
 <script setup>
 import { RouterLink } from "vue-router";
-import { routes } from "@/main.js";
 
-const props = defineProps(["message"]);
+const props = defineProps(["message", "nextRoute"]);
 </script>
 <style lang="scss" scoped>
 @import "../scss/variables.scss";

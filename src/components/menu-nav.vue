@@ -4,19 +4,25 @@
       @click="$emit('routeClicked')"
       class="menu-link"
       :to="props.routes[0]"
-      >About Me</RouterLink
+      >Home</RouterLink
     >
     <RouterLink
       @click="$emit('routeClicked')"
       class="menu-link"
       :to="props.routes[1]"
-      >Projects</RouterLink
+      >About Me</RouterLink
     >
     <RouterLink
       @click="$emit('routeClicked')"
       class="menu-link"
       :to="props.routes[2]"
-      >Contact</RouterLink
+      >Projects</RouterLink
+    >
+    <RouterLink
+      @click="$emit('routeClicked')"
+      class="menu-link"
+      :to="props.routes[3]"
+      >Contact Me</RouterLink
     >
   </nav>
 </template>
@@ -43,23 +49,23 @@ const props = defineProps(["routes"]);
 }
 .menu-link {
   display: block;
-  margin: 20px 0;
+  margin: 15px 0;
   color: $quaternary-color;
   font-family: $vs-code-font;
-  font-size: 1.75rem;
+  font-size: $text-size;
   font-weight: bold;
   text-decoration: none;
 }
 .menu-link:hover {
   color: $secondary-color;
-  font-size: 1.85rem;
+  font-size: 1.6rem;
 }
 @media screen and (max-width: $small-screen-width) {
   .menu {
     width: 200px;
   }
   .menu-link {
-    font-size: 1.5rem;
+    // font-size: 1.5rem;
   }
 }
 @media screen and (max-width: $phone-screen-width) {
@@ -69,7 +75,7 @@ const props = defineProps(["routes"]);
     margin-right: 5vw;
   }
   .menu-link {
-    font-size: 1.25rem;
+    // font-size: 1.25rem;
   }
   a {
     font-size: medium;

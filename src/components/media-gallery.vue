@@ -101,12 +101,12 @@ function setPreview(media) {
   display: flex;
   flex-flow: column nowrap;
   height: 100%;
-  justify-content: space-between;
 }
 
 .media {
   cursor: pointer;
-  height: 85%;
+  max-height: 90%;
+  max-width: 100%;
 }
 
 .modal {
@@ -150,6 +150,7 @@ function setPreview(media) {
   max-width: 100%;
   justify-content: center;
   gap: 2.5%;
+  max-height: 5%;
   align-items: center;
   .prev {
     background-color: transparent;
@@ -169,8 +170,8 @@ function setPreview(media) {
 .media-slide {
   border-radius: 100%;
   border: none;
-  height: 20px;
-  width: 20px;
+  height: 15px;
+  width: 15px;
   cursor: pointer;
 }
 .active {
@@ -192,5 +193,8 @@ function setPreview(media) {
   color: #ccc;
   text-decoration: none;
   cursor: pointer;
+}
+.gallery-buttons {
+  margin-top: 10px;
 }
 </style>

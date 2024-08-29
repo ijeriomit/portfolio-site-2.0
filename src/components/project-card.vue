@@ -38,51 +38,39 @@ const props = defineProps(["project", "index"]);
 @import "@/scss/variables.scss";
 
 .card-wrapper {
-  width: 60%;
+  width: 45%;
+  padding: 30px;
+
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 25% 55% 20%;
   height: 25%;
-  padding: 50px;
-  flex: 1 0 auto;
   border-radius: 15px;
-  font-family: $vs-code-font;
   color: $quaternary-color;
   background-color: $secondary-color;
   box-shadow: 5px 5px 5px black;
   display: grid;
-  grid-template-columns: 45% 50%;
-  grid-template-rows: 15% 65% 20%;
-  column-gap: 5%;
+  column-gap: 2.55%;
 }
-.left-card {
-  align-self: flex-start;
-  .card-title,
-  .gallery {
-    grid-column: 1;
-  }
-  .project-desc {
-    grid-column: 2;
-  }
-}
-.right-card {
-  align-self: flex-end;
-  .card-title,
-  .gallery {
-    justify-self: end;
-    grid-column: 2;
-  }
-  .project-desc {
-    grid-column: 1;
-  }
-}
+
 .card-title {
   grid-row: 1;
   height: fit-content;
   font-size: 2rem;
   margin: 0;
+  font-family: $text-font;
+  grid-column: 1 / 3;
+  justify-self: center;
 }
+
 .project-desc {
   grid-row: 2;
   grid-column: 2;
   font-size: 1.25rem;
+  justify-self: end;
+  align-self: start;
+  font-family: $text-font;
+  width: 90%;
+  margin: 0;
 }
 .skills {
   grid-row: 3;
@@ -93,10 +81,11 @@ const props = defineProps(["project", "index"]);
   gap: 10px;
 }
 .gallery {
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 225px;
+  overflow: hidden;
   justify-self: center;
-  align-self: center;
+  align-self: start;
 }
 .skill-block {
   display: flex;
@@ -115,7 +104,7 @@ const props = defineProps(["project", "index"]);
   }
 }
 .external-link {
-  width: 50px;
+  width: 35px;
   grid-row: 3;
   grid-column: 2/3;
   justify-self: end;

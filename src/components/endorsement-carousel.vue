@@ -38,13 +38,13 @@ import "vue3-carousel/dist/carousel.css";
 
 const slidesToShow = ref(3);
 const slides = ref(store.endorsements);
-const defaultAutoPlaySpeed = ref(2500);
+const defaultAutoPlaySpeed = ref(7500);
 const autoplaySpeed = ref(defaultAutoPlaySpeed.value);
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 $endorsement-width: 400px;
-$endorsement-height: 375px;
+$endorsement-height: 400px;
 $endorsements-gap: 50px;
 $endorsement-padding: 50px;
 $endorsements-width: calc(
@@ -72,7 +72,6 @@ h2 {
   align-self: center;
 }
 .endorsement {
-  border-radius: 15%;
   padding: $endorsement-padding;
   padding-top: calc($endorsement-padding - 20px);
   color: $quaternary-color;
@@ -81,17 +80,23 @@ h2 {
   height: $endorsement-height;
   font-size: 1.5rem;
   cursor: pointer;
+  display: flex;
+  flex-flow: row wrap;
   transition: all 1s ease-in-out;
-  box-shadow: 5px 10px 10px grey;
 }
 .carousel__slide--active .endorsement {
-  background-color: $primary-color;
+  background-color: $quaternary-color;
+  color: $secondary-color;
+
   height: calc($endorsement-height + 25px);
   .endorsement-heading {
     font-weight: bold;
   }
-  .text {
-    font-weight: 400;
+  .name {
+    color: $highlight-color;
+  }
+  .title {
+    color: $secondary-color;
   }
 }
 .endorsement-heading {
@@ -99,7 +104,7 @@ h2 {
   flex-flow: row nowrap;
   align-items: center;
   gap: 10px;
-  font-family: $heading-font;
+  font-family: $text-font;
 }
 .profile-photo {
   background-color: white;
@@ -107,26 +112,27 @@ h2 {
   width: 100px;
   height: 100px;
 }
-.name {
-  margin: 0 10px;
-}
+
 .text {
-  width: 300px;
+  width: 100%;
   height: 200px;
   overflow: hidden;
   font-family: $text-font;
   text-align: left;
-  font-size: 1.5rem;
+  // color: white;
+  font-size: $small-text-size;
 }
 .person {
   display: flex;
   flex-flow: column nowrap;
-  align-items: center;
+  text-align: left;
   justify-content: center;
-  h3 {
-    margin-top: 1.5rem;
+  margin: 0 20px;
+  .name {
+    font-size: $text-size;
+    margin: 1.5rem 0 0 0;
   }
-  h4 {
+  .title {
     font-size: 1.25rem;
     margin: 0.75rem 0;
   }

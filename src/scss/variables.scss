@@ -4,11 +4,16 @@ $tertiary-color: #8f9391;
 $quaternary-color: #000000;
 
 $highlight-color: #14d086;
-$light-primary-color: rgba(0, 135, 83);
+$light-primary-color: rgb(7, 164, 104);
 $heading-font: Roboto Mono, monospace;
-$text-font: __Inter_aaf875, __Inter_Fallback_aaf875;
+$text-font: "SF UI Text", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu",
+  "Cantarell", "Open Sans", sans-serif;
 $vs-code-font: Menlo, Consolas, monaco, monospace;
-$text-size: 1.25rem;
-$footer-height: 400px;
+$text-size: 1.75rem;
+$small-text-size: 1.45rem;
+$heading-font-size: 3rem;
+$subheading-font-size: 2rem;
+$footer-height: 100px;
+$header-height: 125px;
 $phone-screen-width: 415px;
 $small-screen-width: 1366px;
