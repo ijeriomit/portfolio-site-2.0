@@ -280,11 +280,10 @@ $contact-page-height: $header-height + $title-height + $hiring-height +
 @media screen and (max-width: $phone-screen-width) {
   $phone-title-height: 150px;
   $phone-form-height: 750px;
-  $phone-page-height: $phone-title-height + $hiring-height + $phone-form-height +
-    125px;
+  $phone-page-height: 100px + 300px + 600px + 100px;
   .page {
-    grid-template-rows: $phone-title-height $hiring-height $phone-form-height;
-    height: $phone-page-height;
+    grid-template-rows: 100px 100px 300px 800px 100px;
+    height: unset;
   }
   .title-section {
     max-height: $phone-title-height;
@@ -296,14 +295,12 @@ $contact-page-height: $header-height + $title-height + $hiring-height +
     height: $phone-title-height;
   }
   .heading {
-    font-size: 1.5rem;
-    align-self: end;
-    margin-bottom: 10%;
+    font-size: 1.75rem;
+    align-self: center;
+    margin: 0;
     span:first-child,
     span:last-child {
       font-size: 1.25rem;
-      // display: none;
-      // color: $secondary-color;
     }
   }
   .hire-section {
@@ -312,14 +309,14 @@ $contact-page-height: $header-height + $title-height + $hiring-height +
   }
   .contact-section {
     height: 100%;
-    bottom: 10%;
-    grid-template-rows: 160px $phone-form-height;
+    bottom: -5%;
+    grid-template-rows: 160px 750px;
   }
   .contact-form {
     width: 100%;
-    height: $phone-form-height;
+    height: 550px;
     grid-template-columns: 90%;
-    grid-template-rows: 100px 100px 100px 275px 75px;
+    grid-template-rows: 75px 75px 75px 125px 50px;
     padding: 0px;
     column-gap: 0;
     row-gap: 2.5%;
@@ -334,14 +331,13 @@ $contact-page-height: $header-height + $title-height + $hiring-height +
     input,
     textarea {
       font-size: 1rem;
+      padding: 10px;
     }
   }
   .name-field {
     @extend .field;
     grid-column: 1;
     grid-row: 1;
-    // font-size: 1.5rem;
-    // height: 50%;
   }
   .email-field {
     @extend .field;
@@ -358,7 +354,6 @@ $contact-page-height: $header-height + $title-height + $hiring-height +
     grid-column: 1;
     grid-row: 4;
     height: 80%;
-    // align-self: cent;
   }
   .memoji {
     width: 175px;
@@ -372,6 +367,9 @@ $contact-page-height: $header-height + $title-height + $hiring-height +
   }
   .memoji {
     justify-self: center;
+  }
+  .footer {
+    align-self: center;
   }
 }
 </style>

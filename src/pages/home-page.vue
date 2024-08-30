@@ -54,7 +54,7 @@ import FooterSection from "@/components/footer-section.vue";
   height: inherit;
   background-color: $primary-color;
   width: 100%;
-  opacity: 85%;
+  opacity: 100%;
   grid-column: 1;
   grid-row: 1;
 }
@@ -62,9 +62,9 @@ import FooterSection from "@/components/footer-section.vue";
   grid-column: 1;
   grid-row: 1;
   align-self: center;
-  width: 100%;
+  width: 120%;
   height: inherit;
-  opacity: 12.5%;
+  opacity: 20%;
   z-index: 2;
   position: relative;
 }
@@ -200,9 +200,9 @@ import FooterSection from "@/components/footer-section.vue";
     max-width: 250px;
   }
   .home-wrapper {
-    justify-self: center;
+    justify-self: baseline;
     align-self: center;
-    width: unset;
+    width: 100vw;
     margin-top: 0;
     grid-template-columns: 100vw;
     grid-template-rows: 200px 180px 400px 100px;
@@ -241,6 +241,10 @@ import FooterSection from "@/components/footer-section.vue";
     width: 175px;
     align-self: start;
     justify-self: center;
+  }
+  .matrix {
+    max-width: none;
+    width: 900px;
   }
 }
 </style>

@@ -533,46 +533,55 @@ $about-me-page-height: $header-height + $aboutMe-height + $experience-height +
 }
 @media screen and (max-width: $phone-screen-width) {
   $phone-title-height: 325px;
-  .headshot {
-    width: 225px;
-    height: 300px;
-    margin-top: 50px;
+
+  .top-clip-art {
+    top: 10vh;
+    width: 100vw;
+    height: unset;
   }
   .about-me-section {
     display: flex;
     flex-flow: column nowrap;
-    max-height: 1325px;
-    max-height: none;
+    max-height: unset;
+    height: 1450px;
+    max-width: unset;
+    width: 100vw;
+    gap: 30px;
+    margin-top: 100px;
     align-self: flex-start;
     justify-content: flex-start;
     .heading {
-      width: 90%;
+      width: 100%;
     }
-  }
-  .title-section {
-    max-height: 500px;
-    height: 100%;
-  }
-  .title-section-background {
-    height: 100%;
-  }
-  .matrix-background {
-    height: 100%;
+    .headshot {
+      width: 50%;
+      height: 300px;
+      margin-top: 0;
+      align-self: center;
+      order: 2;
+    }
+    .personal-desc {
+      order: 3;
+      align-self: center;
+      text-align: center;
+      width: 80%;
+      font-size: 1.25rem;
+      margin: 0;
+      padding: 0;
+    }
+    .endorsement-section {
+      order: 4;
+      align-self: center;
+    }
   }
   .page {
     display: flex;
     flex-flow: column nowrap;
     row-gap: 1%;
-    height: 5000px;
+    height: fit-content;
+    align-items: center;
   }
-  .personal-desc {
-    order: 3;
-    font-size: 1.25rem;
-    align-self: center;
-    text-align: center;
-    width: 80%;
-    margin: 5%;
-  }
+
   .heading {
     order: 1;
     height: 60px;
@@ -583,20 +592,14 @@ $about-me-page-height: $header-height + $aboutMe-height + $experience-height +
       font-size: 1.85rem;
     }
   }
-  .headshot {
-    order: 2;
-    margin-top: 0;
-  }
-  .endorsement-section {
-    order: 4;
-    align-self: center;
-  }
+
   .exp-section {
     flex-flow: column nowrap;
     display: flex;
-    max-height: 1650px;
+    max-height: 1800px;
+    max-width: 100vw;
     .heading {
-      width: 90%;
+      width: 100%;
       align-self: center;
       order: 1;
       flex-shrink: 0;
@@ -604,66 +607,64 @@ $about-me-page-height: $header-height + $aboutMe-height + $experience-height +
     .experiences {
       order: 2;
       display: flex;
-
+      padding: 0;
       flex-flow: column nowrap;
       align-items: center;
       justify-content: flex-start;
+      height: 1800px;
+      gap: 1%;
+      .experience {
+        width: 95%;
+        padding: 10px;
+        gap: 0;
+        height: 500px;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: space-around;
+        display: flex;
+        margin: 10px 0;
+        h3 {
+          text-align: center;
+          margin: 0;
+          display: flex;
+          align-items: center;
+          font-size: 1.25rem;
+          height: 50px;
+        }
+        p {
+          text-align: center;
+          margin: 0;
+          font-size: 1.25rem;
+          width: 90%;
+        }
+        .dates {
+          font-size: 1.25rem;
+          margin: 0;
+          display: flex;
+          max-height: 60px;
+          align-items: center;
+          justify-content: center;
+        }
+      }
     }
-  }
-  .experience-heading {
-    flex-flow: column nowrap;
-    width: 90%;
-    margin: 10px 0;
-    align-items: center;
-    .company-logo {
-      order: 1;
-      text-align: center;
-    }
-    h2 {
-      order: 2;
-      font-size: 1.5rem;
-    }
-  }
-  .experience {
-    width: 90%;
-    height: 500px;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: space-around;
-    display: flex;
-    margin: 10px 0;
-    h3 {
-      text-align: center;
+    .experience-heading {
+      flex-flow: row nowrap;
+      width: 90%;
       margin: 0;
+      height: 75px;
       display: flex;
+      justify-content: center;
       align-items: center;
-      font-size: 1.25rem;
-      height: 50px;
-    }
-    p {
-      text-align: center;
-      margin: 0;
-      font-size: 1.25rem;
-    }
-    .dates {
-      font-size: 1.25rem;
-      margin: 0;
-      display: flex;
-      max-height: 60px;
-      align-items: center;
-    }
-  }
-  .next {
-    order: 4;
-    right: 0;
-    height: fit-content;
-    align-self: center;
-    p {
-      right: unset;
-    }
-    .arrow {
-      width: 50px;
-      transform: none;
+      .company-logo {
+        order: 1;
+        text-align: center;
+        width: 50px;
+      }
+      h2 {
+        order: 2;
+        font-size: 1.75rem;
+        margin: 0;
+      }
     }
   }
 
@@ -672,13 +673,13 @@ $about-me-page-height: $header-height + $aboutMe-height + $experience-height +
     flex-flow: column nowrap;
     align-items: center;
     width: 100vw;
-    row-gap: 20px;
-    max-height: 1450px;
+    row-gap: 0;
+    max-height: 1300px;
     height: unset;
     .heading {
       order: 1;
       align-self: center;
-      width: 90vw;
+      width: 100vw;
       margin: 0;
       flex-shrink: 0;
     }
@@ -721,6 +722,23 @@ $about-me-page-height: $header-height + $aboutMe-height + $experience-height +
         font-size: 1.5rem;
       }
     }
+    .next {
+      order: 4;
+      right: 0;
+      height: fit-content;
+      align-self: center;
+      p {
+        right: unset;
+      }
+      .arrow {
+        width: 50px;
+        transform: none;
+      }
+    }
+  }
+  .footer {
+    align-self: center;
+    margin-top: 7.5%;
   }
 }
 </style>

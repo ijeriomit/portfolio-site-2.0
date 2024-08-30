@@ -234,4 +234,59 @@ $projects-page-height: $header-height + $products-height + $projects-height +
     height: 350px;
   }
 }
+@media screen and (max-width: $phone-screen-width) {
+  .page {
+    grid-template-rows: 100px 1200px 1000px 400px 100px;
+    height: unset;
+  }
+  .project-section {
+    grid-template-rows: 100px 400px;
+    margin-top: 30px;
+    row-gap: 0;
+    .cards {
+      width: 90vw;
+      padding: 0px;
+      row-gap: 2.5%;
+    }
+    .project-card {
+      display: grid;
+      grid-template-rows: 10% 40% 35% 5%;
+      grid-template-columns: 80% 20%;
+      flex-flow: column nowrap;
+      gap: 10px;
+      padding: 15px 20px;
+      margin-top: 10px;
+      width: unset;
+      box-shadow: none;
+      align-items: center;
+      height: 450px;
+    }
+  }
+  .next {
+    justify-self: center;
+    margin: 0;
+  }
+  .heading {
+    margin: 0;
+    font-size: 1.7rem;
+  }
+  .product-team-section {
+    padding: 0;
+    width: auto;
+    grid-template-rows: 100px 1000px;
+    .heading {
+      font-size: 1.7rem;
+    }
+    .product-card {
+      margin: 0px;
+    }
+    .cards {
+      width: 100vw;
+      padding: 0;
+    }
+  }
+  .footer {
+    gap: 40px;
+  }
+}
 </style>

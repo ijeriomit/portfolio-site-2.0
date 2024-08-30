@@ -158,14 +158,14 @@ h2 {
   .carousel__slide--active .endorsement {
     width: 85vw;
     text-align: left;
-    height: 350px;
+    height: 375px;
     padding: calc($endorsement-padding/1.25);
   }
   .endorsement {
     background-color: $primary-color;
     padding: calc($endorsement-padding/1.25);
     width: 85vw;
-    height: 350px;
+    height: 375px;
   }
 
   .profile-photo {
@@ -174,6 +174,7 @@ h2 {
   }
   .endorsement-wrapper h2 {
     font-size: 1.75rem;
+    margin: 10px 0;
   }
   .name {
     font-size: 1.5rem;
@@ -190,7 +191,7 @@ h2 {
     align-items: center;
   }
   .endorsements {
-    height: 350px;
+    height: 375px;
   }
 }
 </style>

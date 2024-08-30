@@ -17,12 +17,8 @@
       >
         <source :src="previewMedia" type="video/mp4" />
       </video>
-      <div class="gallery-buttons">
-        <button
-          v-show="props.mediaArray.length != 1"
-          @click="prevMedia()"
-          class="prev"
-        >
+      <div v-show="props.mediaArray.length != 1" class="gallery-buttons">
+        <button @click="prevMedia()" class="prev">
           <img src="@/assets/clip-art-images/chevron_black.svg" />
         </button>
         <button
@@ -32,11 +28,7 @@
           :class="{ active: media == previewMedia }"
           @click="setPreview(media)"
         ></button>
-        <button
-          v-show="props.mediaArray.length != 1"
-          @click="nextMedia()"
-          class="next"
-        >
+        <button @click="nextMedia()" class="next">
           <img src="@/assets/clip-art-images/chevron_black.svg" />
         </button>
       </div>

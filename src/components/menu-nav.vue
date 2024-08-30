@@ -75,7 +75,7 @@ const props = defineProps(["routes"]);
     margin-right: 5vw;
   }
   .menu-link {
-    // font-size: 1.25rem;
+    font-size: 1.25rem;
   }
   a {
     font-size: medium;

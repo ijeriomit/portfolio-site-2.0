@@ -111,4 +111,38 @@ const props = defineProps(["project", "index"]);
   align-self: center;
   padding: 10px;
 }
+@media screen and (max-width: $phone-screen-width) {
+  .card-title {
+    font-size: 1.35rem;
+    /* align-self: center; */
+    grid-column: 1 / 3;
+  }
+  .gallery {
+    align-self: center;
+    grid-row: 2;
+    grid-column: 1 / 3;
+    width: 85%;
+    height: auto;
+  }
+  .project-desc {
+    align-self: center;
+    text-align: center;
+    grid-row: 3;
+    grid-column: 1 / 3;
+    width: unset;
+  }
+  .skills {
+    grid-row: 4;
+    grid-column: 1;
+  }
+  .skill-block {
+    font-size: 1rem;
+    padding: 7.5px;
+  }
+  .external-link {
+    align-self: center;
+    grid-row: 4;
+    grid-column: 2;
+  }
+}
 </style>

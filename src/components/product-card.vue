@@ -178,4 +178,63 @@ $card-title-height: 75px;
     grid-column: 1 / 3;
   }
 }
+@media screen and (max-width: $phone-screen-width) {
+  .page {
+    grid-template-rows: 100px 1300px 1000px 400px 100px;
+  }
+  .product-title {
+    font-size: 1.2rem;
+    /* align-self: center; */
+    height: 50px;
+    grid-column: 1 / 3;
+    border-radius: 0;
+    background-color: $quaternary-color;
+    color: $secondary-color;
+    padding: 8px 0px;
+    span {
+      max-width: 70%;
+      justify-self: center;
+      text-align: center;
+    }
+  }
+  .tab {
+    rotate: 180deg;
+    margin-left: 15px;
+    width: 30px;
+  }
+  .product-info {
+    display: flex;
+    gap: 20px;
+    flex-flow: column nowrap;
+    max-width: 90%;
+    margin-left: 0;
+  }
+  .product-desc {
+    font-size: 1.15rem;
+    width: 90%;
+    order: 2;
+  }
+  .tech-stack {
+    flex-flow: row wrap;
+    order: 3;
+    gap: 10px 8px;
+    justify-content: center;
+    p {
+      margin: 0;
+      width: 100%;
+      font-size: 1.25rem;
+      display: flex;
+      justify-content: center;
+    }
+    .tech-block {
+      font-size: 1rem;
+      padding: 7.5px;
+      // background-color: $primary-color;
+      // color: #000;
+    }
+  }
+  .card-wrapper {
+    padding: 10px 0;
+  }
+}
 </style>
