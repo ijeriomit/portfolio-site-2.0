@@ -27,7 +27,12 @@
       <img class="memoji" src="../assets/clip-art-images/memoji-laptop.svg" />
       <img class="clip-art" src="@/assets/clip-art-images/wires.png" />
 
-      <form class="contact-form">
+      <form
+        action="https://public.herotofu.com/v1/285cfd30-671d-11ef-a47e-99b828684d15"
+        method="post"
+        accept-charset="UTF-8"
+        class="contact-form"
+      >
         <div class="name-field">
           <label for="name" class="field-title">Name</label>
           <input id="name" placeholder="Enter your name" class="field-input" />
