@@ -161,7 +161,20 @@ import FooterSection from "@/components/footer-section.vue";
     align-self: center;
     justify-self: center;
     grid-template-columns: 35% 65%;
-    grid-template-rows: 150px 175px 175px 100px;
+    grid-template-rows: 100px 150px 100px 100px;
+    margin-top: 50px;
+  }
+  .title {
+    font-size: 3rem;
+  }
+  .memoji {
+    width: 250px;
+  }
+  .subtitle {
+    font-size: 2.25rem;
+  }
+  .nav-links {
+    height: 75px;
   }
 }
 @media screen and (max-width: $phone-screen-width) {
