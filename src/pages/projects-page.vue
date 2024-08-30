@@ -111,6 +111,7 @@ $projects-page-height: $header-height + $products-height + $projects-height +
   height: $products-height;
   align-self: center;
   grid-template-rows: $title-height 1200px;
+  overflow: hidden;
   .heading {
     color: $quaternary-color;
     justify-self: center;
@@ -191,22 +192,46 @@ $projects-page-height: $header-height + $products-height + $projects-height +
 @media screen and (max-width: $small-screen-width) {
   .heading {
     font-size: 2.75rem;
-    span:first-child,
-    span:last-child {
-      color: $secondary-color;
-    }
   }
   .title-section {
     height: 350px;
   }
-  .cards {
-    padding: 25px;
-    width: 80vw;
-    row-gap: 1.5%;
-  }
+
   .page {
-    row-gap: 50px;
-    grid-template-rows: 350px 2000px 2000px;
+    grid-template-rows: 125px 1200px 1200px;
+    row-gap: 0;
+  }
+  .product-team-section {
+    overflow: hidden;
+    grid-template-rows: 125px 1200px;
+    height: 100%;
+    .product-card {
+      height: fit-content;
+    }
+    .cards {
+      padding: 25px;
+      row-gap: 1%;
+      width: 75vw;
+    }
+  }
+  .project-section {
+    row-gap: 2.5%;
+    grid-template-rows: 150px 400px;
+    .heading {
+      padding: 0;
+    }
+    .cards {
+      justify-content: center;
+      row-gap: 5%;
+      overflow-y: scroll;
+      height: 800px;
+    }
+    .project-card {
+      width: 75%;
+    }
+  }
+  .next {
+    height: 350px;
   }
 }
 </style>

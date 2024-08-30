@@ -97,6 +97,9 @@ function setPreview(media) {
 }
 </script>
 <style lang="scss">
+@import "@/scss/variables.scss";
+@import "@/scss/styles.scss";
+
 .image-container {
   display: flex;
   flex-flow: column nowrap;
@@ -196,5 +199,10 @@ function setPreview(media) {
 }
 .gallery-buttons {
   margin-top: 10px;
+}
+@media screen and (max-width: $small-screen-width) {
+  .image-container {
+    height: fit-content;
+  }
 }
 </style>

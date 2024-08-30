@@ -244,7 +244,7 @@ $contact-page-height: $header-height + $title-height + $hiring-height +
   $small-title-height: 300px;
   $small-page-height: $small-title-height + $hiring-height + $form-height;
   .page {
-    grid-template-rows: $small-title-height $hiring-height $form-height;
+    grid-template-rows: 125px 200px 300px 1000px 100px;
     height: $small-page-height;
   }
   .clip-art {
@@ -267,15 +267,15 @@ $contact-page-height: $header-height + $title-height + $hiring-height +
   .roles {
     justify-self: start;
   }
+  .footer {
+    align-self: end;
+  }
   .job-type {
     font-size: 1.25rem;
     img {
       width: 50px;
     }
   }
-  // .contact-section {
-  //   bottom: 0px;
-  // }
 }
 @media screen and (max-width: $phone-screen-width) {
   $phone-title-height: 150px;

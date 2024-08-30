@@ -97,7 +97,7 @@ p {
 }
 @media screen and (max-width: $small-screen-width) {
   .memoji {
-    width: 200px;
+    width: 150px;
   }
   .arrow {
     width: 150px;

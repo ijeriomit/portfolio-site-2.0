@@ -155,8 +155,27 @@ $card-title-height: 75px;
     grid-template-rows: 75px 325px 75px;
   }
   .gallery {
-    width: 300px;
-    height: 300px;
+    height: unset;
+    width: 400px;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-self: end;
+  }
+  .product-info {
+    grid-template-rows: 70% 25%;
+    // justify-self: center;
+    grid-template-columns: 49% 49%;
+    column-gap: 0;
+    row-gap: 0;
+    margin-left: 1%;
+  }
+  .product-desc {
+    font-size: 1.25rem;
+    align-self: center;
+  }
+  .tech-stack {
+    grid-column: 1 / 3;
   }
 }
 </style>

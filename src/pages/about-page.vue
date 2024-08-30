@@ -410,31 +410,43 @@ $about-me-page-height: $header-height + $aboutMe-height + $experience-height +
     justify-self: end;
     align-self: center;
   }
+  .top-clip-art {
+    top: -15vh;
+    width: 60vw;
+  }
+  .bottom-clip-art {
+    bottom: -5vh;
+  }
 
   .about-me-section {
     align-self: center;
     justify-self: center;
-    grid-template-columns: 40% 60%;
-    grid-template-rows: 600px 500px;
-    .heading {
-      justify-self: center;
-    }
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100px 700px 600px;
+    max-height: 100%;
+    width: 95vw;
+    overflow: hidden;
+    justify-self: center;
   }
   .personal-desc {
-    font-size: 1.25rem;
-    justify-self: center;
-    margin: 5%;
+    width: 90%;
+    justify-self: end;
+    margin: 0;
+    font-size: 1.5rem;
     padding-top: 5%;
-    width: 60%;
     align-self: center;
-    // line-height
-    // text-align: center;
   }
+
   .heading {
     font-size: 2.5rem;
     height: 75px;
-    margin-top: 5%;
-    // background-color: transparent;
+    margin: 0;
+    padding: 0;
+    align-self: center;
+    width: 60vw;
+    justify-content: center;
+    justify-self: center;
+
     span:first-child {
       margin-left: 50px;
     }
@@ -448,22 +460,36 @@ $about-me-page-height: $header-height + $aboutMe-height + $experience-height +
     justify-self: center;
   }
   .page {
-    grid-template-rows: 500px 1200px 1000px 1200px;
-    row-gap: 1%;
-    height: 4050px;
+    grid-template-rows: 125px 1450px 1000px 1200px;
+    row-gap: 0;
+    height: unset;
+    grid-template-columns: 100vw;
   }
   .exp-section {
-    grid-template-rows: 200px 800px;
+    grid-template-rows: 100px 900px;
     max-height: 1000px;
     align-self: start;
     .heading {
-      width: 50vw;
+      margin: 0;
+      padding: 0;
+      align-self: center;
+      width: 60vw;
+      justify-content: center;
+      justify-self: center;
       grid-column: 1 / 3;
-      justify-self: start;
-      margin-left: 2.5vw;
     }
     h3 {
       height: 65px;
+    }
+    .experiences {
+      flex-flow: row nowrap;
+      padding: 0px 10px;
+      align-items: center;
+      .experience {
+        width: 30%;
+        height: 775px;
+        padding: 10px 20px;
+      }
     }
   }
   .experience-heading {
@@ -476,18 +502,22 @@ $about-me-page-height: $header-height + $aboutMe-height + $experience-height +
   .skills-section {
     grid-template-rows: 175px 450px 475px;
     height: 1100px;
+    column-gap: 0%;
     .heading {
       justify-self: center;
-      margin-right: 12.5vw;
       width: 55vw;
     }
     .programming-languages {
       row-gap: 10%;
       justify-content: flex-start;
+      .skill-row.middle {
+        width: 600px;
+      }
     }
     .skill-row {
       justify-content: center;
     }
+
     .skill-row.middle .skill-block,
     .skill-row.bottom .skill-block,
     .skill-row.top .skill-block {
@@ -495,10 +525,10 @@ $about-me-page-height: $header-height + $aboutMe-height + $experience-height +
       height: 3.5rem;
       font-size: 1.5rem;
     }
-  }
-  .next {
-    align-self: start;
-    grid-row: 3 / 3;
+    .next {
+      align-self: end;
+      grid-row: 3 / 3;
+    }
   }
 }
 @media screen and (max-width: $phone-screen-width) {

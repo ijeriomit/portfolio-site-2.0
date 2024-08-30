@@ -153,32 +153,32 @@ import FooterSection from "@/components/footer-section.vue";
   color: $highlight-color;
 }
 .nav-link:last-child {
-  border-right: none;
+  border: none;
 }
 @media screen and (max-width: $small-screen-width) {
   .home-wrapper {
     max-width: 100%;
     align-self: center;
     justify-self: center;
-    grid-template-columns: 40% 50%;
+    grid-template-columns: 35% 65%;
+    grid-template-rows: 150px 175px 175px 100px;
   }
 }
 @media screen and (max-width: $phone-screen-width) {
   $left-side-padding: 20px;
-  .button-row {
-    grid-row: 3;
-    grid-column: 1;
-    align-self: center;
-    justify-self: end;
-    margin-left: $left-side-padding;
-    align-items: center;
-    left: 0px;
-    gap: 0px 20px;
+  .page {
+    overflow: auto;
+    height: 120vh;
+  }
+  .nav-links {
+    flex-flow: column nowrap;
+    width: 85vw;
+    height: fit-content;
   }
   .title {
     grid-row: 2;
     grid-column: 1;
-    font-size: 1.75rem;
+    font-size: 2rem;
     align-self: baseline;
     justify-self: center;
     display: flex;
@@ -202,16 +202,24 @@ import FooterSection from "@/components/footer-section.vue";
   .home-wrapper {
     justify-self: center;
     align-self: center;
-    grid-template-columns: unset;
-    width: 85%;
-    grid-template-rows: 150px 150px 100px;
+    width: unset;
+    margin-top: 0;
+    grid-template-columns: 100vw;
+    grid-template-rows: 200px 180px 400px 100px;
   }
-  .social-link img {
-    width: 32.5px;
-  }
-  .social-link {
-    grid-column: 2/3;
-    cursor: pointer;
+  .nav-link {
+    font-size: 1.25rem;
+    padding: 0px;
+    max-width: unset;
+    height: 75px;
+    width: 90%;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    border-right: none;
+    border-bottom: 5px solid #14d086;
+    justify-content: center;
+    text-align: center;
   }
   .resume-button > button {
     font-size: small;
@@ -230,7 +238,7 @@ import FooterSection from "@/components/footer-section.vue";
   }
   .memoji {
     margin: 0;
-    width: 120px;
+    width: 175px;
     align-self: start;
     justify-self: center;
   }
