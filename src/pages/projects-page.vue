@@ -1,5 +1,6 @@
 <template>
   <div class="page">
+    <floating-header class="header"></floating-header>
     <section class="product-team-section">
       <h1 class="heading">
         <span>Products I've Worked On</span>
@@ -15,8 +16,6 @@
         ></ProductCard>
       </div>
     </section>
-    <!-- <img class="clip-art" src="@/assets/clip-art-images/wires.png" /> -->
-
     <section class="project-section">
       <h2 class="heading">Personal Projects</h2>
       <div class="cards">
@@ -34,7 +33,7 @@
       message="Contact Me"
       :next-route="routes[3]"
     ></NextPage>
-    <FooterSection class="footer"></FooterSection>
+    <FooterBar class="footer"></FooterBar>
   </div>
 </template>
 <script setup>
@@ -45,7 +44,8 @@ import { routes } from "@/main.js";
 import ProductCard from "@/components/product-card.vue";
 import ProjectCard from "@/components/project-card.vue";
 import NextPage from "@/components/next-page.vue";
-import FooterSection from "@/components/footer-section.vue";
+import FooterBar from "@/components/footer-bar.vue";
+import FloatingHeader from "@/components/floating-header.vue";
 
 const projects = ref(store.projects);
 const products = ref(store.productTeams);

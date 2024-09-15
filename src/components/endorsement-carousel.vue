@@ -15,7 +15,9 @@
             <img
               class="profile-photo"
               color="white"
-              src="@/assets/about-me-images/profile-icon.png"
+              :src="
+                slide.imageSrc || '@/assets/about-me-images/profile-icon.png'
+              "
             />
             <div class="person">
               <h3 class="name">{{ slide.name }}</h3>
@@ -38,13 +40,13 @@ import "vue3-carousel/dist/carousel.css";
 
 const slidesToShow = ref(3);
 const slides = ref(store.endorsements);
-const defaultAutoPlaySpeed = ref(7500);
+const defaultAutoPlaySpeed = ref(5000);
 const autoplaySpeed = ref(defaultAutoPlaySpeed.value);
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 $endorsement-width: 400px;
-$endorsement-height: 400px;
+$endorsement-height: 475px;
 $endorsements-gap: 50px;
 $endorsement-padding: 50px;
 $endorsements-width: calc(
@@ -60,32 +62,34 @@ h2 {
 .endorsement-wrapper {
   display: flex;
   flex-flow: column nowrap;
+  justify-content: center;
 }
 .endorsement-wrapper h2 {
   align-self: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  font-size: 2rem;
+  font-size: $sub-heading-text-size;
 }
 .endorsements {
   width: $endorsements-width;
   align-self: center;
+  justify-self: center;
 }
 .endorsement {
   padding: $endorsement-padding;
   padding-top: calc($endorsement-padding - 20px);
   color: $quaternary-color;
-  background-color: $secondary-color;
+  background-color: $secondary-color-transparent;
   width: $endorsement-width;
   height: $endorsement-height;
-  font-size: 1.5rem;
+  font-size: $text-size;
   cursor: pointer;
   display: flex;
   flex-flow: row wrap;
   transition: all 1s ease-in-out;
 }
 .carousel__slide--active .endorsement {
-  background-color: $quaternary-color;
+  background-color: $quaternary-color-transparent;
   color: $secondary-color;
 
   height: calc($endorsement-height + 25px);
@@ -115,12 +119,11 @@ h2 {
 
 .text {
   width: 100%;
-  height: 200px;
+  max-height: 250px;
   overflow: hidden;
   font-family: $text-font;
   text-align: left;
-  // color: white;
-  font-size: $small-text-size;
+  font-size: $sub-text-size;
 }
 .person {
   display: flex;
@@ -133,25 +136,62 @@ h2 {
     margin: 1.5rem 0 0 0;
   }
   .title {
-    font-size: 1.25rem;
+    width: 175px;
+    font-size: $sub-text-size - 0.1rem;
     margin: 0.75rem 0;
   }
 }
-@media screen and (max-width: $small-screen-width) {
+@media screen and (max-width: $laptop-screen-width) {
+  .endorsement-wrapper h2 {
+    font-size: $sub-heading-text-size-laptop-screen;
+  }
   .endorsement {
-    width: calc($endorsement-width - 25px);
+    width: $endorsement-width - 20px;
+    height: $endorsement-height - 20px;
+    font-size: $text-size-laptop-screen;
+  }
+  .carousel__slide--active .endorsement {
+    width: $endorsement-width;
+    height: $endorsement-height;
+  }
+  .text {
+    font-size: $sub-text-size-laptop-screen;
+  }
+  .person {
+    .name {
+      font-size: $text-size-laptop-screen;
+    }
+    .title {
+      font-size: $sub-text-size-laptop-screen - 0.1rem;
+    }
+  }
+}
+@media screen and (max-width: $small-screen-width) {
+  .endorsement-wrapper h2 {
+    font-size: $sub-heading-text-size-small-screen;
+  }
+  .endorsement {
+    width: calc($endorsement-width - 40px);
+    height: $endorsement-height - 60px;
+    font-size: $text-size-small-screen;
+  }
+  .carousel__slide--active .endorsement {
+    width: $endorsement-width - 30px;
+    height: $endorsement-height - 40px;
+  }
+  .text {
+    font-size: $sub-text-size-small-screen;
+  }
+  .person {
+    .name {
+      font-size: $text-size-small-screen;
+    }
+    .title {
+      font-size: $sub-text-size-small-screen - 0.1rem;
+    }
   }
   .endorsements {
-    $endorsements-width: calc(
-      ($endorsement-width - 25px) * 3 + ($endorsements-gap * 2) +
-        ($endorsement-padding * 6)
-    );
-  }
-  .endorsements {
-    height: 500px;
-    justify-self: center;
-    grid-column: 1/3;
-    grid-row: 3/4;
+    width: 90vw;
   }
 }
 @media screen and (max-width: $phone-screen-width) {

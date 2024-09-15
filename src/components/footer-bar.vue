@@ -13,38 +13,42 @@
     <a class="social-link" href="https://medium.com/@jeri-omit" target="_blank">
       <img src="@/assets/link-images/medium.svg" />
     </a>
-    <!-- <div class="credit">
-      <p>@ Ijeri Omitogun 2024</p>
-    </div> -->
   </footer>
 </template>
 <script setup></script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 footer {
-  display: flex;
-  flex-flow: row nowrap;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 100%;
+  // flex-flow: row nowrap;
   justify-self: center;
   height: fit-content;
-  justify-content: center;
-  gap: 30px;
+  justify-items: center;
+  column-gap: 30px;
 }
 .social-link {
   cursor: pointer;
   max-width: fit-content;
 }
 .social-link img {
-  width: 50px;
+  width: $footer-icon-width;
 }
 .social-link > img:hover {
-  width: 55px;
+  width: $footer-icon-width + 5px;
 }
 .credit {
   align-self: end;
 }
+@media screen and (max-width: $laptop-screen-width) {
+  .social-link > img {
+    width: $footer-icon-width-laptop-screen;
+  }
+}
 @media screen and (max-width: $small-screen-width) {
-  .social-icon {
-    width: 3rem;
+  .social-link > img {
+    width: $footer-icon-width-small-screen;
   }
   .socials {
     width: 50%;
@@ -89,8 +93,8 @@ footer {
     grid-column: 1 / 4;
     justify-self: center;
   }
-  .social-icon {
-    width: 2rem;
+  .social-link > img {
+    width: $footer-icon-width-phone-screen;
   }
   .credit {
     grid-column: 1/4;

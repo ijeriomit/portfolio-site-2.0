@@ -33,7 +33,7 @@ const props = defineProps(["routes"]);
 @import "@/scss/variables.scss";
 
 .menu {
-  background-color: $primary-color;
+  background-color: $primary-color-light;
   flex-flow: column nowrap;
   position: absolute;
   height: 300px;

@@ -27,7 +27,7 @@ const props = defineProps(["message", "nextRoute"]);
   height: fit-content;
 }
 .wrapper:hover {
-  color: $light-primary-color;
+  color: $primary-color-light;
   .memoji {
     animation: bounce 1.5s ease-in-out;
   }
@@ -54,7 +54,7 @@ const props = defineProps(["message", "nextRoute"]);
 p {
   margin: 1.5rem 1rem 0;
   height: 3rem;
-  font-size: 2rem;
+  font-size: $sub-heading-text-size;
   font-family: $heading-font;
   font-weight: bold;
   position: relative;
@@ -95,12 +95,21 @@ p {
     transform: translateY(0%);
   }
 }
+@media screen and (max-width: $laptop-screen-width) {
+  p {
+    font-size: $sub-heading-text-size-laptop-screen;
+  }
+}
 @media screen and (max-width: $small-screen-width) {
   .memoji {
-    width: 150px;
+    width: 125px;
+  }
+  p {
+    font-size: $sub-heading-text-size-small-screen;
   }
   .arrow {
-    width: 150px;
+    width: 100px;
+    bottom: 20px;
   }
 }
 @media screen and (max-width: $phone-screen-width) {

@@ -1,13 +1,12 @@
 <template>
   <header>
     <RouterLink class="logo" :to="routes[0]">
-      <img
+      <!-- <img
         v-if="useDarkLogo"
         class="logo-icon-dark"
         src="@/assets/clip-art-images/ijeri-logo-icon-dark.png"
-      />
+      /> -->
       <img
-        v-else
         class="logo-icon"
         src="@/assets/clip-art-images/ijeri-logo-icon.png"
       />
@@ -86,6 +85,9 @@ header {
   align-items: center;
   height: $header-height;
   justify-content: space-between;
+  position: fixed;
+  z-index: 1000;
+  width: 100vw;
 }
 .logo {
   order: 1;
@@ -96,7 +98,7 @@ header {
     margin: -15px;
     width: 90px;
   }
-  img:last-child {
+  .logo-text {
     width: 90px;
   }
   .logo-icon-dark {
@@ -173,11 +175,15 @@ header {
     display: none;
   }
 }
-
+@media screen and (max-width: $laptop-screen-width) {
+  header {
+    height: $header-height-laptop-screen;
+  }
+}
 @media screen and (max-width: $phone-screen-width) {
   .hamburger-menu > svg {
     padding: 0px;
-    width: 60px;
+    width: 50px;
   }
   .logo {
     margin-left: 7.5vw;
@@ -186,13 +192,15 @@ header {
   .logo .logo-icon {
     width: 75px;
   }
-  .logo img:last-child {
-    right: 0px;
-    display: none;
+  .logo .logo-icon-dark {
+    width: 50px;
+  }
+  .logo .logo-text {
+    width: 70px;
   }
   header {
     justify-self: center;
-    height: 100px;
+    height: $header-height-phone-screen;
   }
   .close-menu {
     transform: none;
@@ -210,11 +218,6 @@ header {
   }
   .title-section-background {
     max-height: 350px;
-  }
-}
-@media screen and (max-width: $small-screen-width) {
-  .hamburger-menu {
-    display: block;
   }
 }
 </style>

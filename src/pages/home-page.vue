@@ -5,6 +5,7 @@
       class="matrix"
       src="@/assets/background-images/matrix-rain-white.gif"
     />
+    <floating-header class="header"></floating-header>
     <div class="home-wrapper">
       <img
         class="memoji"
@@ -16,7 +17,8 @@
         <div class="unhide-typewriter-animation">IJERI OMITOGUN!</div>
       </h1>
       <h2 class="subtitle">
-        Frontend Developer / Software Engineer / UX Designer
+        Software Engineer <br />Frontend Developer<br />
+        UX Designer
       </h2>
       <nav class="nav-links">
         <RouterLink class="nav-link" :to="routes[1]">Learn About Me</RouterLink>
@@ -32,14 +34,15 @@
           Resume
         </a>
       </nav>
-      <FooterSection class="footer"></FooterSection>
+      <FooterBar class="footer"></FooterBar>
     </div>
   </div>
 </template>
 <script setup>
 import { RouterLink } from "vue-router";
 import { routes } from "@/main.js";
-import FooterSection from "@/components/footer-section.vue";
+import FloatingHeader from "@/components/floating-header.vue";
+import FooterBar from "@/components/footer-bar.vue";
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
@@ -54,7 +57,7 @@ import FooterSection from "@/components/footer-section.vue";
   height: inherit;
   background-color: $primary-color;
   width: 100%;
-  opacity: 100%;
+  opacity: 70%;
   grid-column: 1;
   grid-row: 1;
 }
@@ -64,7 +67,7 @@ import FooterSection from "@/components/footer-section.vue";
   align-self: center;
   width: 120%;
   height: inherit;
-  opacity: 20%;
+  opacity: 12.5%;
   z-index: 2;
   position: relative;
 }
@@ -102,7 +105,7 @@ import FooterSection from "@/components/footer-section.vue";
   font-weight: bold;
   grid-column: 2/2;
   grid-row: 1/1;
-  font-size: 3.5rem;
+  font-size: $heading-text-size + 0.25rem;
 
   margin: 0 50px 0 50px;
   align-self: center;
@@ -119,7 +122,7 @@ import FooterSection from "@/components/footer-section.vue";
   grid-column: 2/2;
   grid-row: 2/2;
   align-self: center;
-  font-size: 2.5rem;
+  font-size: $sub-heading-text-size + 0.25rem;
   margin: 0 50px 0 50px;
   max-width: fit-content;
 }
@@ -141,7 +144,7 @@ import FooterSection from "@/components/footer-section.vue";
 }
 .nav-link {
   font-weight: bold;
-  font-size: $small-text-size;
+  font-size: $text-size;
   color: $secondary-color;
   text-decoration: none;
 
@@ -155,43 +158,55 @@ import FooterSection from "@/components/footer-section.vue";
 .nav-link:last-child {
   border: none;
 }
+@media screen and (max-width: $laptop-screen-width) {
+  .home-wrapper {
+    grid-template-rows: 175px 150px 175px 100px;
+  }
+  .title {
+    font-size: $heading-text-size-laptop-screen + 0.25rem;
+  }
+  .subtitle {
+    font-size: $sub-heading-text-size-laptop-screen;
+  }
+  .home-wrapper {
+    margin-top: $header-height-laptop-screen;
+  }
+}
 @media screen and (max-width: $small-screen-width) {
   .home-wrapper {
     max-width: 100%;
     align-self: center;
     justify-self: center;
     grid-template-columns: 35% 65%;
-    grid-template-rows: 100px 150px 100px 100px;
-    margin-top: 50px;
+    grid-template-rows: 150px 125px 125px 100px;
+    margin-top: $header-height-small-screen - 50px;
   }
   .title {
-    font-size: 3rem;
+    font-size: $heading-text-size-small-screen + 0.15rem;
   }
   .memoji {
     width: 250px;
   }
   .subtitle {
-    font-size: 2.25rem;
+    font-size: $sub-heading-text-size-small-screen;
   }
   .nav-links {
     height: 75px;
+    align-self: end;
+    .nav-link {
+      font-size: $text-size-small-screen;
+    }
   }
 }
 @media screen and (max-width: $phone-screen-width) {
   $left-side-padding: 20px;
   .page {
     overflow: auto;
-    height: 120vh;
-  }
-  .nav-links {
-    flex-flow: column nowrap;
-    width: 85vw;
-    height: fit-content;
   }
   .title {
     grid-row: 2;
     grid-column: 1;
-    font-size: 2rem;
+    font-size: $heading-text-size-phone-screen;
     align-self: baseline;
     justify-self: center;
     display: flex;
@@ -200,40 +215,46 @@ import FooterSection from "@/components/footer-section.vue";
     margin: 0;
   }
   .subtitle {
-    margin-left: $left-side-padding;
-    margin-top: 5px;
-    margin-bottom: 0;
     align-self: end;
     grid-row: 2;
     grid-column: 1;
-    font-size: 1.25rem;
+    font-size: $sub-heading-text-size-phone-screen;
     justify-self: center;
     text-align: center;
     margin: 0;
-    max-width: 250px;
   }
   .home-wrapper {
     justify-self: baseline;
     align-self: center;
     width: 100vw;
-    margin-top: 0;
+    margin-top: $header-height-phone-screen - 20px;
     grid-template-columns: 100vw;
-    grid-template-rows: 200px 180px 400px 100px;
+    grid-template-rows: 20vh 20vh 35vh 10vh;
   }
-  .nav-link {
-    font-size: 1.25rem;
-    padding: 0px;
-    max-width: unset;
-    height: 75px;
-    width: 90%;
-    align-self: center;
-    display: flex;
-    align-items: center;
-    border-right: none;
-    border-bottom: 5px solid #14d086;
-    justify-content: center;
-    text-align: center;
+  .nav-links {
+    align-self: end;
+    flex-flow: column nowrap;
+    width: 75vw;
+    height: fit-content;
+    .nav-link {
+      font-size: $text-size-phone-screen;
+      padding: 0px;
+      max-width: unset;
+      height: 65px;
+      width: 90%;
+      align-self: center;
+      display: flex;
+      align-items: center;
+      border-right: none;
+      border-bottom: 5px solid #14d086;
+      justify-content: center;
+      text-align: center;
+    }
+    .nav-link:last-child {
+      border: none;
+    }
   }
+
   .resume-button > button {
     font-size: small;
     width: 80px;
@@ -251,7 +272,7 @@ import FooterSection from "@/components/footer-section.vue";
   }
   .memoji {
     margin: 0;
-    width: 175px;
+    width: 150px;
     align-self: start;
     justify-self: center;
   }

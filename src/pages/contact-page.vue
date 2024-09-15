@@ -1,5 +1,6 @@
 <template>
   <div class="page">
+    <floating-header class="header"></floating-header>
     <h1 class="heading">
       <span>&lt;div&gt;</span>
       <span> Contact Me </span>
@@ -65,11 +66,12 @@
         <input type="submit" class="submit-button" value="Submit" />
       </form>
     </section>
-    <FooterSection class="footer"></FooterSection>
+    <FooterBar class="footer"></FooterBar>
   </div>
 </template>
 <script setup>
-import FooterSection from "@/components/footer-section.vue";
+import FooterBar from "@/components/footer-bar.vue";
+import FloatingHeader from "@/components/floating-header.vue";
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
