@@ -16,7 +16,8 @@
               class="profile-photo"
               color="white"
               :src="
-                slide.imageSrc || '@/assets/about-me-images/profile-icon.png'
+                slide.imageSrc ||
+                require('@/assets/about-me-images/profile-icon.png')
               "
             />
             <div class="person">

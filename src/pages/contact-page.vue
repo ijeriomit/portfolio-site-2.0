@@ -1,13 +1,14 @@
 <template>
+  <img class="clip-art" src="@/assets/clip-art-images/wires.png" />
   <div class="page">
     <floating-header class="header"></floating-header>
-    <h1 class="heading">
-      <span>&lt;div&gt;</span>
-      <span> Contact Me </span>
-      <span>&lt;/div&gt;</span>
-    </h1>
     <section class="hire-section">
-      <h2 class="sub-heading">
+      <h1 class="heading">
+        <span>&lt;div&gt;</span>
+        <span> Contact Me </span>
+        <span>&lt;/div&gt;</span>
+      </h1>
+      <h2 class="tagline">
         <div>Work With Me!</div>
         <br />
         <div>Currently accepting these roles:</div>
@@ -26,7 +27,6 @@
     </section>
     <section class="contact-section">
       <img class="memoji" src="../assets/clip-art-images/memoji-laptop.svg" />
-      <img class="clip-art" src="@/assets/clip-art-images/wires.png" />
 
       <form
         action="https://public.herotofu.com/v1/285cfd30-671d-11ef-a47e-99b828684d15"
@@ -65,8 +65,8 @@
         </div>
         <input type="submit" class="submit-button" value="Submit" />
       </form>
+      <FooterBar class="footer"></FooterBar>
     </section>
-    <FooterBar class="footer"></FooterBar>
   </div>
 </template>
 <script setup>
@@ -75,231 +75,277 @@ import FloatingHeader from "@/components/floating-header.vue";
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
+@import "@/scss/styles.scss";
 
-$hiring-height: 350px;
-$title-height: 150px;
-$form-height: 1100px;
-$contact-page-height: $header-height + $title-height + $hiring-height +
-  $form-height + $footer-height;
+$hiring-height: 500px;
+$contact-height: 850px;
 .page {
-  grid-template-rows: $header-height $title-height $hiring-height $form-height $footer-height;
+  grid-template-rows: $header-height $hiring-height $contact-height + $footer-height;
   grid-template-columns: 100vw;
-  // height: $contact-page-height;
-  background-image: linear-gradient(
-    rgba(29, 173, 118, 0.5),
-    rgba(29, 173, 118, 0.25),
-    rgba(29, 173, 118, 0)
-  );
+  row-gap: 2.5%;
+  z-index: 2;
 }
+.header {
+  grid-row: 1;
+  height: $header-height;
+  scroll-snap-align: start;
+}
+
 .hire-section {
-  grid-row: 3;
-  grid-column: 1 / 3;
-  align-self: end;
-  justify-self: center;
+  @extend .page-section;
+  grid-row: 2;
+  width: 100vw;
+  padding-top: 75px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  z-index: 2;
-}
-
-.heading {
-  color: $quaternary-color;
-  justify-self: center;
-  align-self: center;
-  grid-column: 1 / 3;
-  grid-row: 2;
-  z-index: 2;
-  font-family: $heading-font;
-  font-size: 3rem;
-  font-weight: bold;
-  span:first-child,
-  span:last-child {
-    color: $secondary-color;
+  .heading {
+    color: $quaternary-color;
+    font-family: $heading-font;
+    font-size: $heading-text-size;
+    font-weight: bold;
+    span:first-child,
+    span:last-child {
+      color: $secondary-color;
+    }
   }
-}
-.footer {
-  grid-row: 5;
-  justify-self: center;
-}
-.sub-heading {
-  font-family: $heading-font;
-  font-size: 1.5rem;
-  font-weight: bold;
-  height: fit-content;
-  text-align: center;
-  span {
-    height: 2rem;
+  .tagline {
+    font-family: $heading-font;
+    font-size: $text-size;
+    font-weight: bold;
+    height: fit-content;
+    text-align: center;
   }
-}
-.contact-form {
-  width: 70%;
-  grid-row: 2;
-  height: 700px;
-  padding: 50px;
-  grid-column: 2;
-  background-color: $quaternary-color;
-  color: $secondary-color;
-  font-size: $text-size;
-  border-radius: 25px;
-  display: grid;
-  grid-template-columns: 45% 45%;
-  grid-template-rows: 100px 100px 300px 100px;
-  justify-self: center;
-  justify-content: center;
-  column-gap: 5%;
-  row-gap: 5%;
-  z-index: 2;
-}
-.field {
-  display: flex;
-  flex-flow: column nowrap;
-  font-family: $vs-code-font;
-  height: 100%;
-  width: 100%;
-  font-size: 1.5rem;
-  input,
-  textarea {
-    font-size: 1.5rem;
-  }
-}
-.name-field {
-  @extend .field;
-  grid-column: 1;
-  grid-row: 1;
-}
-.email-field {
-  @extend .field;
-  grid-column: 2;
-  grid-row: 1;
-  justify-self: end;
-}
-.subject-field {
-  @extend .field;
-  grid-column: 1/3;
-  grid-row: 2;
-}
-.message-field {
-  @extend .field;
-  grid-column: 1/3;
-  grid-row: 3;
-}
-.submit-button {
-  grid-column: 1/3;
-  grid-row: 4;
-  font-size: 2rem;
-  font-family: $heading-font;
-  align-self: center;
-  width: 250px;
-  height: 100px;
-  border-radius: 15px;
-  justify-self: center;
-  font-weight: bold;
-  background-color: $highlight-color;
-  cursor: pointer;
-}
-.submit-button:hover {
-  background-color: $highlight-color;
-  transition: all 0.1s ease-in;
-  width: 270px;
-  height: 110px;
-}
-.field-input {
-  height: 90%;
-  font-family: $vs-code-font;
-  padding: 15px;
-}
-.field-title {
-  &:after {
-    content: "*";
+  .job-type {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: $text-size;
+    font-weight: bold;
+    font-family: $heading-font;
+    img {
+      width: 75px;
+    }
   }
 }
 .contact-section {
-  grid-column: 1 / 3;
-  grid-row: 4;
-  grid-template-rows: 320px 800px;
+  @extend .page-section;
+  grid-row: 3;
+  grid-template-rows: 300px 700px $footer-height;
   display: grid;
-  grid-template-columns: 7.5% 85% 7.5%;
-  position: relative;
-  bottom: 15%;
-}
-.memoji {
-  grid-row: 1;
-  grid-column: 2;
-  justify-self: end;
-  padding: 0 10%;
-  z-index: 2;
-}
+  grid-template-columns: 7.5vw 85vw 7.5vw;
+  margin-top: -12.5%;
+  scroll-snap-align: end;
+  .contact-form {
+    width: 60%;
+    grid-row: 2;
+    padding: 50px;
+    grid-column: 2;
+    background-color: $quaternary-color;
+    color: $secondary-color;
+    font-size: $text-size;
+    border-radius: 25px;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-template-rows: 100px 100px 300px 100px;
+    justify-self: center;
+    justify-content: center;
+    column-gap: 5%;
+    row-gap: 2.5%;
 
-.job-type {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  font-family: $heading-font;
-  img {
-    width: 75px;
+    .name-field {
+      @extend .field;
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .email-field {
+      @extend .field;
+      grid-column: 2;
+      grid-row: 1;
+      justify-self: end;
+    }
+    .subject-field {
+      @extend .field;
+      grid-column: 1/3;
+      grid-row: 2;
+    }
+    .message-field {
+      @extend .field;
+      grid-column: 1/3;
+      grid-row: 3;
+    }
+    .submit-button {
+      grid-column: 1/3;
+      grid-row: 4;
+      font-size: $sub-heading-text-size;
+      font-family: $heading-font;
+      align-self: center;
+      width: 200px;
+      height: 75px;
+      border-radius: 15px;
+      justify-self: center;
+      font-weight: bold;
+      background-color: $highlight-color;
+      cursor: pointer;
+    }
+    .submit-button:hover {
+      color: $secondary-color;
+      transition: all 0.1s ease-in;
+      width: 210px;
+      height: 80px;
+    }
+    .field-input {
+      height: 90%;
+      font-family: $text-font;
+      padding: 15px;
+    }
+    .field-title {
+      font-family: $heading-font;
+      &:after {
+        content: "*";
+      }
+    }
   }
-}
-.clip-art {
-  width: 1000px;
-  grid-row: 1/2;
-  position: absolute;
-  z-index: 1;
-}
-@media screen and (max-width: $small-screen-width) {
-  $small-title-height: 300px;
-  $small-page-height: $small-title-height + $hiring-height + $form-height;
-  .page {
-    grid-template-rows: 125px 200px 300px 1000px 100px;
-    height: $small-page-height;
-  }
-  .clip-art {
-    width: 800px;
-  }
-  .title-section {
-    max-height: $small-title-height;
-  }
-  .title-section-background {
-    height: $small-title-height;
-  }
-  .matrix-background {
-    height: $small-title-height;
-  }
-  .sub-heading {
-    font-size: 1.25rem;
-    width: 90%;
-    justify-self: start;
-  }
-  .roles {
-    justify-self: start;
+  .memoji {
+    grid-row: 1;
+    grid-column: 2;
+    justify-self: end;
+    align-self: end;
+    padding: 0 17.5%;
+    width: 275px;
   }
   .footer {
+    grid-row: 3;
+    grid-column: 2;
     align-self: end;
   }
-  .job-type {
-    font-size: 1.25rem;
-    img {
-      width: 50px;
+}
+
+.field {
+  display: flex;
+  flex-flow: column nowrap;
+  font-family: $text-font;
+  height: 100%;
+  width: 100%;
+  font-size: $text-size;
+  input,
+  textarea {
+    font-size: $text-size;
+  }
+}
+
+.clip-art {
+  width: 1000px;
+  position: absolute;
+  top: 15vh;
+  z-index: 1;
+}
+@media screen and (max-width: $laptop-screen-width) {
+  $hiring-height: 500px;
+  $contact-height: 750px;
+  .page {
+    grid-template-rows: $header-height-laptop-screen $hiring-height $contact-height + $footer-height;
+  }
+  .hire-section {
+    .heading {
+      font-size: $heading-text-size-laptop-screen;
+    }
+    .tagline {
+      font-size: $text-size-laptop-screen;
+    }
+    .job-type {
+      font-size: $text-size-laptop-screen;
+    }
+  }
+  .field {
+    font-size: $text-size-laptop-screen;
+    input,
+    textarea {
+      font-size: $text-size-laptop-screen;
+    }
+  }
+  .contact-section {
+    grid-template-rows: 300px 650px $footer-height;
+    margin-top: -15%;
+
+    .contact-form {
+      font-size: $text-size-laptop-screen;
+
+      grid-template-rows: 100px 100px 250px 75px;
+      height: 525px;
+      .submit-button {
+        font-size: $sub-heading-text-size-laptop-screen;
+        width: 175px;
+        height: 60px;
+      }
+      .submit-button:hover {
+        width: 185px;
+        height: 70px;
+      }
+    }
+    .footer {
+      align-self: start;
+    }
+  }
+}
+@media screen and (max-width: $small-screen-width) {
+  $hiring-height: 400px;
+  $contact-height: 750px;
+  .page {
+    grid-template-rows: $header-height-small-screen $hiring-height $contact-height + $footer-height;
+  }
+  .hire-section {
+    .heading {
+      font-size: $heading-text-size-small-screen;
+    }
+    .tagline {
+      font-size: $text-size-small-screen;
+    }
+    .job-type {
+      font-size: $text-size-small-screen;
+    }
+  }
+  .field {
+    font-size: $text-size-small-screen;
+    input,
+    textarea {
+      font-size: $text-size-small-screen;
+    }
+  }
+  .contact-section {
+    grid-template-rows: 300px 625px $footer-height;
+    margin-top: -15%;
+
+    .memoji {
+      width: 215px;
+      padding: 0 15%;
+    }
+    .contact-form {
+      font-size: $text-size-small-screen;
+
+      grid-template-rows: 80px 80px 225px 75px;
+      height: 475px;
+      .submit-button {
+        font-size: $sub-heading-text-size-small-screen;
+        width: 175px;
+        height: 60px;
+      }
+      .submit-button:hover {
+        width: 185px;
+        height: 70px;
+      }
+    }
+    .footer {
+      align-self: start;
     }
   }
 }
 @media screen and (max-width: $phone-screen-width) {
-  $phone-title-height: 150px;
   $phone-form-height: 750px;
   $phone-page-height: 100px + 300px + 600px + 100px;
   .page {
     grid-template-rows: 100px 100px 300px 800px 100px;
     height: unset;
-  }
-  .title-section {
-    max-height: $phone-title-height;
-  }
-  .title-section-background {
-    height: $phone-title-height;
-  }
-  .matrix-background {
-    height: $phone-title-height;
   }
   .heading {
     font-size: 1.75rem;
@@ -342,22 +388,18 @@ $contact-page-height: $header-height + $title-height + $hiring-height +
     }
   }
   .name-field {
-    @extend .field;
     grid-column: 1;
     grid-row: 1;
   }
   .email-field {
-    @extend .field;
     grid-column: 1;
     grid-row: 2;
   }
   .subject-field {
-    @extend .field;
     grid-column: 1;
     grid-row: 3;
   }
   .message-field {
-    @extend .field;
     grid-column: 1;
     grid-row: 4;
     height: 80%;

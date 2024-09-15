@@ -19,14 +19,13 @@
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 footer {
-  display: grid;
-  grid-template-columns: 33% 33% 33%;
-  grid-template-rows: 100%;
-  // flex-flow: row nowrap;
+  display: flex;
+  flex-flow: row nowrap;
   justify-self: center;
   height: fit-content;
+  width: fit-content;
   justify-items: center;
-  column-gap: 30px;
+  gap: 40px;
 }
 .social-link {
   cursor: pointer;

@@ -10,6 +10,11 @@
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   z-index: 2;
+  background-image: linear-gradient(
+    rgba(29, 173, 118, 0.4),
+    rgba(29, 173, 118, 0.2),
+    rgba(29, 173, 118, 0.1)
+  );
 }
 .page::-webkit-scrollbar {
   width: 10px;

@@ -55,11 +55,14 @@ import FooterBar from "@/components/footer-bar.vue";
 .title-section-background {
   z-index: 1;
   height: inherit;
-  background-color: $primary-color;
   width: 100%;
-  opacity: 70%;
   grid-column: 1;
   grid-row: 1;
+  background-image: linear-gradient(
+    rgba(29, 173, 118, 0.4),
+    rgba(29, 173, 118, 0.2),
+    rgba(29, 173, 118, 0.1)
+  );
 }
 .matrix {
   grid-column: 1;
@@ -67,7 +70,7 @@ import FooterBar from "@/components/footer-bar.vue";
   align-self: center;
   width: 120%;
   height: inherit;
-  opacity: 12.5%;
+  opacity: 15%;
   z-index: 2;
   position: relative;
 }

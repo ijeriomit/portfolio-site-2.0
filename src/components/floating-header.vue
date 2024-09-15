@@ -1,11 +1,6 @@
 <template>
   <header>
     <RouterLink class="logo" :to="routes[0]">
-      <!-- <img
-        v-if="useDarkLogo"
-        class="logo-icon-dark"
-        src="@/assets/clip-art-images/ijeri-logo-icon-dark.png"
-      /> -->
       <img
         class="logo-icon"
         src="@/assets/clip-art-images/ijeri-logo-icon.png"
@@ -41,22 +36,12 @@ import MenuSvg from "./menu-svg.vue";
 import MenuNav from "./menu-nav.vue";
 
 import { routes } from "@/main.js";
-import { ref, onMounted, onBeforeUnmount, watch } from "vue";
-import { RouterLink, useRoute } from "vue-router";
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import { RouterLink } from "vue-router";
 
 const menuOpen = ref(false);
 const menu = ref(null);
 const toggle = ref(null);
-const route = useRoute();
-const useDarkLogo = ref(true);
-
-watch(route, (newVal) => {
-  if (newVal.path == routes[0].path) {
-    useDarkLogo.value = true;
-  } else {
-    useDarkLogo.value = false;
-  }
-});
 onMounted(() => {
   document.addEventListener("click", close);
 });
@@ -123,8 +108,8 @@ header {
   height: 75px;
 }
 .close-menu {
-  width: 35px;
-  padding: 5px;
+  width: 40px;
+  padding: 10px 15px;
 }
 .logo-spin {
   animation-name: spin;

@@ -33,7 +33,7 @@ const props = defineProps(["routes"]);
 @import "@/scss/variables.scss";
 
 .menu {
-  background-color: $primary-color-light;
+  background-color: $quaternary-color-transparent;
   flex-flow: column nowrap;
   position: absolute;
   height: 300px;
@@ -50,22 +50,19 @@ const props = defineProps(["routes"]);
 .menu-link {
   display: block;
   margin: 15px 0;
-  color: $quaternary-color;
+  color: $secondary-color;
   font-family: $vs-code-font;
   font-size: $text-size;
   font-weight: bold;
   text-decoration: none;
 }
 .menu-link:hover {
-  color: $secondary-color;
-  font-size: 1.6rem;
+  color: $highlight-color;
+  font-size: $text-size + 0.1rem;
 }
 @media screen and (max-width: $small-screen-width) {
   .menu {
     width: 200px;
-  }
-  .menu-link {
-    // font-size: 1.5rem;
   }
 }
 @media screen and (max-width: $phone-screen-width) {

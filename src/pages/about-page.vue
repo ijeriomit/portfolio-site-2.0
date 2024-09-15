@@ -172,11 +172,6 @@ $bottom-section-height: 500px;
 .page {
   grid-template-rows: $header-height $aboutMe-height $endorsements-height $experience-height $skills-height $bottom-section-height;
   grid-template-columns: 100%;
-  background-image: linear-gradient(
-    rgba(29, 173, 118, 0.1),
-    rgba(29, 173, 118, 0.25),
-    rgba(29, 173, 118, 0.4)
-  );
 }
 .top-clip-art {
   position: absolute;
