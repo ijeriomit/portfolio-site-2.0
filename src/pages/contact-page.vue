@@ -88,7 +88,6 @@ $contact-height: 850px;
 .header {
   grid-row: 1;
   height: $header-height;
-  scroll-snap-align: start;
 }
 
 .hire-section {
@@ -101,6 +100,8 @@ $contact-height: 850px;
   align-items: center;
   .heading {
     color: $quaternary-color;
+    background-color: transparent;
+    gap: 30px;
     font-family: $heading-font;
     font-size: $heading-text-size;
     font-weight: bold;

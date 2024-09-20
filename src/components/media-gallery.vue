@@ -17,7 +17,7 @@
       >
         <source :src="previewMedia" type="video/mp4" />
       </video>
-      <div v-show="props.mediaArray.length != 1" class="gallery-buttons">
+      <div class="gallery-buttons">
         <button @click="prevMedia()" class="prev">
           <img src="@/assets/clip-art-images/chevron_black.svg" />
         </button>
@@ -95,13 +95,14 @@ function setPreview(media) {
 .image-container {
   display: flex;
   flex-flow: column nowrap;
-  height: 100%;
+  height: 90%;
 }
 
 .media {
   cursor: pointer;
   max-height: 90%;
   max-width: 100%;
+  border: #008753 solid;
 }
 
 .modal {

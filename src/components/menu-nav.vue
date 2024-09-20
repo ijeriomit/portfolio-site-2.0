@@ -12,17 +12,25 @@
       :to="props.routes[1]"
       >About Me</RouterLink
     >
-    <RouterLink
+    <!-- <RouterLink
       @click="$emit('routeClicked')"
       class="menu-link"
       :to="props.routes[2]"
       >Projects</RouterLink
-    >
+    > -->
     <RouterLink
       @click="$emit('routeClicked')"
       class="menu-link"
-      :to="props.routes[3]"
+      :to="props.routes[2]"
       >Contact Me</RouterLink
+    >
+    <a
+      @click="$emit('routeClicked')"
+      class="menu-link"
+      :href="props.routes[3]"
+      target="_blank"
+    >
+      Resume</a
     >
   </nav>
 </template>

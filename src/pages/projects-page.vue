@@ -1,11 +1,13 @@
 <template>
+  <img class="clip-art" src="@/assets/clip-art-images/wires.png" />
   <div class="page">
     <floating-header class="header"></floating-header>
     <section class="product-team-section">
       <h1 class="heading">
         <span>Products I've Worked On</span>
       </h1>
-      <div class="cards">
+      <ProjectGallery :projects="products"></ProjectGallery>
+      <!-- <div class="cards">
         <ProductCard
           class="product-card"
           v-for="(product, index) of products"
@@ -14,7 +16,7 @@
           :product="product"
           :expanded="index == selectedProductIndex"
         ></ProductCard>
-      </div>
+      </div> -->
     </section>
     <section class="project-section">
       <h2 class="heading">Personal Projects</h2>
@@ -41,7 +43,8 @@ import { store } from "@/data.js";
 import { ref } from "vue";
 import { routes } from "@/main.js";
 
-import ProductCard from "@/components/product-card.vue";
+import ProjectGallery from "@/components/project-gallery.vue";
+// import ProductCard from "@/components/product-card.vue";
 import ProjectCard from "@/components/project-card.vue";
 import NextPage from "@/components/next-page.vue";
 import FooterBar from "@/components/footer-bar.vue";
@@ -49,23 +52,23 @@ import FloatingHeader from "@/components/floating-header.vue";
 
 const projects = ref(store.projects);
 const products = ref(store.productTeams);
-const selectedProductIndex = ref(0);
+// const selectedProductIndex = ref(0);
 
-function toggleProductCards(cardExpanded, cardIndex) {
-  if (cardExpanded == true) {
-    selectedProductIndex.value = -1;
-    setTimeout(() => {
-      selectedProductIndex.value = cardIndex;
-    }, 250);
-  } else {
-    selectedProductIndex.value = -1;
-  }
-}
+// function toggleProductCards(cardExpanded, cardIndex) {
+//   if (cardExpanded == true) {
+//     selectedProductIndex.value = -1;
+//     setTimeout(() => {
+//       selectedProductIndex.value = cardIndex;
+//     }, 250);
+//   } else {
+//     selectedProductIndex.value = -1;
+//   }
+// }
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 @import "@/scss/styles.scss";
-$title-height: 150px;
+$title-height: 100px;
 $products-height: 1300px;
 $projects-height: 1200px;
 $next-height: 400px;
@@ -73,60 +76,40 @@ $projects-page-height: $header-height + $products-height + $projects-height +
   $next-height + $footer-height;
 .page {
   grid-template-rows: $header-height $products-height $projects-height $next-height $footer-height;
-  grid-template-columns: 100vw;
-  height: $projects-page-height;
+  grid-template-columns: 100%;
   row-gap: 20px;
-  background-image: linear-gradient(
-    rgba(29, 173, 118, 0.5),
-    rgba(29, 173, 118, 0.25),
-    rgba(29, 173, 118, 0)
-  );
+  scroll-snap-type: y proximity;
 }
 
 .clip-art {
-  width: 100vw;
-  height: 20vh;
-  justify-self: end;
   position: absolute;
+  width: 40vw;
+  transform: rotate(180deg);
+  right: 0;
   z-index: 1;
-  top: 0;
-  display: grid;
-  opacity: 40%;
-  transform: rotate(90deg);
+  bottom: 0;
 }
 .heading {
   color: $quaternary-color;
-  justify-self: center;
-  align-self: center;
   grid-row: 1;
-  z-index: 2;
-  font-family: $heading-font;
-  font-size: 3rem;
-  font-weight: bold;
 }
 
 .product-team-section {
-  grid-row: 2;
-  display: grid;
-  height: $products-height;
-  align-self: center;
-  grid-template-rows: $title-height 1200px;
-  overflow: hidden;
+  @extend .page-section;
+  display: flex;
+  flex-flow: column nowrap; // height: $products-height;
+  padding-top: 75px;
+  row-gap: 50px;
+
   .heading {
-    color: $quaternary-color;
-    justify-self: center;
-    align-self: center;
+    //   color: $quaternary-color;
+    //   justify-self: center;
+    //   align-self: center;
     grid-row: 1;
-    z-index: 2;
-    font-family: $heading-font;
-    font-size: 3rem;
-    font-weight: bold;
-  }
-  .clip-art {
-    justify-self: end;
-    grid-column: 1 / 3;
-    grid-row: 1 / 3;
-    transform: rotate(180deg);
+    //   z-index: 2;
+    //   font-family: $heading-font;
+    //   font-size: 3rem;
+    //   font-weight: bold;
   }
   .product-card {
     margin: 10px 0;
@@ -151,9 +134,10 @@ $projects-page-height: $header-height + $products-height + $projects-height +
   height: 375px;
 }
 .project-section {
+  @extend .page-section;
   grid-row: 3;
   display: grid;
-  width: 100%;
+  // width: 100%;
   justify-self: center;
   row-gap: 5%;
   overflow: hidden;

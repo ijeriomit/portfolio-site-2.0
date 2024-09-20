@@ -2,11 +2,11 @@
   <header>
     <RouterLink class="logo" :to="routes[0]">
       <img
-        class="logo-icon"
+        class="logo-icon logo-spin"
         src="@/assets/clip-art-images/ijeri-logo-icon.png"
       />
       <img
-        class="logo-text"
+        class="logo-text logo-text-appear"
         src="@/assets/clip-art-images/ijeri-logo-text.png"
       />
     </RouterLink>
@@ -25,7 +25,7 @@
     </button>
     <menu-nav
       @routeClicked="menuOpen = false"
-      :routes="routes"
+      :routes="[...routes, resumeRoute]"
       v-show="menuOpen"
       ref="menu"
     ></menu-nav>
@@ -35,7 +35,7 @@
 import MenuSvg from "./menu-svg.vue";
 import MenuNav from "./menu-nav.vue";
 
-import { routes } from "@/main.js";
+import { routes, resumeRoute } from "@/main.js";
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import { RouterLink } from "vue-router";
 

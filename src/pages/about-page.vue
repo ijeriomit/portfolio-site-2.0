@@ -189,25 +189,12 @@ $bottom-section-height: 500px;
   bottom: 0;
 }
 .heading {
-  height: 100px;
-  font-weight: bold;
-  gap: 10px;
-  font-size: $heading-text-size;
-  padding: 0 10vw;
   margin: 0px;
-  letter-spacing: normal;
-  font-family: $heading-font;
-  display: flex;
-  justify-self: center;
-  align-self: center;
-  align-items: center;
-  z-index: 2;
+  gap: 10px;
   background-color: $quaternary-color;
   color: $secondary-color;
   grid-column: 1 / 3;
   grid-row: 1;
-  width: fit-content;
-  // max-width: 60%;
   span:first-child {
     color: $highlight-color;
   }
@@ -639,7 +626,6 @@ $bottom-section-height: 500px;
     display: flex;
     flex-flow: column nowrap;
     row-gap: 1%;
-    height: fit-content;
     align-items: center;
   }
 

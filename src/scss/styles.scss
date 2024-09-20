@@ -16,8 +16,18 @@
     rgba(29, 173, 118, 0.1)
   );
 }
-.page::-webkit-scrollbar {
-  width: 10px;
+.heading {
+  height: 100px;
+  font-weight: bold;
+  font-size: $heading-text-size;
+  padding: 0 10vw;
+  letter-spacing: normal;
+  font-family: $heading-font;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  align-items: center;
+  width: fit-content;
 }
 .page-section {
   max-width: 100vw;
@@ -28,6 +38,12 @@
 @media screen and (max-width: $small-screen-width) {
   .page-section {
     padding-top: 30px;
+  }
+}
+@media screen and (max-width: $phone-screen-width) {
+  .page {
+    display: flex;
+    flex-flow: column nowrap;
   }
 }
 

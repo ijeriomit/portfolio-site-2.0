@@ -64,16 +64,16 @@ $card-title-height: 75px;
   grid-row: 2;
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 75% 15%;
+  grid-template-rows: 70% 15%;
+  width: 95%;
   column-gap: 2.5%;
-  row-gap: 2.5%;
   align-self: center;
   overflow: hidden;
 }
 .card-wrapper {
   display: flex;
   flex-flow: column nowrap;
-  row-gap: 20px;
+  row-gap: 50px;
   width: 100%;
   height: fit-content;
 }
@@ -83,13 +83,12 @@ $card-title-height: 75px;
   align-items: center;
   grid-row: 1;
   grid-column: 1;
-  border-radius: 15px;
+  // border-radius: 15px;
   color: $secondary-color;
   background-color: $quaternary-color;
   font-family: $heading-font;
   font-size: 2rem;
   margin: 0;
-  font-family: $text-font;
   cursor: pointer;
 
   span {
@@ -118,7 +117,7 @@ $card-title-height: 75px;
 }
 .tech-stack {
   grid-row: 2;
-  grid-column: 1;
+  grid-column: 1/3;
   font-family: $vs-code-font;
   display: flex;
   flex-flow: row nowrap;
@@ -144,7 +143,7 @@ $card-title-height: 75px;
   grid-row: 1;
   grid-column: 1;
   margin-left: 10px;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 @media screen and (max-width: $small-screen-width) {
   .card-wrapper {

@@ -22,17 +22,11 @@
       </h2>
       <nav class="nav-links">
         <RouterLink class="nav-link" :to="routes[1]">Learn About Me</RouterLink>
-        <RouterLink class="nav-link" :to="routes[2]">See My Work</RouterLink>
-        <RouterLink class="nav-link" :to="routes[3]"
+        <!-- <RouterLink class="nav-link" :to="routes[2]">See My Work</RouterLink> -->
+        <RouterLink class="nav-link" :to="routes[2]"
           >Send Me a Message</RouterLink
         >
-        <a
-          class="nav-link"
-          href="https://yellow-anabal-39.tiiny.site/"
-          target="_blank"
-        >
-          Resume
-        </a>
+        <a class="nav-link" :href="resumeRoute" target="_blank"> Resume </a>
       </nav>
       <FooterBar class="footer"></FooterBar>
     </div>
@@ -40,7 +34,7 @@
 </template>
 <script setup>
 import { RouterLink } from "vue-router";
-import { routes } from "@/main.js";
+import { routes, resumeRoute } from "@/main.js";
 import FloatingHeader from "@/components/floating-header.vue";
 import FooterBar from "@/components/footer-bar.vue";
 </script>
