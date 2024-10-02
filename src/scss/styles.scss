@@ -11,9 +11,9 @@
   scroll-snap-type: y mandatory;
   z-index: 2;
   background-image: linear-gradient(
-    rgba(29, 173, 118, 0.4),
-    rgba(29, 173, 118, 0.2),
-    rgba(29, 173, 118, 0.1)
+    rgba(29, 173, 118, 0.3),
+    rgba(29, 173, 118, 0.15),
+    rgba(29, 173, 118, 0)
   );
 }
 .heading {
@@ -44,6 +44,7 @@
   .page {
     display: flex;
     flex-flow: column nowrap;
+    scroll-snap-type: y proximity;
   }
 }
 
@@ -71,12 +72,17 @@ img {
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: 0.15em; /* Adjust as needed */
-  animation: typing 3s steps(40, end), blink-caret 0.6s step-end 2;
+  animation: typing 3s steps(40, end), blink-caret 0.6s step-end 4.5;
 }
-.unhide-typewriter-animation {
+.typewriter-animation-2 {
   @extend .typewriter-animation;
-  animation: hide 1.25s step-end 1, typing 3s 1.25s steps(40, end),
-    blink-caret 0.75s step-end 10;
+  animation: hide 1.4s step-end 2, typing 3s 1.5s steps(40, end),
+    blink-caret 0.6s 1.5s step-end 8;
+}
+.typewriter-animation-3 {
+  @extend .typewriter-animation;
+  animation: hide 2s step-end 1, typing 3s 2s steps(40, end),
+    blink-caret 0.75s 2s step-end 10;
 }
 .long-typewriter-animation {
   @extend .typewriter-animation;

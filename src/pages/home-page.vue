@@ -13,17 +13,17 @@
         alt="cartoon waving"
       />
       <h1 class="title">
-        <div class="typewriter-animation">HI, I AM</div>
-        <div class="unhide-typewriter-animation">IJERI OMITOGUN!</div>
+        <div class="typewriter-animation">Hello, my name is</div>
+        <div class="typewriter-animation-2">Ijeri Omitogun</div>
       </h1>
       <h2 class="subtitle">
-        Software Engineer <br />Frontend Developer<br />
-        UX Designer
+        Software Engineer &#x20; &#x2022; &#x20;Code Fanatic<br />
+        Problem Solver &#x20; &#x2022; &#x20;Team Player
       </h2>
       <nav class="nav-links">
         <RouterLink class="nav-link" :to="routes[1]">Learn About Me</RouterLink>
-        <!-- <RouterLink class="nav-link" :to="routes[2]">See My Work</RouterLink> -->
-        <RouterLink class="nav-link" :to="routes[2]"
+        <RouterLink class="nav-link" :to="routes[2]">See My Work</RouterLink>
+        <RouterLink class="nav-link" :to="routes[3]"
           >Send Me a Message</RouterLink
         >
         <a class="nav-link" :href="resumeRoute" target="_blank"> Resume </a>
@@ -53,9 +53,9 @@ import FooterBar from "@/components/footer-bar.vue";
   grid-column: 1;
   grid-row: 1;
   background-image: linear-gradient(
-    rgba(29, 173, 118, 0.4),
-    rgba(29, 173, 118, 0.2),
-    rgba(29, 173, 118, 0.1)
+    rgba(29, 173, 118, 0.3),
+    rgba(29, 173, 118, 0.15),
+    rgba(29, 173, 118, 0)
   );
 }
 .matrix {
@@ -73,7 +73,7 @@ import FooterBar from "@/components/footer-bar.vue";
   grid-template-columns: 30% 70%;
   margin-top: $header-height;
   max-width: 70%;
-  grid-template-rows: 200px 175px 200px 100px;
+  grid-template-rows: 200px 175px 150px 100px;
   align-self: center;
   grid-column: 1;
   grid-row: 1;
@@ -103,9 +103,13 @@ import FooterBar from "@/components/footer-bar.vue";
   grid-column: 2/2;
   grid-row: 1/1;
   font-size: $heading-text-size + 0.25rem;
-
   margin: 0 50px 0 50px;
   align-self: center;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 50px 50px;
+  justify-items: center;
+  row-gap: 20px;
 }
 .title div {
   max-width: fit-content;
@@ -119,9 +123,11 @@ import FooterBar from "@/components/footer-bar.vue";
   grid-column: 2/2;
   grid-row: 2/2;
   align-self: center;
-  font-size: $sub-heading-text-size + 0.25rem;
+  font-size: $sub-heading-text-size;
   margin: 0 50px 0 50px;
   max-width: fit-content;
+  justify-self: center;
+  text-align: center;
 }
 
 .nav-links {
@@ -175,8 +181,8 @@ import FooterBar from "@/components/footer-bar.vue";
     align-self: center;
     justify-self: center;
     grid-template-columns: 35% 65%;
-    grid-template-rows: 150px 125px 125px 100px;
-    margin-top: $header-height-small-screen - 50px;
+    grid-template-rows: 150px 125px 125px 200px;
+    margin-top: $header-height-small-screen + 50px;
   }
   .title {
     font-size: $heading-text-size-small-screen + 0.15rem;
@@ -186,6 +192,9 @@ import FooterBar from "@/components/footer-bar.vue";
   }
   .subtitle {
     font-size: $sub-heading-text-size-small-screen;
+  }
+  .footer {
+    align-self: center;
   }
   .nav-links {
     height: 75px;
@@ -198,13 +207,14 @@ import FooterBar from "@/components/footer-bar.vue";
 @media screen and (max-width: $phone-screen-width) {
   $left-side-padding: 20px;
   .page {
-    overflow: auto;
+    overflow: hidden;
   }
   .title {
     grid-row: 2;
     grid-column: 1;
     font-size: $heading-text-size-phone-screen;
-    align-self: baseline;
+    align-self: end;
+    row-gap: 5px;
     justify-self: center;
     display: flex;
     flex-flow: row wrap;
@@ -212,8 +222,8 @@ import FooterBar from "@/components/footer-bar.vue";
     margin: 0;
   }
   .subtitle {
-    align-self: end;
-    grid-row: 2;
+    align-self: center;
+    grid-row: 3;
     grid-column: 1;
     font-size: $sub-heading-text-size-phone-screen;
     justify-self: center;
@@ -224,15 +234,16 @@ import FooterBar from "@/components/footer-bar.vue";
     justify-self: baseline;
     align-self: center;
     width: 100vw;
-    margin-top: $header-height-phone-screen - 20px;
+    margin-top: $header-height-phone-screen;
     grid-template-columns: 100vw;
-    grid-template-rows: 20vh 20vh 35vh 10vh;
+    grid-template-rows: 20vh 10vh 10vh 35vh 10vh;
   }
   .nav-links {
     align-self: end;
     flex-flow: column nowrap;
     width: 75vw;
     height: fit-content;
+    grid-row: 4;
     .nav-link {
       font-size: $text-size-phone-screen;
       padding: 0px;
@@ -251,7 +262,11 @@ import FooterBar from "@/components/footer-bar.vue";
       border: none;
     }
   }
-
+  .footer {
+    grid-row: 5;
+    width: 70%;
+    justify-content: space-evenly;
+  }
   .resume-button > button {
     font-size: small;
     width: 80px;

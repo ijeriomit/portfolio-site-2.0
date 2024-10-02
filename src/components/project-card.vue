@@ -1,91 +1,97 @@
 <template>
   <div
-    :class="index % 2 == 0 ? 'left-card' : 'right-card'"
     class="card-wrapper"
+    :style="{
+      backgroundImage: `url(${props.project.media})`,
+    }"
+    @mouseenter="hovered = true"
+    @mouseleave="hovered = false"
   >
-    <h3 class="card-title">{{ props.project.projectName }}</h3>
-    <MediaGallery
-      class="gallery"
-      :mediaArray="props.project.media"
-    ></MediaGallery>
-
-    <p class="project-desc">{{ props.project.text }}</p>
-    <div class="skills">
-      <div
-        v-for="(skill, index) of props.project.skills"
-        :key="index"
-        class="skill-block"
-      >
-        <p>{{ skill }}</p>
+    <div v-show="hovered" class="card-overlay">
+      <h3 class="card-title">{{ props.project.projectName }}</h3>
+      <p class="project-desc">{{ props.project.text }}</p>
+      <div class="skills">
+        <div
+          v-for="(skill, index) of props.project.skills"
+          :key="index"
+          class="skill-block"
+        >
+          <p>{{ skill }}</p>
+        </div>
       </div>
+      <a
+        v-if="props.project.githubUrl"
+        :href="props.project.githubUrl"
+        target="_blank"
+        class="external-link"
+      >
+        <img src="@/assets/link-images/external-link.png" />
+      </a>
     </div>
-    <a
-      v-if="props.project.githubUrl"
-      :href="props.project.githubUrl"
-      target="_blank"
-      class="external-link"
-    >
-      <img src="@/assets/link-images/external-link.png" />
-    </a>
   </div>
 </template>
 <script setup>
-import MediaGallery from "./media-gallery.vue";
-
+import { ref } from "vue";
 const props = defineProps(["project", "index"]);
+const hovered = ref(false);
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 
 .card-wrapper {
-  width: 45%;
-  padding: 30px;
-
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 25% 55% 20%;
-  height: 25%;
-  border-radius: 15px;
-  color: $quaternary-color;
+  cursor: pointer;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
   background-color: $secondary-color;
-  box-shadow: 5px 5px 5px black;
+  // padding: 5px;
+}
+.card-overlay {
   display: grid;
-  column-gap: 2.55%;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 20% 65% 15%;
+  // row-gap: 10px;
+  // padding: 5px;
+  height: 100%;
+  width: 100%;
+  background-color: $quaternary-color-transparent;
 }
 
 .card-title {
   grid-row: 1;
   height: fit-content;
-  font-size: 2rem;
+  font-size: $sub-heading-text-size - 0.5rem;
   margin: 0;
   font-family: $text-font;
   grid-column: 1 / 3;
   justify-self: center;
+  color: #14d086;
+  align-self: center;
+  font-weight: bold;
 }
 
 .project-desc {
   grid-row: 2;
-  grid-column: 2;
-  font-size: 1.25rem;
-  justify-self: end;
-  align-self: start;
-  font-family: $text-font;
+  grid-column: 1 / 3;
+  color: white;
+  grid-row: 2;
   width: 90%;
+  align-self: baseline;
+  justify-self: center;
+  font-size: $sub-text-size - 0.1rem;
+  font-family: $text-font;
+  max-height: 100%;
+  overflow: hidden;
   margin: 0;
 }
 .skills {
   grid-row: 3;
-  grid-column: 1/2;
+  grid-column: 1 / 3;
+  padding-left: 10px;
   align-self: center;
   display: flex;
   flex-flow: row nowrap;
   gap: 10px;
-}
-.gallery {
-  width: 300px;
-  height: 225px;
-  overflow: hidden;
-  justify-self: center;
-  align-self: start;
 }
 .skill-block {
   display: flex;
@@ -93,9 +99,10 @@ const props = defineProps(["project", "index"]);
   justify-content: center;
   align-self: center;
   color: $secondary-color;
-  background-color: $quaternary-color;
-  padding: 10px;
-  font-size: 1.25rem;
+  background-color: $highlight-color;
+  font-size: $sub-text-size;
+  padding: 5px;
+  border-radius: 5px;
   font-family: $heading-font;
   height: fit-content;
   p {
@@ -104,44 +111,67 @@ const props = defineProps(["project", "index"]);
   }
 }
 .external-link {
-  width: 35px;
+  filter: invert(99%) sepia(99%) saturate(0%) hue-rotate(77deg) brightness(109%)
+    contrast(101%);
+  padding-right: 10px;
+  cursor: pointer;
+  width: 25px;
   grid-row: 3;
   grid-column: 2/3;
   justify-self: end;
   align-self: center;
   padding: 10px;
 }
+@media screen and (max-width: $laptop-screen-width) {
+  .card-title {
+    font-size: $sub-heading-text-size-laptop-screen - 0.25rem;
+  }
+  .project-desc {
+    font-size: $sub-text-size-laptop-screen - 0.05rem;
+  }
+  .skill-block {
+    font-size: $sub-text-size-laptop-screen;
+  }
+}
+@media screen and (max-width: $small-screen-width) {
+  .card-title {
+    font-size: $sub-heading-text-size-small-screen - 0.25rem;
+  }
+  .project-desc {
+    font-size: $sub-text-size-small-screen - 0.05rem;
+  }
+  .skill-block {
+    font-size: $sub-text-size-small-screen;
+  }
+}
 @media screen and (max-width: $phone-screen-width) {
   .card-title {
     font-size: 1.35rem;
-    /* align-self: center; */
     grid-column: 1 / 3;
+    grid-row: 1;
+    align-self: end;
   }
-  .gallery {
-    align-self: center;
-    grid-row: 2;
-    grid-column: 1 / 3;
-    width: 85%;
-    height: auto;
+  .card-overlay {
+    grid-template-rows: 15% 65% 20%;
   }
   .project-desc {
     align-self: center;
     text-align: center;
-    grid-row: 3;
+    grid-row: 2;
     grid-column: 1 / 3;
-    width: unset;
+    width: 90%;
   }
   .skills {
-    grid-row: 4;
+    grid-row: 3;
     grid-column: 1;
   }
   .skill-block {
     font-size: 1rem;
-    padding: 7.5px;
+    padding: 5px;
   }
   .external-link {
     align-self: center;
-    grid-row: 4;
+    grid-row: 3;
     grid-column: 2;
   }
 }

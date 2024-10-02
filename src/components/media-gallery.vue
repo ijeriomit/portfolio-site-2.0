@@ -17,7 +17,7 @@
       >
         <source :src="previewMedia" type="video/mp4" />
       </video>
-      <div class="gallery-buttons">
+      <!-- <div class="gallery-buttons">
         <button @click="prevMedia()" class="prev">
           <img src="@/assets/clip-art-images/chevron_black.svg" />
         </button>
@@ -31,7 +31,7 @@
         <button @click="nextMedia()" class="next">
           <img src="@/assets/clip-art-images/chevron_black.svg" />
         </button>
-      </div>
+      </div> -->
     </div>
     <div class="modal" v-if="showPreview">
       <span class="close" @click="showPreview = false"> &times; </span>
@@ -62,9 +62,9 @@
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 const props = defineProps(["mediaArray"]);
-const previewMedia = ref(props.mediaArray[0]);
+const previewMedia = computed(() => props.mediaArray[0]);
 const showPreview = ref(false);
 
 function isVideo(media) {
@@ -95,14 +95,16 @@ function setPreview(media) {
 .image-container {
   display: flex;
   flex-flow: column nowrap;
-  height: 90%;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .media {
+  width: inherit;
+  height: inherit;
   cursor: pointer;
-  max-height: 90%;
-  max-width: 100%;
-  border: #008753 solid;
 }
 
 .modal {
@@ -124,9 +126,6 @@ function setPreview(media) {
     border: none;
     cursor: pointer;
     align-self: center;
-  }
-  .prev:hover {
-    width: 130px;
   }
   .next {
     @extend .prev;
@@ -154,9 +153,6 @@ function setPreview(media) {
     width: 50px;
     border: none;
     cursor: pointer;
-  }
-  .prev:hover {
-    width: 55px;
   }
   .next {
     @extend .prev;

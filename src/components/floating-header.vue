@@ -171,7 +171,7 @@ header {
     width: 50px;
   }
   .logo {
-    margin-left: 7.5vw;
+    margin-left: 5vw;
     width: 100px;
   }
   .logo .logo-icon {
@@ -182,6 +182,9 @@ header {
   }
   .logo .logo-text {
     width: 70px;
+    animation-name: disappear;
+    animation-duration: 1.75s;
+    animation-fill-mode: both;
   }
   header {
     justify-self: center;
@@ -189,7 +192,7 @@ header {
   }
   .close-menu {
     transform: none;
-    width: 20px;
+    width: 30px;
     margin-left: 2.5vw;
   }
   .page {

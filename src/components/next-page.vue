@@ -121,7 +121,7 @@ p {
     right: 0;
   }
   .arrow {
-    bottom: 0;
+    bottom: 15px;
     right: 0;
     width: 100px;
   }

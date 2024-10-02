@@ -34,27 +34,33 @@
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { store } from "@/data.js";
 import { Carousel, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 
 const slidesToShow = ref(3);
+onMounted(() => {
+  if (window.innerWidth < 800) {
+    slidesToShow.value = 1;
+  }
+});
 const slides = ref(store.endorsements);
-const defaultAutoPlaySpeed = ref(5000);
+const defaultAutoPlaySpeed = ref(0);
 const autoplaySpeed = ref(defaultAutoPlaySpeed.value);
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
-$endorsement-width: 400px;
-$endorsement-height: 475px;
-$endorsements-gap: 50px;
+$endorsement-width: 450px;
+$endorsement-height: 450px;
+$endorsements-gap: 25px;
 $endorsement-padding: 50px;
 $endorsements-width: calc(
   $endorsement-width * 3 + ($endorsements-gap * 2) + ($endorsement-padding * 6)
 );
 h2 {
   font-family: $heading-font;
+  font-size: $sub-heading-text-size;
 }
 .carousel__slide {
   padding: 10px;
@@ -80,7 +86,7 @@ h2 {
   padding: $endorsement-padding;
   padding-top: calc($endorsement-padding - 20px);
   color: $quaternary-color;
-  background-color: $secondary-color-transparent;
+  background-color: $secondary-color;
   width: $endorsement-width;
   height: $endorsement-height;
   font-size: $text-size;
@@ -93,7 +99,7 @@ h2 {
   background-color: $quaternary-color-transparent;
   color: $secondary-color;
 
-  height: calc($endorsement-height + 25px);
+  height: calc($endorsement-height + 10px);
   .endorsement-heading {
     font-weight: bold;
   }
@@ -143,8 +149,11 @@ h2 {
   }
 }
 @media screen and (max-width: $laptop-screen-width) {
+  .endorsements {
+    width: 1650px;
+  }
   .endorsement-wrapper h2 {
-    font-size: $sub-heading-text-size-laptop-screen;
+    font-size: $sub-heading-text-size;
   }
   .endorsement {
     width: $endorsement-width - 20px;
@@ -154,6 +163,9 @@ h2 {
   .carousel__slide--active .endorsement {
     width: $endorsement-width;
     height: $endorsement-height;
+    .endorsement-heading {
+      flex-flow: column nowrap;
+    }
   }
   .text {
     font-size: $sub-text-size-laptop-screen;
@@ -199,14 +211,15 @@ h2 {
   .carousel__slide--active .endorsement {
     width: 85vw;
     text-align: left;
-    height: 375px;
+    justify-content: center;
+    height: 95%;
     padding: calc($endorsement-padding/1.25);
   }
   .endorsement {
-    background-color: $primary-color;
+    background-color: $quaternary-color;
     padding: calc($endorsement-padding/1.25);
     width: 85vw;
-    height: 375px;
+    height: 95%;
   }
 
   .profile-photo {
@@ -214,25 +227,27 @@ h2 {
     height: 80px;
   }
   .endorsement-wrapper h2 {
-    font-size: 1.75rem;
+    font-size: $sub-heading-text-size-phone-screen;
     margin: 10px 0;
   }
-  .name {
-    font-size: 1.5rem;
-  }
-  .title {
-    text-align: center;
-  }
+
   .text {
-    font-size: 1.25rem;
+    font-size: $text-size-phone-screen;
     text-align: center;
     height: 175px;
   }
   .person {
     align-items: center;
+    .name {
+      font-size: $text-size-phone-screen;
+    }
+    .title {
+      font-size: $sub-text-size-phone-screen - 0.1rem;
+      text-align: center;
+    }
   }
   .endorsements {
-    height: 375px;
+    height: 475px;
   }
 }
 </style>
