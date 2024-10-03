@@ -110,6 +110,8 @@ header {
 .close-menu {
   width: 40px;
   padding: 10px 15px;
+  top: 20px;
+  position: relative;
 }
 .logo-spin {
   animation-name: spin;
@@ -163,6 +165,24 @@ header {
 @media screen and (max-width: $laptop-screen-width) {
   header {
     height: $header-height-laptop-screen;
+  }
+}
+@media screen and (max-width: $small-screen-width) {
+  .logo {
+    .logo-icon {
+      margin: -12px;
+      width: 75px;
+    }
+    .logo-text {
+      width: 70px;
+    }
+  }
+  .hamburger-menu > svg {
+    width: 50px;
+    height: 50px;
+  }
+  .close-menu {
+    width: 30px;
   }
 }
 @media screen and (max-width: $phone-screen-width) {

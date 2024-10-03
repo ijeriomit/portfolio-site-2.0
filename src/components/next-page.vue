@@ -27,9 +27,6 @@ const props = defineProps(["message", "nextRoute"]);
 }
 .wrapper:hover {
   color: $primary-color-light;
-  .memoji {
-    animation: bounce 1.5s ease-in-out;
-  }
   .arrow {
     animation: expand 1.5s ease-in-out 1;
   }
@@ -88,29 +85,20 @@ p {
   }
 }
 @media screen and (max-width: $small-screen-width) {
-  .memoji {
-    width: 125px;
-  }
   p {
     font-size: $sub-heading-text-size-small-screen;
   }
   .arrow {
-    width: 100px;
-    bottom: 20px;
+    width: 50px;
+    // bottom: 20px;
   }
 }
 @media screen and (max-width: $phone-screen-width) {
-  .memoji {
-    right: 0;
-    width: 125px;
-  }
   p {
     right: 0;
   }
   .arrow {
-    bottom: 15px;
-    right: 0;
-    width: 100px;
+    width: 50px;
   }
 }
 </style>

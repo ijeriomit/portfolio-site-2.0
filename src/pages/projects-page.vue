@@ -51,9 +51,10 @@ $products-height: 95vh;
 $projects-height: 95vh;
 $next-height: 400px;
 .page {
-  grid-template-rows: $header-height $products-height $projects-height $next-height $footer-height;
-  grid-template-columns: 100%;
-  // scroll-snap-type: unset;
+  display: flex;
+  flex-flow: column nowrap;
+  scroll-snap-type: none;
+  align-items: center;
 }
 
 .clip-art {
@@ -75,20 +76,20 @@ $next-height: 400px;
   @extend .page-section;
   display: flex;
   flex-flow: column nowrap;
-  padding-top: 5vh;
-  gap: 2.5%;
-  width: 75%;
-  height: 100%;
+  margin-top: 5%;
+  width: 100%;
+  height: 120vh;
+  gap: 0;
+  padding: 0;
   align-items: center;
   grid-row: 2;
   .heading {
     margin-bottom: 0;
-    padding: 25px;
+    padding: 20px 10px;
     margin: 0;
     height: fit-content;
   }
   // .product-gallery {
-  //   height: 85%;
   // }
 }
 
@@ -96,10 +97,11 @@ $next-height: 400px;
   @extend .page-section;
   grid-row: 3;
   display: flex;
-  width: 80%;
+  width: 90%;
+  height: fit-content;
   flex-flow: column nowrap;
   justify-self: center;
-  padding-top: 5%;
+  padding: 2.5% 0;
   // grid-template-columns: 100%;
   // grid-template-rows: 7vh 90vh;
   gap: 10px;
@@ -112,7 +114,7 @@ $next-height: 400px;
     flex-flow: row wrap;
     gap: 20px;
     justify-content: center;
-    height: 90%;
+    height: 80vh;
     display: flex;
     align-items: center;
     width: 100%;
@@ -124,13 +126,11 @@ $next-height: 400px;
 }
 .next {
   @extend .page-section;
-  grid-row: 4;
   justify-self: end;
-  align-self: center;
-  margin-right: 15vw;
+  padding: 0 10vw;
+  align-self: end;
 }
 .footer {
-  grid-row: 5;
   align-self: center;
   justify-self: center;
 }
@@ -138,10 +138,7 @@ $next-height: 400px;
   .heading {
     font-size: $heading-text-size-laptop-screen;
   }
-  .product-team-section {
-    width: 75%;
-    height: 95%;
-  }
+
   .project-section {
     padding-top: 2.5%;
     grid-template-rows: 7vh 95vh;
@@ -154,7 +151,7 @@ $next-height: 400px;
   .project-section {
     width: 85%;
     .project-card {
-      width: 32%;
+      width: 30%;
       height: 45%;
     }
   }
@@ -211,7 +208,7 @@ $next-height: 400px;
     justify-self: center;
     margin: 0;
     height: 27.5vh;
-    width: 100vw;
+    width: fit-content;
     scroll-snap-align: none;
     justify-content: center;
   }

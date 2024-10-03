@@ -70,15 +70,15 @@ import FloatingHeader from "@/components/floating-header.vue";
 $hiring-height: 20%;
 $contact-height: 55%;
 .page {
-  grid-template-rows: 10% $hiring-height $contact-height 10%;
-  grid-template-columns: 100vw;
+  display: flex;
+  flex-flow: column nowrap;
   z-index: 2;
   height: 100vh;
-  overflow: hidden;
+  overflow-y: auto;
+  scroll-snap-type: none;
 }
 .header {
   grid-row: 1;
-  position: relative;
 }
 
 .memoji {
@@ -95,6 +95,7 @@ $contact-height: 55%;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: space-evenly;
+  margin-top: 7vh;
   .heading {
     color: $quaternary-color;
     background-color: transparent;
@@ -103,7 +104,8 @@ $contact-height: 55%;
     font-size: $heading-text-size;
     font-weight: bold;
     margin: 0;
-    height: 75px;
+    height: fit-content;
+    margin: 10px;
   }
   .tagline {
     font-family: $heading-font;
@@ -111,7 +113,7 @@ $contact-height: 55%;
     font-weight: bold;
     height: fit-content;
     text-align: center;
-    margin: 0;
+    margin: 5px;
     font-style: italic;
   }
   .roles {
@@ -136,7 +138,7 @@ $contact-height: 55%;
   grid-template-columns: 100%;
   grid-template-rows: 100%;
   display: grid;
-
+  align-self: center;
   .contact-form {
     grid-column: 1;
     grid-row: 1;
@@ -159,13 +161,13 @@ $contact-height: 55%;
       font-size: $sub-text-size;
       font-family: $heading-font;
       align-self: center;
-      height: 45px;
+      height: 50px;
       width: 110px;
       border-radius: 10px;
       font-weight: bold;
       background-color: $highlight-color;
       cursor: pointer;
-      margin-top: 10px;
+      margin: 10px 0px;
     }
     .submit-button:hover {
       color: $secondary-color;
@@ -186,6 +188,7 @@ $contact-height: 55%;
       }
       textarea {
         font-size: $sub-text-size;
+        font-family: $text-font;
         padding: 5px;
         height: 100px;
       }
@@ -266,27 +269,31 @@ $contact-height: 55%;
       font-size: $text-size-small-screen;
     }
   }
-  .field {
-    font-size: $text-size-small-screen;
-    input,
-    textarea {
-      font-size: $text-size-small-screen;
-    }
-  }
+
   .contact-section {
     .contact-form {
       font-size: $text-size-small-screen;
       height: 85%;
+      width: 35%;
 
       .submit-button {
         font-size: $sub-heading-text-size-small-screen;
         height: 50px;
-        width: 130px;
+        width: 100px;
+      }
+      .field {
+        font-size: $text-size-small-screen;
+        input,
+        textarea {
+          height: 25px;
+          font-size: $sub-text-size-small-screen;
+          padding: 2.5px;
+        }
+        textarea {
+          height: 50px;
+        }
       }
     }
-    // .footer {
-    //   align-self: start;
-    // }
   }
 }
 @media screen and (max-width: $phone-screen-width) {
@@ -300,8 +307,9 @@ $contact-height: 55%;
     margin: 0;
   }
   .hire-section {
+    gap: 25px;
+    padding-top: 5%;
     justify-content: flex-start;
-    height: 15vh;
     .tagline {
       width: 90%;
     }

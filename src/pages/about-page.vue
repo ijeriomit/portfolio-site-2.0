@@ -235,35 +235,30 @@ $bottom-section-height: 500px;
 .exp-section {
   @extend .page-section;
   max-height: $experience-height;
-  grid-row: 4;
   align-self: center;
-  display: grid;
-  grid-template-columns: 50vw 50vw;
   row-gap: 5%;
-  grid-template-rows: 100px 550px;
-  padding-top: 0;
   padding-top: 2.5%;
   display: flex;
   flex-flow: column nowrap;
+  height: 90vh;
   .experiences {
     grid-row: 2/3;
     grid-column: 1/3;
-    max-width: 87.5%;
+    max-width: 85%;
     height: fit-content;
     justify-self: center;
     align-self: center;
     display: flex;
     flex-flow: row nowrap;
     overflow-x: auto;
-    padding-bottom: 10px;
     overflow-y: hidden;
     gap: 2.5%;
-    padding-top: 30px;
+    padding: 10px 0;
   }
   .experience {
     flex: 1 0 400px;
     height: 450px;
-    padding: 20px 35px;
+    padding: 20px;
     color: $quaternary-color;
     background-color: $secondary-color;
     transition: background-color 0.3s ease-in-out;
@@ -271,6 +266,7 @@ $bottom-section-height: 500px;
     .dates {
       font-style: italic;
       font-size: $sub-text-size;
+      margin: 0;
     }
     h3 {
       font-size: $text-size;
@@ -309,13 +305,9 @@ $bottom-section-height: 500px;
   @extend .page-section;
   grid-row: 5;
   display: grid;
-  grid-template-columns: 40vw 40vw;
-  grid-template-rows: 200px 600px;
   max-height: $skills-height;
-  column-gap: 2.5%;
-  row-gap: 2.5%;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 100px 500px;
+  grid-template-rows: 15% 85%;
   row-gap: 0;
   column-gap: 2%;
   padding-top: 2.5%;
@@ -362,7 +354,8 @@ $bottom-section-height: 500px;
     justify-self: center;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 100px 375px;
+    grid-template-rows: 15% 75%;
+    height: 450px;
     row-gap: 25px;
     align-items: center;
     justify-items: center;
@@ -389,36 +382,18 @@ $bottom-section-height: 500px;
 }
 .bottom-section {
   @extend .page-section;
-  grid-row: 6;
-  display: grid;
-  grid-template-rows: 300px 125px;
-  // row-gap: 2.5%;
-  padding-top: 30px;
-  grid-template-columns: 30vw 30vw 30vw;
-  grid-template-rows: 100px 125px;
-  grid-template-columns: 100%;
-  width: 70%;
+  display: flex;
+  flex-flow: column nowrap;
+  padding-top: 0;
+  width: 90%;
   align-self: center;
   .footer {
-    grid-column: 2 / 2;
-    grid-column: 1;
-    grid-row: 2;
     align-self: center;
-    justify-self: center;
     height: 125px;
   }
   .next {
-    grid-row: 1;
-    grid-column: 3;
-    justify-self: start;
-    align-self: start;
+    align-self: end;
     flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-between;
-    width: fit-content;
-    justify-self: end;
-    align-self: start;
-    grid-column: 1;
   }
 }
 
@@ -429,17 +404,17 @@ $bottom-section-height: 500px;
   $skills-height: 650px;
   $bottom-section-height: 500px;
   .page {
-    grid-template-rows: $header-height-laptop-screen $aboutMe-height $endorsements-height $experience-height $skills-height $bottom-section-height;
+    // grid-template-rows: $header-height-laptop-screen $aboutMe-height $endorsements-height $experience-height $skills-height $bottom-section-height;
   }
   .about-me-section {
-    grid-template-rows: 125px 500px;
+    // grid-template-rows: 125px 500px;
     .personal-desc {
       font-size: $text-size-laptop-screen;
-      max-width: 600px;
+      // max-width: 600px;
     }
     .headshot {
-      width: 400px;
-      height: 400px;
+      // width: 400px;
+      // height: 400px;
     }
   }
   .heading {
@@ -449,12 +424,13 @@ $bottom-section-height: 500px;
   .exp-section {
     grid-template-rows: 150px 600px;
     row-gap: 2.5%;
+    // padding-top: 5%;
 
     .experiences {
       max-width: 92%;
     }
     .experience {
-      flex: 1 0 390px;
+      flex: 1 0 30%;
       height: 450px;
       h2 {
         font-size: $sub-heading-text-size-laptop-screen;
@@ -472,7 +448,7 @@ $bottom-section-height: 500px;
   }
   .skills-section {
     row-gap: 0.5%;
-    grid-template-rows: 150px 500px;
+    // grid-template-rows: 150px 500px;
 
     .skill-row {
       gap: 1.5%;
@@ -488,6 +464,7 @@ $bottom-section-height: 500px;
     }
     .skill-block {
       font-size: $sub-text-size-laptop-screen;
+      height: 2.25rem;
     }
     .dev-tools,
     .programming-languages {
@@ -499,15 +476,9 @@ $bottom-section-height: 500px;
       }
     }
   }
-}
-@media screen and (max-width: $laptop-screen-width) {
-  .exp-section {
-    row-gap: 0;
-    grid-template-rows: 125px 500px;
-  }
   .skills-section {
     padding: 0;
-    grid-template-rows: 125px 500px;
+    // grid-template-rows: 125px 500px;
   }
   .page {
     grid-template-rows: 625px 600px 800px 600px 500px;
@@ -538,19 +509,13 @@ $bottom-section-height: 500px;
     }
   }
   .about-me-section {
-    align-self: center;
-    justify-self: center;
-    grid-template-rows: 100px 450px;
-    grid-template-columns: 30vw 45vw;
-
+    height: 80vh;
     .personal-desc {
-      max-width: 550px;
-      padding: 40px;
+      padding: 20px;
       font-size: $text-size-small-screen;
     }
     .headshot {
-      width: 350px;
-      height: 400px;
+      height: 100%;
     }
   }
 
@@ -560,8 +525,9 @@ $bottom-section-height: 500px;
 
     .experiences {
       max-width: 95%;
+      gap: 1%;
       .experience {
-        flex: 1 0 320px;
+        flex: 1 0 27%;
         height: 425px;
         .company-logo {
           width: 50px;
@@ -582,8 +548,6 @@ $bottom-section-height: 500px;
     }
   }
   .skills-section {
-    grid-template-rows: 150px 450px;
-
     .skill-row.top .skill-block {
       width: 125px;
     }
@@ -673,7 +637,8 @@ $bottom-section-height: 500px;
   .exp-section {
     flex-flow: column nowrap;
     display: flex;
-    max-height: 1800px;
+    height: fit-content;
+    max-height: none;
     max-width: 100vw;
     .heading {
       width: 100%;
@@ -759,7 +724,7 @@ $bottom-section-height: 500px;
     align-items: center;
     width: 100vw;
     row-gap: 5%;
-    max-height: 1300px;
+    // max-height: 1300px;
     height: unset;
     .heading {
       align-self: center;
@@ -771,8 +736,9 @@ $bottom-section-height: 500px;
     .dev-tools {
       align-items: center;
       width: 100%;
-      grid-template-rows: 50px 275px;
-      margin-top: 15px;
+      display: flex;
+      flex-flow: column nowrap;
+      margin-top: 0px;
       h3 {
         font-size: $sub-heading-text-size-phone-screen;
       }
@@ -780,8 +746,8 @@ $bottom-section-height: 500px;
     .programming-languages {
       text-align: center;
       width: 100%;
-      grid-template-rows: 50px 200px;
-      margin-top: 40px;
+      display: flex;
+      flex-flow: column nowrap;
       h3 {
         font-size: $sub-heading-text-size-phone-screen;
       }
@@ -802,18 +768,18 @@ $bottom-section-height: 500px;
     }
   }
   .bottom-section {
-    height: 50px;
-    grid-template-rows: 250px 125px;
+    height: fit-content;
     .footer {
       align-self: center;
       grid-column: 1 / 4;
-      height: 50px;
+      height: 100px;
       width: 85%;
       justify-content: space-evenly;
     }
     .next {
       grid-column: 1 / 4;
-      width: 70%;
+      align-self: center;
+      width: fit-content;
       gap: 0;
     }
   }

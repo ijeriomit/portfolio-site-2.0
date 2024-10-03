@@ -114,8 +114,10 @@ h2 {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  gap: 10px;
+  gap: 2%;
   font-family: $text-font;
+  max-width: 100%;
+  max-height: 30%;
 }
 .profile-photo {
   background-color: white;
@@ -136,16 +138,17 @@ h2 {
   display: flex;
   flex-flow: column nowrap;
   text-align: left;
-  justify-content: center;
+  justify-content: space-around;
+  height: 80%;
   margin: 0 20px;
   .name {
     font-size: $text-size;
-    margin: 1.5rem 0 0 0;
+    margin: 0;
   }
   .title {
-    width: 175px;
+    // width: 175px;
     font-size: $sub-text-size - 0.1rem;
-    margin: 0.75rem 0;
+    margin: 0;
   }
 }
 @media screen and (max-width: $laptop-screen-width) {
@@ -163,9 +166,6 @@ h2 {
   .carousel__slide--active .endorsement {
     width: $endorsement-width;
     height: $endorsement-height;
-    .endorsement-heading {
-      flex-flow: column nowrap;
-    }
   }
   .text {
     font-size: $sub-text-size-laptop-screen;
@@ -187,10 +187,17 @@ h2 {
     width: calc($endorsement-width - 40px);
     height: $endorsement-height - 60px;
     font-size: $text-size-small-screen;
+    padding: 20px;
+    .endorsement-heading {
+      .profile-photo {
+        width: 80px;
+        height: 80px;
+      }
+    }
   }
   .carousel__slide--active .endorsement {
-    width: $endorsement-width - 30px;
-    height: $endorsement-height - 40px;
+    width: calc($endorsement-width - 40px);
+    height: $endorsement-height - 60px;
   }
   .text {
     font-size: $sub-text-size-small-screen;
@@ -245,9 +252,6 @@ h2 {
       font-size: $sub-text-size-phone-screen - 0.1rem;
       text-align: center;
     }
-  }
-  .endorsements {
-    height: 475px;
   }
 }
 </style>

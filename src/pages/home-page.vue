@@ -178,23 +178,25 @@ import FooterBar from "@/components/footer-bar.vue";
 @media screen and (max-width: $small-screen-width) {
   .home-wrapper {
     max-width: 100%;
+    height: 70%;
     align-self: center;
     justify-self: center;
     grid-template-columns: 35% 65%;
-    grid-template-rows: 150px 125px 125px 200px;
-    margin-top: $header-height-small-screen + 50px;
+    margin-top: 5%;
+    grid-template-rows: 30% 30% 25% 20%;
   }
   .title {
     font-size: $heading-text-size-small-screen + 0.15rem;
   }
   .memoji {
     width: 250px;
+    align-self: end;
   }
   .subtitle {
     font-size: $sub-heading-text-size-small-screen;
   }
   .footer {
-    align-self: center;
+    align-self: end;
   }
   .nav-links {
     height: 75px;
@@ -234,7 +236,8 @@ import FooterBar from "@/components/footer-bar.vue";
     justify-self: baseline;
     align-self: center;
     width: 100vw;
-    margin-top: $header-height-phone-screen;
+    height: 80%;
+    margin-top: 0;
     grid-template-columns: 100vw;
     grid-template-rows: 20vh 10vh 10vh 35vh 10vh;
   }
