@@ -76,14 +76,16 @@ $next-height: 400px;
   display: flex;
   flex-flow: column nowrap;
   padding-top: 5vh;
-  gap: 0px;
-  width: 65%;
+  gap: 2.5%;
+  width: 75%;
   height: 100%;
+  align-items: center;
   grid-row: 2;
   .heading {
-    grid-row: 1;
     margin-bottom: 0;
-    padding: 7.5px;
+    padding: 25px;
+    margin: 0;
+    height: fit-content;
   }
   // .product-gallery {
   //   height: 85%;
@@ -109,7 +111,7 @@ $next-height: 400px;
   .cards {
     flex-flow: row wrap;
     gap: 20px;
-    justify-content: flex-start;
+    justify-content: center;
     height: 90%;
     display: flex;
     align-items: center;

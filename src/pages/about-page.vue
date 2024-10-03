@@ -4,7 +4,7 @@
     <floating-header class="header"></floating-header>
     <section class="about-me-section">
       <h1 class="heading">Learn About Me</h1>
-      <img class="headshot" src="@/assets/about-me-images/headshot.jpeg" />
+      <img class="headshot" src="@/assets/about-me-images/headshot.jpg" />
 
       <p class="personal-desc" v-html="store.personalDesc"></p>
     </section>
@@ -160,6 +160,9 @@ $bottom-section-height: 500px;
 .page {
   grid-template-rows: $header-height $aboutMe-height $endorsements-height $experience-height $skills-height $bottom-section-height;
   grid-template-columns: 100%;
+  display: flex;
+  flex-flow: column;
+  row-gap: 5%;
 }
 .top-clip-art {
   position: absolute;
@@ -175,6 +178,11 @@ $bottom-section-height: 500px;
   right: 0;
   z-index: 1;
   bottom: 0;
+  left: 0;
+  right: unset;
+  transform: none;
+  width: 35vw;
+  opacity: 60%;
 }
 .heading {
   margin: 0px;
@@ -194,9 +202,9 @@ $bottom-section-height: 500px;
   justify-content: center;
   align-self: center;
   display: grid;
-  z-index: 2;
-  grid-template-columns: 30vw 40vw;
-  grid-template-rows: 150px 600px;
+  grid-template-columns: 45% 55%;
+  grid-template-rows: 15% 85%;
+  height: 70vh;
   .personal-desc {
     font-size: $text-size;
     max-width: 650px;
@@ -205,13 +213,14 @@ $bottom-section-height: 500px;
     grid-column: 2;
     grid-row: 2;
     align-self: center;
+    padding: 35px;
+    margin: 0;
     justify-self: center;
     background-color: $text-box-color;
-    padding: 50px;
   }
   .headshot {
-    width: 500px;
-    height: 500px;
+    width: 90%;
+    height: 90%;
     grid-column: 1;
     grid-row: 2;
     justify-self: center;
@@ -232,8 +241,10 @@ $bottom-section-height: 500px;
   grid-template-columns: 50vw 50vw;
   row-gap: 5%;
   grid-template-rows: 100px 550px;
-  padding-top: 25px;
-
+  padding-top: 0;
+  padding-top: 2.5%;
+  display: flex;
+  flex-flow: column nowrap;
   .experiences {
     grid-row: 2/3;
     grid-column: 1/3;
@@ -247,6 +258,7 @@ $bottom-section-height: 500px;
     padding-bottom: 10px;
     overflow-y: hidden;
     gap: 2.5%;
+    padding-top: 30px;
   }
   .experience {
     flex: 1 0 400px;
@@ -256,7 +268,6 @@ $bottom-section-height: 500px;
     background-color: $secondary-color;
     transition: background-color 0.3s ease-in-out;
     font-family: $text-font;
-    // border: 1px solid black;
     .dates {
       font-style: italic;
       font-size: $sub-text-size;
@@ -303,6 +314,11 @@ $bottom-section-height: 500px;
   max-height: $skills-height;
   column-gap: 2.5%;
   row-gap: 2.5%;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100px 500px;
+  row-gap: 0;
+  column-gap: 2%;
+  padding-top: 2.5%;
   .skills {
     display: flex;
     flex-flow: column nowrap;
@@ -358,13 +374,14 @@ $bottom-section-height: 500px;
   }
   .dev-tools {
     grid-column: 1/2;
+    justify-self: end;
     .skill-block {
       background-color: $quaternary-color;
     }
   }
   .programming-languages {
     grid-column: 2/2;
-
+    justify-self: start;
     .skill-block {
       background-color: $primary-color-light;
     }
@@ -375,10 +392,16 @@ $bottom-section-height: 500px;
   grid-row: 6;
   display: grid;
   grid-template-rows: 300px 125px;
-  row-gap: 2.5%;
+  // row-gap: 2.5%;
+  padding-top: 30px;
   grid-template-columns: 30vw 30vw 30vw;
+  grid-template-rows: 100px 125px;
+  grid-template-columns: 100%;
+  width: 70%;
+  align-self: center;
   .footer {
     grid-column: 2 / 2;
+    grid-column: 1;
     grid-row: 2;
     align-self: center;
     justify-self: center;
@@ -389,6 +412,13 @@ $bottom-section-height: 500px;
     grid-column: 3;
     justify-self: start;
     align-self: start;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+    justify-self: end;
+    align-self: start;
+    grid-column: 1;
   }
 }
 

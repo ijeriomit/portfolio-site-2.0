@@ -1,9 +1,8 @@
 <template>
   <RouterLink class="wrapper" :to="props.nextRoute">
-    <img class="memoji" src="../assets/clip-art-images/memoji-laptop.svg" />
     <p>{{ props.message }}</p>
 
-    <img class="arrow" src="@/assets/clip-art-images/thin-arrow.png" />
+    <img class="arrow" src="@/assets/clip-art-images/chevron_black.svg" />
   </RouterLink>
 </template>
 
@@ -17,7 +16,7 @@ const props = defineProps(["message", "nextRoute"]);
 
 .wrapper {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: center;
   text-decoration: none;
@@ -35,47 +34,35 @@ const props = defineProps(["message", "nextRoute"]);
     animation: expand 1.5s ease-in-out 1;
   }
 }
-.memoji {
-  width: 33%;
-  align-self: center;
-  justify-self: end;
-  position: relative;
-  right: 10%;
-}
 .arrow {
-  width: 30%;
   position: relative;
   align-self: center;
-  transform: scaleX(125%);
-  bottom: 15%;
-  color: green;
-  right: 5%;
+  width: 75px;
+  transform: rotate(180deg);
 }
 p {
-  margin: 1.5rem 1rem 0;
-  height: 3rem;
+  height: fit-content;
   font-size: $sub-heading-text-size;
   font-family: $heading-font;
   font-weight: bold;
   position: relative;
-  right: 5%;
   align-self: center;
 }
 @keyframes expand {
   0% {
-    transform: scaleX(125%) translateX(0px);
+    transform: rotate(180deg) translateX(0px);
   }
   25% {
-    transform: scaleX(135%) translateX(10px);
+    transform: rotate(180deg) translateX(5px);
   }
   50% {
-    transform: scaleX(125%) translateX(0px);
+    transform: rotate(180deg) translateX(0px);
   }
   75% {
-    transform: scaleX(130%) translateX(5px);
+    transform: rotate(180deg) translateX(5px);
   }
   100% {
-    transform: scaleX(125%) translateX(0px);
+    transform: rotate(180deg) translateX(0px);
   }
 }
 @keyframes bounce {

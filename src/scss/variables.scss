@@ -10,14 +10,15 @@ $primary-color-light: rgb(7, 164, 104);
 $text-box-color: rgb(123, 206, 174);
 $primary-color-transparent: rgba($primary-color, 0.2);
 $heading-font: Roboto Mono, monospace;
-$text-font: "SF UI Text", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu",
-  "Cantarell", "Open Sans", sans-serif;
+// $text-font: "SF UI Text", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu",
+//   "Cantarell", "Open Sans", sans-serif;
+$text-font: "Helvetica Neue", "Helvetica", "sans-serif";
 $vs-code-font: Menlo, Consolas, monaco, monospace;
-$text-size: 1.35rem;
+$text-size: 1.3rem;
 $text-size-laptop-screen: 1.2rem;
 $text-size-small-screen: 1.15rem;
 $text-size-phone-screen: 1.1rem;
-$sub-text-size: 1.15rem;
+$sub-text-size: 1.1rem;
 $sub-text-size-laptop-screen: 1.1rem;
 $sub-text-size-small-screen: 1.07rem;
 $sub-text-size-phone-screen: 0.95rem;
@@ -40,6 +41,6 @@ $header-height-laptop-screen: 110px;
 $header-height-small-screen: 100px;
 $header-height-phone-screen: 10vh;
 
-$phone-screen-width: 500px;
+$phone-screen-width: 415px;
 $small-screen-width: 1366px;
 $laptop-screen-width: 1600px;

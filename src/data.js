@@ -87,10 +87,10 @@ export const store = {
       text: "Having worked closely with him for over two years, I’ve seen his technical expertise and positive attitude, particularly in leading and delivering UI features for our internal procurement platform. Ijeri is dependable, eager to learn, and actively contributes to improving our coding standards and team practices.",
     },
     {
-      name: "Person 5",
-      title: "Engineer at Company",
-      imageSrc: "",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur.",
+      name: "John John",
+      title: "Staff Engineer Manager at Google",
+      imageSrc: require("@/assets/about-me-images/john-profile-pic.jpeg"),
+      text: "Ijeri was on my team at Google, where we built a centralized procurement platform. I appreciated his work ethic, positive attitude, and eagerness to learn. He collaborated well with other engineers and worked independently to fix bugs and clarify requirements with the business. His contributions helped us meet key milestones and launch on time. He would be an asset to any team.",
     },
   ],
   productTeams: [
@@ -98,21 +98,18 @@ export const store = {
       title: "Buying Hub",
       companyName: "Google",
       description:
-        "Lorem ipsum odor amet, consectetuer adipiscing elit. Porta dictum orci, montes nullam mus sociosqu ornare morbi litora. Porttitor odio mollis vitae nam semper quisque porttitor natoque. Nulla nunc sem auctor sit nunc urna. Euismod enim est hendrerit platea sagittis odio. Senectus per libero, libero cursus nisi eleifend ultricies. Lacinia semper ut consectetur lacinia, vel scelerisque parturient. Morbi leo lectus felis vivamus pulvinar scelerisque. Pharetra cras ligula potenti arcu ligula.",
-      media: [
-        require("@/assets/project-images/buying-hub.gif"),
-        require("@/assets/project-images/buying_hub_logo.png"),
-        require("@/assets/project-images/buying_hub_nav.png"),
-      ],
+        "Buying Hub is Google's procurement platform that centralizes purchasing, contract management, risk assessment, and supplier information, saving the company approximately $5 billion. As a front-end developer, I worked on web pages, forms, and search functionality, and earned Google certifications in Web Accessibility, TypeScript, and Angular. <br/> I contributed to the launch of versions A through C, creating unit tests, designing features, and delegating tasks to other engineers. This role involved close collaboration with Business Management, UI/UX, and Backend Engineering teams to ensure seamless product functionality and integration.",
+      media: [require("@/assets/project-images/supplier-nexus-art.png")],
       coverImg: require("@/assets/project-images/supplier-nexus-art.png"),
       coverImgPos: "center",
-      techStack: ["Angular", "Typescript", "Mocha/Chai"],
+      techStack: ["Angular", "Typescript", "Mocha/Chai", "API's"],
     },
     {
       title: "Olympic Arm",
       companyName: "Nauticus Robotics",
       description:
-        "The Olympic Arm is a versatile subsea tool that’s powerful and easy to use right from the start. It matches the strength of work-class hydraulic manipulators but offers better maneuverability, running entirely on electricity. With features like Absolute Position Sensing, Direct Cartesian Control, and Subsea Tool Changing, it takes control and precision to the next level.",
+        "Olympic Arm is a seven degree of freedom electronic manipulator. It's capable of performing complex operations like Absolute Position Sensing, Direct Cartesian Control, and Subsea Tool Changing in the subsea. On the Olympic Arm Team I developed the tool changing automation. Intergrating with visual sensors to determine the position of objects and calculating the path needed to reach the tool.",
+
       media: [
         require("@/assets/project-images/oly-arm.gif"),
         require("@/assets/project-images/olympic-arm.mp4"),
@@ -140,7 +137,7 @@ export const store = {
       title: "Haloguard",
       companyName: "Nauticus Robotics",
       description:
-        "Web app for a personnel monitoring safety system, integrating with multiple TOF cameras. Scales and trims di erent dimensions of image data and compiles them into video.",
+        "Haloguard is a personnel monitoring safety system. Which integrates with multiple cameras to determine the position of people in industrials areas such as Oil rigs and factories. For the Haloguard Project I was in charge of developing and designing the Video Recording Feature. Giving our clients a backlog of video data for any accidents that occured. I also contributed to the development of the User Interface and components.",
       media: [require("@/assets/project-images/haloguard.png")],
       coverImg: require("@/assets/project-images/haloguard.png"),
       productUrl:
@@ -168,35 +165,35 @@ export const store = {
     },
     {
       projectName: "Epoch",
-      text: "Epoch is a thrilling 2D side-scrolling RPG built in Unity that immerses players in a world of magic, monsters, and adventure. Players can fully customize their character’s equipment and abilities, ranging from projectiles and swords to powerful magic spells. Each level introduces unique enemies and obstacles, and players can gather coins to upgrade their skills after every stage. With three challenging levels, Epoch offers a dynamic gaming experience, combining fast-paced combat and strategic skill-building. Developed using C#, it's designed to captivate RPG lovers with endless possibilities for power and progression",
+      text: "Epoch is a 2D side-scrolling RPG I built in Unity, full of magic, monsters, and adventure. Players can customize their character’s gear and abilities—projectiles, swords, or magic—and face new enemies and challenges in each level. Collect coins to upgrade skills after every stage and progress through three unique levels. Developed in C#, it combines fast combat with strategic skill-building.",
       media: require("@/assets/project-images/epoch.gif"),
       githubUrl: "https://github.com/ijeriomit/Epoch",
       skills: ["C#", "Unity 3D"],
     },
     {
       projectName: "Personal Portfolio",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      text: "This is the website you are currently navigating, which I designed and developed to market myself and showcase my work. It highlights my skills in web development and design, while also serving as a platform for displaying my completed projects. My portfolio was built using Vue and JavaScript, chosen for their flexibility in creating dynamic, user-friendly interfaces.",
       media: require("@/assets/project-images/portfolio.gif"),
       githubUrl: "https://github.com/ijeriomit/portfolio-site-2.0",
       skills: ["Vue.js", "SCSS"],
     },
     {
       projectName: "LeetCode Practice",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      text: "This GitHub repository features my LeetCode practice examples, primarily coded in JavaScript. By working through these problems, I’ve gained a deeper understanding of data structures, algorithms, and essential programming practices. It reflects my ongoing commitment to honing my problem-solving skills and applying core concepts in real-world coding scenarios.",
       media: require("@/assets/project-images/leetcode.png"),
       githubUrl: "https://github.com/ijeriomit/leetcode-practice",
       skills: ["Javascript"],
     },
     {
       projectName: "ROS Video Recorder",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      text: "A ROS-based system designed to capture images sent over ROS topics and compile them into specified video formats. Developed using Python and ROS, the system has been tested with specially designed Baumer cameras and can integrate seamlessly with any robotic sensor system using ROS. Key functionalities include resizing images, receiving images via an API, and compiling the captured images into various requested video formats.",
       media: require("@/assets/project-images/ROS.png"),
       githubUrl: "https://github.com/ijeriomit/ROS-Video-Recorder",
       skills: ["ROS", "Python", "OpenCV"],
     },
     {
       projectName: "Python Experiments",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      text: "A collection of a differnet python code snippets. Showcases famailiarity with the syntax and concepts of the Python coding language. ",
       media: require("@/assets/project-images/python.jpeg"),
       githubUrl: "https://github.com/ijeriomit/Python",
       skills: ["Python"],

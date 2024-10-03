@@ -1,21 +1,23 @@
 <template>
   <div class="active-product">
-    <h3 class="product-title">
-      <span>{{ activeProduct.title }} </span>
-      &nbsp;@&nbsp;
-      <span> {{ activeProduct.companyName }}</span>
-    </h3>
-    <p class="product-desc">{{ activeProduct.description }}</p>
-    <img class="media" :src="activeProduct.media[0]" />
-    <div class="tech-stack">
-      <div
-        class="tech-block"
-        v-for="(tech, index) of activeProduct.techStack"
-        :key="index"
-      >
-        {{ tech }}
+    <div class="product-wrapper">
+      <h3 class="product-title">
+        <span>{{ activeProduct.title }} </span>
+        &nbsp;@&nbsp;
+        <span> {{ activeProduct.companyName }}</span>
+      </h3>
+      <p class="product-desc" v-html="activeProduct.description"></p>
+      <div class="tech-stack">
+        <div
+          class="tech-block"
+          v-for="(tech, index) of activeProduct.techStack"
+          :key="index"
+        >
+          {{ tech }}
+        </div>
       </div>
     </div>
+    <img class="media" :src="activeProduct.media[0]" />
     <div class="gallery">
       <div
         class="gallery-item"
@@ -70,79 +72,110 @@ $gallery-height: 300px;
 .active-product {
   display: grid;
   height: 80%;
-  grid-template-rows: 10% 45% 7% 35%;
   grid-template-columns: 50% 50%;
+  grid-template-rows: 70% 30%;
+  row-gap: 10px;
   color: $secondary-color;
-  .product-title {
+  .product-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
     grid-row: 1;
     grid-column: 1;
+    width: 100%;
+    max-height: 100%;
+    gap: 30px;
+    color: black;
+    align-self: center;
+    align-items: center;
+  }
+  .product-title {
     margin: 0;
-    font-family: $heading-font;
-    background-color: $quaternary-color;
-    padding: 10px 20px;
+    font-family: $text-font;
     width: fit-content;
     display: flex;
     align-items: center;
-    align-self: center;
     justify-self: start;
-    color: $highlight-color;
-    z-index: 2;
+    background-color: $quaternary-color;
+    padding: 10px;
+
     font-size: $sub-heading-text-size;
     text-wrap: nowrap;
-    span {
+    border-radius: 15px;
+    color: $highlight-color;
+    span:first-child {
+      padding-right: 7px;
+      color: $secondary-color;
+    }
+    span:last-child {
+      padding-left: 7px;
       color: $secondary-color;
     }
   }
+
   .product-desc {
     color: $quaternary-color;
     display: flex;
-    align-items: center;
-    align-self: center;
+
     font-size: $text-size;
+    font-family: $text-font;
     grid-row: 2;
     grid-column: 1;
-    background-color: rgb(123, 206, 174);
-    padding: 30px;
-    z-index: 2;
-    width: 90%;
-    height: 65%;
-    grid-column: 1 / 2;
-    margin: 0;
-    box-shadow: 5px 10px 10px grey;
-  }
-  .media {
-    grid-row: 2;
-    grid-column: 2;
-    width: 90%;
-    height: 100%;
-    justify-self: end;
-    align-self: center;
-    z-index: 1;
-  }
-  .tech-stack {
-    grid-row: 3;
-    grid-column: 1;
-    align-self: center;
-    justify-self: start;
-    display: flex;
-    flex-flow: row nowrap;
     align-items: center;
-    gap: 20px;
     z-index: 2;
+    width: 90%;
+    height: fit-content;
+    height: 300px;
+    margin: 0;
+    color: black;
+    padding: 0;
+    border-radius: 10px;
+    justify-self: center;
+    line-height: 1.25;
+    overflow: visible;
+    grid-column: 1 / 4;
+  }
+}
+
+.media {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: start;
+  height: 90%;
+  width: 85%;
+  align-self: center;
+  z-index: 1;
+}
+.tech-stack {
+  grid-row: 3;
+  justify-self: start;
+  gap: 10px;
+  align-self: center;
+  grid-column: 1 / 2;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  z-index: 2;
+  .tech-block {
+    background-color: black;
+    font-family: $text-font;
+    font-size: $sub-text-size;
   }
 }
 .gallery {
   display: flex;
   flex-flow: row nowrap;
-  overflow-x: auto;
+  overflow-x: visible;
+  align-items: center;
   gap: 10px;
   overflow-y: hidden;
-  grid-row: 4;
+  grid-row: 2;
   grid-column: 1 / 3;
   padding-top: 10px;
+  width: 100%;
   .gallery-item {
     flex-shrink: 0;
-    width: 25%;
+    width: 23%;
     height: 100%;
     cursor: pointer;
     .overlay {
