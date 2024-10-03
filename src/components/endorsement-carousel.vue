@@ -46,7 +46,7 @@ onMounted(() => {
   }
 });
 const slides = ref(store.endorsements);
-const defaultAutoPlaySpeed = ref(0);
+const defaultAutoPlaySpeed = ref(3500);
 const autoplaySpeed = ref(defaultAutoPlaySpeed.value);
 </script>
 <style lang="scss" scoped>

@@ -781,6 +781,7 @@ $bottom-section-height: 500px;
       align-self: center;
       width: fit-content;
       gap: 0;
+      padding-left: 30px;
     }
   }
 }
