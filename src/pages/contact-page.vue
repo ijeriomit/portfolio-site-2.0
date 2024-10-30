@@ -5,33 +5,23 @@
     <section class="hire-section">
       <h1 class="heading">Contact Me</h1>
       <h2 class="tagline">Work With Me! Let's build something together.</h2>
-      <!-- <div class="roles">
-        <div class="job-type">
-          <img src="../assets/clip-art-images/check-mark.svg" /> Contract
-        </div>
-        <div class="job-type">
-          <img src="../assets/clip-art-images/check-mark.svg" /> Full Time
-        </div>
-        <div class="job-type">
-          <img src="../assets/clip-art-images/check-mark.svg" /> Freelance
-        </div>
-      </div> -->
     </section>
     <section class="contact-section">
-      <form
-        action="https://public.herotofu.com/v1/285cfd30-671d-11ef-a47e-99b828684d15"
-        method="post"
-        accept-charset="UTF-8"
-        class="contact-form"
-      >
+      <form @submit="sendEmail" ref="form" class="contact-form">
         <div class="field">
           <label for="name">Name</label>
-          <input id="name" placeholder="Enter your name" class="field-input" />
+          <input
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            class="field-input"
+          />
         </div>
         <div class="field">
           <label for="email">Email</label>
           <input
             id="email"
+            name="email"
             type="email"
             placeholder="Enter your email address"
             class="field-input"
@@ -41,6 +31,7 @@
           <label for="subject">Subject Line</label>
           <input
             id="subject"
+            name="subject"
             placeholder="Subject of your message"
             class="field-input"
           />
@@ -49,6 +40,7 @@
           <label for="message">Message</label>
           <textarea
             id="message"
+            name="message"
             placeholder="Hi, I have a position open for Company X. Would you be interested?"
             class="field-input"
           ></textarea>
@@ -62,6 +54,24 @@
 <script setup>
 import FooterBar from "@/components/footer-bar.vue";
 import FloatingHeader from "@/components/floating-header.vue";
+import emailjs from "@emailjs/browser";
+import { ref } from "vue";
+
+const form = ref(null);
+const sendEmail = function () {
+  emailjs
+    .sendForm("service_jxeg3ml", "template_jtpz3xi", form.value, {
+      publicKey: "TLQ0czcoVVqBfXDZf",
+    })
+    .then(
+      (result) => {
+        console.log("Success", result);
+      },
+      (error) => {
+        console.error("Failed... ", error);
+      }
+    );
+};
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
@@ -74,6 +84,7 @@ $contact-height: 55%;
   flex-flow: column nowrap;
   z-index: 2;
   height: 100vh;
+  gap: 10px;
   overflow-y: auto;
   scroll-snap-type: none;
 }
@@ -95,7 +106,8 @@ $contact-height: 55%;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 7vh;
+  margin-top: $header-height;
+  height: 15vh;
   .heading {
     color: $quaternary-color;
     background-color: transparent;
@@ -139,6 +151,7 @@ $contact-height: 55%;
   grid-template-rows: 100%;
   display: grid;
   align-self: center;
+  height: 55vh;
   .contact-form {
     grid-column: 1;
     grid-row: 1;
@@ -161,7 +174,8 @@ $contact-height: 55%;
       font-size: $sub-text-size;
       font-family: $heading-font;
       align-self: center;
-      height: 50px;
+      height: 40px;
+      flex-shrink: 0;
       width: 110px;
       border-radius: 10px;
       font-weight: bold;
@@ -208,6 +222,7 @@ $contact-height: 55%;
   grid-row: 4;
   grid-column: 1;
   align-self: center;
+  margin-top: 30px;
 }
 .clip-art {
   width: 1000px;
